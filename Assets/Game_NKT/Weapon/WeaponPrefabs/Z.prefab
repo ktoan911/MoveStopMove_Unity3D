@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2058400133947908391}
   - component: {fileID: -2332925317780264445}
   - component: {fileID: 5935927777819059893}
+  - component: {fileID: 619108326947648103}
   m_Layer: 0
   m_Name: Z
   m_TagString: Weapon
@@ -118,3 +119,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &619108326947648103
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336712278911407611}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.082714945, y: 0.08164855, z: 0.007237971}
+  m_Center: {x: -0.0000017732382, y: 0.0000037308776, z: 0}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1230025436635577197}
   - component: {fileID: 8574211994573010594}
   - component: {fileID: -8666793245252671522}
+  - component: {fileID: 6781874128202277319}
   m_Layer: 0
   m_Name: boomerang
   m_TagString: Weapon
@@ -117,3 +118,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &6781874128202277319
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230025436637504941}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04715059, y: 0.09565168, z: 0.007876435}
+  m_Center: {x: 0.023739869, y: 0, z: 0}

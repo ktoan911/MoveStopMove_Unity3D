@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2295763779444524078}
   - component: {fileID: 3336238923136033652}
   - component: {fileID: 7639361583708764384}
+  - component: {fileID: 5780366945714097104}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: Weapon
@@ -118,3 +119,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &5780366945714097104
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2295763779442268910}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.012711929, y: 0.025178233, z: 0.006059453}
+  m_Center: {x: 0.00005817413, y: -0.00064957835, z: -9.231064e-18}

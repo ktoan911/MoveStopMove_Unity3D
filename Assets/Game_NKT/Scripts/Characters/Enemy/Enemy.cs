@@ -11,6 +11,8 @@ public class Enemy : Characters
 
     public Vector3 finalPosition;
 
+    [SerializeField] private Transform player;
+
     private bool isFoundCharacter;
     public bool IsFoundCharacter { get => isFoundCharacter; set => isFoundCharacter = value; }
 
@@ -46,6 +48,13 @@ public class Enemy : Characters
     {
         Vector3 scaleBox = new Vector3(100, 5, 100);
         hitColliders = Physics.OverlapBox(this.transform.position, scaleBox / 2, Quaternion.identity, layerCharacter);
+
+        if(hitColliders.Length <2)
+        {
+            finalPosition = player.position; // ko the keo tha transform player ???
+
+            return;
+        }
 
         float minDistance = float.MaxValue;
         Vector3 minPos = Vector3.zero;

@@ -204,6 +204,7 @@ MonoBehaviour:
   Target: {fileID: 0}
   agent: {fileID: 1966872626502863952}
   finalPosition: {x: 0, y: 0, z: 0}
+  player: {fileID: 1198096836697163209}
   layerCharacter:
     serializedVersion: 2
     m_Bits: 192

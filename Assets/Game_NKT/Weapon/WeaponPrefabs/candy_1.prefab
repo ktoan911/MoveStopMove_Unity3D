@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6069588294703056294}
   - component: {fileID: 248253527750234965}
   - component: {fileID: 4610012574292779822}
+  - component: {fileID: 3372074019438391212}
   m_Layer: 0
   m_Name: candy_1
   m_TagString: Weapon
@@ -118,3 +119,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &3372074019438391212
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6069588294701128550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.01314385, y: 0.026098542, z: 0.0029168997}
+  m_Center: {x: -0.0053241313, y: -0.00060601434, z: 1.7462295e-10}

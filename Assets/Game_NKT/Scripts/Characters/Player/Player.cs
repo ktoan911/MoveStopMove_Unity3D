@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -17,7 +15,8 @@ public class Player : Characters
 
     [SerializeField] private SkinnedMeshRenderer pants;
 
-    public int Coins;
+    private int coins;
+    public int Coins { get => coins; set => coins = value; }
 
     private float gravity;
 

@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ShopWeaponUI : MonoBehaviour
+public class ShopWeaponUI : Singleton<ShopWeaponUI>
 {
 
     private Player player;
 
     public TMP_Text priceText;
+
+    [SerializeField] private TMP_Text coinText;
+
     public TMP_Text nameEquipment;
     public Image hud;
 
@@ -67,7 +70,7 @@ public class ShopWeaponUI : MonoBehaviour
 
     public void BuyWeapon()
     {
-        if (player == null) Debug.Log(1); // NÓ VÀO ĐÂY ???
+        if (player == null) Debug.Log(1);
 
 
         if(player.Coins >= SOManager.Ins.weaponS0[currentIndex].weaPonPrice)
@@ -82,7 +85,10 @@ public class ShopWeaponUI : MonoBehaviour
         else { }
     }
 
-
+    public void SetCoinText(int coin)
+    {
+        coinText.text = coin.ToString();
+    }
 
 
 

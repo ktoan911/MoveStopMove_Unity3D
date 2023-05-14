@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
-public class ShopSkinDialog : MonoBehaviour
+public class ShopSkinDialog : Singleton<ShopSkinDialog>
 {
     public Transform gridRoot;
 
@@ -18,13 +17,7 @@ public class ShopSkinDialog : MonoBehaviour
 
     public ShopSkinShieldUI itemShieldUIPrefab;
 
-    private static ShopSkinDialog instance;
-    public static ShopSkinDialog Instance { get => instance; }
-
-    private void Awake()
-    {
-        instance = this;
-    }
+    [SerializeField] private TMP_Text coinText;
 
     public void UpdateSkinHairUI()
     {
@@ -158,5 +151,13 @@ public class ShopSkinDialog : MonoBehaviour
     public void ShieldButton()
     {
         this.UpdateSkinShieldUI();
+    }
+
+
+    public void SetCoinText(int coin)
+    {
+        if (this.coinText == null) Debug.Log(1);
+
+        this.coinText.text = coin.ToString();
     }
 }

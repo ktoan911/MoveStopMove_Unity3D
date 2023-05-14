@@ -23,7 +23,8 @@ public class PlayerRange : MonoBehaviour
             player.IsAttack = true;
 
             player.Target = other.transform;
-
         }
     }
+
+ 
 }

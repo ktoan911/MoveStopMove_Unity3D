@@ -20,7 +20,9 @@ public class MainMenu : UICanvas
     public void ShopWeaponButton()
     {
         UIManager.Ins.OpenUI<ShopWeapon>();
-        
+
+        ShopWeaponUI.Ins.SetCoinText(GameManager.Ins.Player.Coins);
+
         Close(0);
     }
 
@@ -28,7 +30,9 @@ public class MainMenu : UICanvas
     {
         UIManager.Ins.OpenUI<ShopSkin>();
 
-        ShopSkinDialog.Instance.UpdateSkinHairUI();  
+        ShopSkinDialog.Ins.UpdateSkinHairUI();
+
+        ShopSkinDialog.Ins.SetCoinText(GameManager.Ins.Player.Coins);
 
         Close(0);
     }

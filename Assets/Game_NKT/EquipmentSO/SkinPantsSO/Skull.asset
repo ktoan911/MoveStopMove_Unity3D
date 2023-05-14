@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e9a2e181e9027748a6740e566cf8f90, type: 3}
+  m_Name: Skull
+  m_EditorClassIdentifier: 
+  skinPantPrefab: {fileID: 2100000, guid: dcc2670967dc37f4786fbf1e6c4bca2b, type: 2}
+  IDSkin: 7
+  skinRange: 0
+  skinPrice: 350
+  hud: {fileID: 21300000, guid: 25eaab120aefcd243b5c20ed406b1184, type: 3}

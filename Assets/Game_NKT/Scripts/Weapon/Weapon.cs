@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+﻿using System.Runtime.ExceptionServices;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
+
 
 public class Weapon : GameUnit
 {   
@@ -15,16 +12,12 @@ public class Weapon : GameUnit
     [SerializeField] private bool isFire;
     public bool IsFire { get => isFire; set => isFire = value; }
 
-    private float timer = 1f;
-    private float currentTime = 0f;
-
-    private void Start()
-    {
-        moveSpeed = 1f;
-    }
+    private float timeSelfDestroy;
 
     private void Update()
     {
+        SelfDestroy();
+
         MoveToTargetStraight();
     }
 
@@ -38,7 +31,7 @@ public class Weapon : GameUnit
     {
         if (IsFire)
         {
-            transform.Translate(this.direction * this.moveSpeed * Time.deltaTime);
+            transform.Translate(this.direction.normalized * this.moveSpeed * Time.deltaTime);
            
         }
     }  
@@ -50,9 +43,18 @@ public class Weapon : GameUnit
         SimplePool.Despawn(this);
     }
 
+    public void SetTimeDestroy(float attackRange)
+    {
+        this.timeSelfDestroy = attackRange / moveSpeed;
+    }
+
     public override void OnInit()
     {
         this.IsFire = false;
+
+        moveSpeed = 4.5f;
+
+        this.timeSelfDestroy = 10f;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -62,11 +64,11 @@ public class Weapon : GameUnit
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void SelfDestroy()
     {
-        if (other.CompareTag("Range"))
-        {
-            this.OnDespawn();
-        }
+        timeSelfDestroy -= Time.deltaTime;
+        if (timeSelfDestroy > 0) return;
+
+        this.OnDespawn();
     }
 }

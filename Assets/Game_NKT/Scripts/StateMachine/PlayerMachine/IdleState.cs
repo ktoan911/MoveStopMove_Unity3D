@@ -13,7 +13,6 @@ public class IdleState : IState<Player>
 
     public void OnExecute(Player t)
     {   
-
         if(t.IsMove())
         {
             t.currentState.ChangeState(new RunState());

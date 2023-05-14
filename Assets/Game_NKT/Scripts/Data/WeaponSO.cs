@@ -7,10 +7,16 @@ public class WeaponSO : ScriptableObject
 {
     public Weapon weaponPrefab;
 
-    public float speedWeapon;
+    public GameObject weaponModel;
+
+    public string weaponName;
 
     public int IDWeapon;
 
     public int weaponRange;
+
+    public int weaPonPrice;
+
+    public Sprite hud;
 }
 

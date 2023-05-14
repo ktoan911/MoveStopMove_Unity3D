@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fabfac04b777024cb96e55ccbd5c740, type: 3}
+  m_Name: Hat
+  m_EditorClassIdentifier: 
+  skinHatPrefab: {fileID: 8951011857263470986, guid: b92d84bccde97a442858d5b2866a36c3, type: 3}
+  skinName: 
+  IDSkin: 4
+  skinPrice: 100
+  hud: {fileID: 21300000, guid: 16a71104cd40fbd408c2919484df4cd7, type: 3}

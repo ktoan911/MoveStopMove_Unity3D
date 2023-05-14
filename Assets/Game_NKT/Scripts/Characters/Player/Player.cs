@@ -11,6 +11,14 @@ public class Player : Characters
 
     public StateMachine<Player> currentState;
 
+    [SerializeField] private Transform rightHand;
+
+    public int weaponID;
+
+    [SerializeField] private SkinnedMeshRenderer pants;
+
+    public int Coins;
+
     private float gravity;
 
     private float horizontal;
@@ -24,6 +32,9 @@ public class Player : Characters
     public override void OnInit()
     {
         base.OnInit();
+
+        weaponID = 0;
+        ChangeWeapon(weaponID);
         currentState = new StateMachine<Player>();
         currentState.SetOwner(this);
         this.gravity = 20f;
@@ -91,8 +102,47 @@ public class Player : Characters
         }
     }
 
+    public void ChangeWeapon(int idx)
+    {
+        ClearPastWeapon();
 
-    
+        weaponID= idx;
+
+        WeaponSO weapon = WeaponSpawner.Instance.GetWeaponSOByID(idx);
+
+        Vector3 localPosition = weapon.weaponModel.transform.localPosition;
+
+        Quaternion localRot = weapon.weaponModel.transform.localRotation;
+
+        var weaponClone = Instantiate(weapon.weaponModel);
+        weaponClone.transform.SetParent(rightHand);
+
+        weaponClone.transform.localPosition = localPosition;
+
+        weaponClone.transform.localRotation = localRot;
+
+
+        
+    }
+
+    private void ClearPastWeapon()
+    {
+        if (!rightHand || rightHand.childCount <= 0) return;
+
+        for (int i = 0; i < rightHand.childCount; i++)
+        {
+            var child = rightHand.GetChild(i);
+
+            if (child) Destroy(child.gameObject);
+        }
+    }
+
+    public void ChangePants(Material pant)
+    {
+        pants.material = pant;
+    }
+
+
 
 
 }

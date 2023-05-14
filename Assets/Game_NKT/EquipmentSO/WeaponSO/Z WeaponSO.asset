@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92b007645185abe449a87864741578bd, type: 3}
+  m_Name: Z WeaponSO
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 3847299834186880904, guid: 5817c034f19c5844bb10856076acdd82, type: 3}
+  weaponModel: {fileID: 4146668726371453202, guid: 925ec69c4ccfca5438d677f4791c10b5, type: 3}
+  weaponName: Z
+  IDWeapon: 0
+  weaponRange: 11
+  weaPonPrice: 1000
+  hud: {fileID: 0}

@@ -106,7 +106,7 @@ public class Enemy : Characters
 
     public override void OnDespawn()
     {
-        this.gameObject.SetActive(false);
+        SimplePool.Despawn(this);
     }
 
     private int RandomWeapon()

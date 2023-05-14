@@ -13,28 +13,30 @@ public class WeaponSpawner : Spawner
     }
 
 
-    public Weapon GetWeaponByID(int id)
+    public WeaponSO GetWeaponSOByID(int id)
     {
         for (int i = 0; i < SOManager.Ins.weaponS0.Count; i++)
         {
-            if (SOManager.Ins.weaponS0[i].IDWeapon == id) return SOManager.Ins.weaponS0[i].weaponPrefab;
+            if (SOManager.Ins.weaponS0[i].IDWeapon == id) return SOManager.Ins.weaponS0[i];
         }
 
-        return SOManager.Ins.weaponS0[0].weaponPrefab;
+        return SOManager.Ins.weaponS0[0];
     }
 
-    public void SpawnPlayerWeapon(Vector3 direction, Vector3 pos, Quaternion rot)
+    public void SpawnPlayerWeapon(int weaponID, Vector3 direction, Vector3 pos, Quaternion rot,float attackRange)
     {
-        Weapon weaponPool = SimplePool.Spawn<Weapon>(GetWeaponByID(1), pos , rot);
+        Weapon weaponPool = SimplePool.Spawn<Weapon>(GetWeaponSOByID(weaponID).weaponPrefab, pos , rot);
         weaponPool.OnInit();
+        weaponPool.SetTimeDestroy(attackRange);
         weaponPool.SetDirection(direction);
     }
 
-    public void SpawnEnemyWeapon(int Eid, Vector3 direction, Vector3 pos, Quaternion rot)
+    public void SpawnEnemyWeapon(int Eid, Vector3 direction, Vector3 pos, Quaternion rot, float attackRange)
     {
          
-        Weapon weaponPool = SimplePool.Spawn<Weapon>(GetWeaponByID(Eid), pos, rot);
+        Weapon weaponPool = SimplePool.Spawn<Weapon>(GetWeaponSOByID(Eid).weaponPrefab, pos, rot);
         weaponPool.OnInit();
+        weaponPool.SetTimeDestroy(attackRange);
         weaponPool.SetDirection(direction);
     }
 }

@@ -34,14 +34,14 @@ public class GameManager : Singleton<GameManager>
     public void PauseGame()
     {
         Time.timeScale = 0f;
-        //enemy.currentState.ChangeState(new ESleepState());
+        
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1f;
 
-        //enemy.currentState.ChangeState(new EIdleState());
+        
     }
 
 

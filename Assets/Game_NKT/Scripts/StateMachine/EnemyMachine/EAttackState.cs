@@ -14,13 +14,11 @@ public class EAttackState : IState<Enemy>
 
         t.ChangeAnim("Attack");
 
-        WeaponSpawner.Instance.SpawnEnemyWeapon(t.enemyIDWeapon,t.TargetDirection(), t.transform.position + Vector3.up + t.transform.forward, Quaternion.identity);
+        WeaponSpawner.Instance.SpawnEnemyWeapon(t.enemyIDWeapon,t.TargetDirection(), t.transform.position + Vector3.up + t.transform.forward, Quaternion.identity, t.attackRange);
     }
 
     public void OnExecute(Enemy t)
     {
-        //Debug.Log("aTK");
-
         timeAttack -= Time.deltaTime;
         if (timeAttack > 0) return;
 
@@ -28,7 +26,6 @@ public class EAttackState : IState<Enemy>
         t.currentState.ChangeState(new EIdleState());
 
         return;
-
     }
 
     public void OnExit(Enemy t)

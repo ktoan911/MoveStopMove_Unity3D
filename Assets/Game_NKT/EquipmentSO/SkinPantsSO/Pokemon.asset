@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e9a2e181e9027748a6740e566cf8f90, type: 3}
+  m_Name: Pokemon
+  m_EditorClassIdentifier: 
+  skinPantPrefab: {fileID: 2100000, guid: 8b1736e9fe183b042b56931fd45ca6b5, type: 2}
+  IDSkin: 5
+  skinRange: 0
+  skinPrice: 300
+  hud: {fileID: 21300000, guid: a482b056a7db15c449864b0f6737a4cb, type: 3}

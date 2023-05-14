@@ -17,9 +17,21 @@ public class MainMenu : UICanvas
         Close(0);
     }
 
-    public void ShopButton()
+    public void ShopWeaponButton()
     {
-        UIManager.Ins.OpenUI<Shop>();
+        UIManager.Ins.OpenUI<ShopWeapon>();
+        
         Close(0);
     }
+
+    public void ShopSkinButton()
+    {
+        UIManager.Ins.OpenUI<ShopSkin>();
+
+        ShopSkinDialog.Instance.UpdateSkinHairUI();  
+
+        Close(0);
+    }
+
+
 }

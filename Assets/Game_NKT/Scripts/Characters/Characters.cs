@@ -8,6 +8,8 @@ public class Characters : GameUnit
 {
     protected float speed;
 
+    public float attackRange;
+
     private bool isMoving;
     public bool IsMoving { get => isMoving; set => isMoving = value; }
 
@@ -53,6 +55,7 @@ public class Characters : GameUnit
 
         speed = 7f;
         this.rotationSpeed = 100f;
+        this.attackRange = 5f;
     }
 
     public void ChangeAnim(string animName)

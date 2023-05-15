@@ -5,11 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class ShopSkinPantUI : MonoBehaviour
+public class ShopSkinShieldUI : MonoBehaviour
 {
     public Image hud;
 
-    public SkinPantsSO skinPantsSO;
+    public SkinShieldSO skinShieldSO;
 
     public UnityAction<int> ShopSkinItemAction;
 
@@ -23,16 +23,24 @@ public class ShopSkinPantUI : MonoBehaviour
 
     private void ResetButton()
     {
-        this.ShopSkinItemAction(skinPantsSO.skinPrice);
+        this.ShopSkinItemAction(skinShieldSO.skinPrice);
+
+        BuySkinButton.Ins.SetShopSkinTag(ShopSkinTag.shield);
+
+        BuySkinButton.Ins.SetSkinShieldSO(skinShieldSO);
     }
 
 
     public void SetInfoItem(int currentIndex)
     {
-        hud.sprite = SOManager.Ins.skinPantsS0[currentIndex].hud;
+        hud.sprite = SOManager.Ins.skinShieldS0[currentIndex].hud;
 
-        skinPantsSO = SOManager.Ins.skinPantsS0[currentIndex];
+        skinShieldSO = SOManager.Ins.skinShieldS0[currentIndex];
+
     }
 
 
 }
+
+
+

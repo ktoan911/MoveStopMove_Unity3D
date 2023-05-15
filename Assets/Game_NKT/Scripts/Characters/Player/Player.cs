@@ -1,6 +1,8 @@
 using UnityEngine;
 
-
+/// <summary>
+/// XONG CHANGEPANT
+/// </summary>
 public class Player : Characters
 {
     [SerializeField] private FloatingJoystick joystick;
@@ -11,7 +13,13 @@ public class Player : Characters
 
     [SerializeField] private Transform rightHand;
 
-    public int weaponID;
+    private int weaponID;
+
+    private int skinHairID;
+
+    private int skinShieldID;
+
+    private int skinPantID;
 
     [SerializeField] private SkinnedMeshRenderer pants;
 
@@ -101,6 +109,24 @@ public class Player : Characters
         }
     }
 
+    public void SetSkinPantID(int id)
+    {
+        this.skinPantID = id;
+    }
+
+    public void SetSkinHairID(int id)
+    {
+        this.skinHairID = id;
+    }
+
+    public void SetSkinShieldID(int id)
+    {
+        this.skinShieldID = id;
+    }
+
+
+
+
     public void ChangeWeapon(int idx)
     {
         ClearPastWeapon();
@@ -123,7 +149,6 @@ public class Player : Characters
 
         
     }
-
     private void ClearPastWeapon()
     {
         if (!rightHand || rightHand.childCount <= 0) return;
@@ -136,12 +161,10 @@ public class Player : Characters
         }
     }
 
-    public void ChangePants(Material pant)
+    public void ChangePant()
     {
-        pants.material = pant;
+        ChangeSkinPlayer.Ins.ChangePant(pants, skinPantID);
     }
-
-
 
 
 }

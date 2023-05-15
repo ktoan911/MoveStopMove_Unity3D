@@ -718,8 +718,7 @@ MonoBehaviour:
   characterController: {fileID: 437415229}
   rightHand: {fileID: 1719484191}
   weaponID: 0
-  pants: {fileID: 0}
-  Coins: 10000
+  pants: {fileID: 458979480}
 --- !u!4 &437415228
 Transform:
   m_ObjectHideFlags: 0
@@ -871,6 +870,11 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!137 &458979480 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -529177695146175607, guid: 38f9296dc39c27647a0119314baf12a2, type: 3}
+  m_PrefabInstance: {fileID: 609133575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &466428968
 GameObject:
   m_ObjectHideFlags: 0

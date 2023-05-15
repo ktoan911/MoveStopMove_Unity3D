@@ -67,8 +67,6 @@ public class Characters : GameUnit
             anim.SetTrigger(currentAnim);
         }
     }
-
-
     public override void OnDespawn()
     {
         throw new NotImplementedException();

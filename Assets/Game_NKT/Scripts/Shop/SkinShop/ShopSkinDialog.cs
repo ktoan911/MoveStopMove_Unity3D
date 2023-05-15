@@ -139,13 +139,6 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
         priceText.text = Price.ToString();
     }
 
-    private void GetDataBuy()
-    {
-
-    }
-
-
-
     public void HairButton()
     {
         this.UpdateSkinHairUI();
@@ -162,7 +155,9 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
 
     public void SetCoinText(int coin)
     {
-        if (this.coinText == null) Debug.Log(1);
+        if (this.coinText == null) Debug.Log("null player");
+
+        if(coin < 0) coin = 0;
 
         this.coinText.text = coin.ToString();
     }

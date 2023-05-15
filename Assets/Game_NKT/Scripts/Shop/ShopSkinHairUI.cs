@@ -9,6 +9,8 @@ public class ShopSkinHairUI : MonoBehaviour
 {
     public Image hud;
 
+    public SkinHatSO skinHairSO;
+
     public int priceItem;
 
     public int itemID;
@@ -25,7 +27,7 @@ public class ShopSkinHairUI : MonoBehaviour
 
     private void ResetButton()
     {
-        this.ShopSkinItemAction(priceItem);
+        this.ShopSkinItemAction(skinHairSO.skinPrice);
     }
 
 
@@ -33,9 +35,7 @@ public class ShopSkinHairUI : MonoBehaviour
     {
         hud.sprite = SOManager.Ins.skinHairS0[currentIndex].hud;
 
-        priceItem = SOManager.Ins.skinHairS0[currentIndex].skinPrice;
-
-        itemID = SOManager.Ins.skinHairS0[currentIndex].IDSkin;
+        skinHairSO = SOManager.Ins.skinHairS0[currentIndex];
 
     }
 

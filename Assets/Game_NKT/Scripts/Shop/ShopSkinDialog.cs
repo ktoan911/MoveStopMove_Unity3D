@@ -46,6 +46,7 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
                 itemUIClone.SetInfoItem(i);
 
                 itemUIClone.ShopSkinItemAction += UpdatePriceText;
+                
 
             }
 
@@ -136,6 +137,11 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
     private void UpdatePriceText(int Price)
     {
         priceText.text = Price.ToString();
+    }
+
+    private void GetDataBuy()
+    {
+
     }
 
 

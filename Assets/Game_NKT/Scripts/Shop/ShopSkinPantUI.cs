@@ -9,9 +9,7 @@ public class ShopSkinPantUI : MonoBehaviour
 {
     public Image hud;
 
-    public int priceItem;
-
-    public int itemID;
+    public SkinPantsSO skinPantsSO;
 
     public UnityAction<int> ShopSkinItemAction;
 
@@ -25,7 +23,7 @@ public class ShopSkinPantUI : MonoBehaviour
 
     private void ResetButton()
     {
-        this.ShopSkinItemAction(priceItem);
+        this.ShopSkinItemAction(skinPantsSO.skinPrice);
     }
 
 
@@ -33,10 +31,7 @@ public class ShopSkinPantUI : MonoBehaviour
     {
         hud.sprite = SOManager.Ins.skinPantsS0[currentIndex].hud;
 
-        priceItem = SOManager.Ins.skinPantsS0[currentIndex].skinPrice;
-
-        itemID = SOManager.Ins.skinPantsS0[currentIndex].IDSkin;
-
+        skinPantsSO = SOManager.Ins.skinPantsS0[currentIndex];
     }
 
 

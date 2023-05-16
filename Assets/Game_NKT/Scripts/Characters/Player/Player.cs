@@ -1,8 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// XONG CHANGEPANT
-/// </summary>
 public class Player : Characters
 {
     [SerializeField] private FloatingJoystick joystick;
@@ -39,15 +36,14 @@ public class Player : Characters
 
     private void Start()
     {
-        this.OnInit();   
+        this.OnInit();
     }
 
     public override void OnInit()
     {
         base.OnInit();
 
-        weaponID = 0;
-        ChangeWeapon(weaponID);
+        ChangeWeapon(Pref.CurWeaponId);
         currentState = new StateMachine<Player>();
         currentState.SetOwner(this);
         this.gravity = 20f;
@@ -131,8 +127,6 @@ public class Player : Characters
     }
 
 
-
-
     public void ChangeWeapon(int id)
     {
         this.weaponID= id;
@@ -155,4 +149,11 @@ public class Player : Characters
         ChangeSkinPlayer.Ins.ChangeModelShield(leftHand, skinShieldID);
     }
 
+
+    public void UpdateCoin(int coinChange, bool isUp)
+    {
+        if(isUp) this.Coins += coinChange;
+        else this.Coins -= coinChange;
+        Pref.Coins = this.Coins;
+    }
 }

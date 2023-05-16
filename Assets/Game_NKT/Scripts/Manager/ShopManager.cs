@@ -1,49 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.WebSockets;
-using UnityEngine;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
 
-//1:03:22
+////1:03:22
 
-public class ShopManager : Singleton<ShopManager>
-{
-    public ShopWeaponItem[] WeaponItems;
+//public class ShopManager : Singleton<ShopManager>
+//{
 
-    private void Start()
-    {
-        if (WeaponItems == null || WeaponItems.Length < 1) return;
+//    public List<WeaponSO> WeaponItems = SOManager.Ins.weaponS0;
 
-        for(int i = 0; i < WeaponItems.Length; i++)
-        {
-            var item = WeaponItems[i];
+//    private void Start()
+//    {
+//        if (WeaponItems == null || WeaponItems.Count < 1) return;
 
-            if (item != null)
-            {
-                if(i == 0)
-                {
-                    Pref.SetBool(PrefConst.WEAPON_PEFIX + i, true); //weapon 0
-                }
+//        for (int i = 0; i < WeaponItems.Count; i++)
+//        {
+//            var item = WeaponItems[i];
 
-                else
-                {
-                    //weapon 1
-                    if(!PlayerPrefs.HasKey(PrefConst.WEAPON_PEFIX + i))
-                    {
-                        Pref.SetBool(PrefConst.WEAPON_PEFIX + i, false);
-                    }
-                }
-            }
-        }
-    }
-}
+//            if (item != null)
+//            {
+//                if (i == 0)
+//                {
+//                    Pref.SetBool(PrefConst.WEAPON_PEFIX + i, true); //weapon 0
+//                }
 
-[System.Serializable]
-public class ShopWeaponItem
-{
-    public int price;
-
-    public Sprite hud;
-
-    public int ID;
-
-}
+//                else
+//                {
+//                    //weapon 1
+//                    if (!PlayerPrefs.HasKey(PrefConst.WEAPON_PEFIX + i))
+//                    {
+//                        Pref.SetBool(PrefConst.WEAPON_PEFIX + i, false);
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}

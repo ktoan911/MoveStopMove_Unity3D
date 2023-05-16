@@ -8,9 +8,9 @@ public class Pref
 {
     public static int CurWeaponId
     {
-        set => PlayerPrefs.SetInt(PrefConst.CUR_EQIP_ID, value);
+        set => PlayerPrefs.SetInt(PrefConst.CUR_WEAPON_ID, value);
 
-        get => PlayerPrefs.GetInt(PrefConst.CUR_EQIP_ID);
+        get => PlayerPrefs.GetInt(PrefConst.CUR_WEAPON_ID);
     }
 
     public static int Coins
@@ -33,3 +33,4 @@ public class Pref
         return PlayerPrefs.GetInt(key) == 1 ? true : false ;
     }
 }
+

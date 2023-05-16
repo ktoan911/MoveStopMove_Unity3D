@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static UnityEditor.Progress;
 
 public class ShopWeaponUI : Singleton<ShopWeaponUI>
 {
@@ -61,30 +62,70 @@ public class ShopWeaponUI : Singleton<ShopWeaponUI>
 
     private void SetInfoItem(int currentIndex)
     {
-        hud.sprite = SOManager.Ins.weaponS0[currentIndex].hud;
 
-        priceText.text = SOManager.Ins.weaponS0[currentIndex].weaPonPrice.ToString();
+        int shopItemID = SOManager.Ins.weaponS0[currentIndex].IDWeapon;
 
-        nameEquipment.text = SOManager.Ins.weaponS0[currentIndex].weaponName;
+        if (hud)
+        {
+            hud.sprite = SOManager.Ins.weaponS0[currentIndex].hud;
+
+            nameEquipment.text = SOManager.Ins.weaponS0[currentIndex].weaponName;
+
+            bool isUnlocked = Pref.GetBool(PrefConst.WEAPON_PEFIX + shopItemID);
+
+            if (isUnlocked)
+            {
+                if (shopItemID == Pref.CurWeaponId)
+                {
+                    if (priceText) priceText.text = "Eqquiped";
+                }
+
+                else
+                {
+                    if (priceText) priceText.text = "Select";
+                }
+            }
+
+            else
+            {
+                if (priceText) priceText.text = SOManager.Ins.weaponS0[currentIndex].weaPonPrice.ToString();
+            }
+        }
     }
 
     public void BuyWeapon()
     {
-        if (player == null) Debug.Log(1);
 
+        int shopItemID = SOManager.Ins.weaponS0[currentIndex].IDWeapon;
 
-        if(player.Coins >= SOManager.Ins.weaponS0[currentIndex].weaPonPrice)
+        bool isUnlocked = Pref.GetBool(PrefConst.WEAPON_PEFIX + shopItemID);
+
+        if (isUnlocked)
         {
-            player.Coins -= SOManager.Ins.weaponS0[currentIndex].weaPonPrice;
+            if (shopItemID == Pref.CurWeaponId) return;
 
-            player.ChangeWeapon(currentIndex);
-
-            this.SetCoinText(player.Coins);
-
-
+            //nếu ko phải thì thay đổi dữ liệu currentid
+            Pref.CurWeaponId = shopItemID;
+            player.ChangeWeapon(SOManager.Ins.weaponS0[currentIndex].IDWeapon);
+            if (priceText) priceText.text = "Eqquiped";
         }
 
-        else { }
+        else
+        {
+            if (player.Coins >= SOManager.Ins.weaponS0[currentIndex].weaPonPrice) // check đủ tiền không
+            {
+                //thay đổi tiền
+                player.UpdateCoin(SOManager.Ins.weaponS0[currentIndex].weaPonPrice, false);
+
+                //thay đổi trạng thái thành mở khóa
+                Pref.SetBool(PrefConst.WEAPON_PEFIX + shopItemID, true);
+                Pref.CurWeaponId = shopItemID;
+
+                player.ChangeWeapon(SOManager.Ins.weaponS0[currentIndex].IDWeapon);
+                if (priceText) priceText.text = "Eqquiped";
+                this.SetCoinText(player.Coins);
+            }
+        }
     }
 
     public void SetCoinText(int coin)
@@ -93,39 +134,5 @@ public class ShopWeaponUI : Singleton<ShopWeaponUI>
     }
 
 
-
-
-
-
-
-    public void UpdateUI(ShopWeaponItem item, int shopItemID)
-    {
-        if(item == null ) return;
-
-        if(hud)
-        {
-            hud.sprite = item.hud;
-
-            bool isUnlocked = Pref.GetBool(PrefConst.WEAPON_PEFIX + shopItemID);
-
-            if (isUnlocked)
-            {
-                if(shopItemID == Pref.CurWeaponId)
-                {
-                    if (priceText) priceText.text = "Active";
-                }
-
-                else
-                {
-                    if (priceText) priceText.text = "OWNED";
-                }
-            }
-
-            else
-            {
-                if (priceText) priceText.text= item.price.ToString();
-            }
-        }
-    }
 
 }

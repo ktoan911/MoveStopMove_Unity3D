@@ -41,7 +41,7 @@ public class ChangeSkinPlayer : Singleton<ChangeSkinPlayer>
 
     public void ChangeModelHair(Transform parentSpawn, int id)
     {
-        ClearPastWeapon(parentSpawn);
+        ClearPastSkin(parentSpawn);
 
         SkinHatSO skinHairSO = this.GetHairSOByID(id);
 
@@ -58,7 +58,7 @@ public class ChangeSkinPlayer : Singleton<ChangeSkinPlayer>
 
     public void ChangeModelShield(Transform parentSpawn, int id)
     {
-        ClearPastWeapon(parentSpawn);
+        ClearPastSkin(parentSpawn);
 
         SkinShieldSO skinShieldSO = this.GetShieldSOByID(id);
 
@@ -73,7 +73,7 @@ public class ChangeSkinPlayer : Singleton<ChangeSkinPlayer>
         shieldModelPool.gameObject.transform.localRotation = localRot;
     }
 
-    private void ClearPastWeapon(Transform parentSpawn)
+    private void ClearPastSkin(Transform parentSpawn)
     {
         if (!parentSpawn || parentSpawn.childCount <= 0) return;
 

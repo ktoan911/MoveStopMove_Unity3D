@@ -161,4 +161,6 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
 
         this.coinText.text = coin.ToString();
     }
+
+  
 }

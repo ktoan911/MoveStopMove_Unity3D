@@ -26,7 +26,9 @@ public class GameManager : Singleton<GameManager>
         }
         UIManager.Ins.OpenUI<MainMenu>();
 
-        this.SetCoinPlayer(1000);
+
+
+        this.SetCoinPlayer();
 
         MenuDialog.Ins.SetCoinText(player.Coins);
 
@@ -48,9 +50,9 @@ public class GameManager : Singleton<GameManager>
         
     }
 
-    public void SetCoinPlayer(int coin)
+    public void SetCoinPlayer()
     {
-        player.Coins = coin;
+        player.Coins = Pref.Coins;
     }
 
 

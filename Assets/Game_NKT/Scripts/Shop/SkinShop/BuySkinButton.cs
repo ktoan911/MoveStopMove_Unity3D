@@ -33,7 +33,8 @@ public class BuySkinButton : Singleton<BuySkinButton>
 
         if (shopSkinTag == ShopSkinTag.pant && player.Coins >= skinPantsSO.skinPrice && skinPantsSO != null)
         {
-            player.Coins -= skinPantsSO.skinPrice;
+
+            player.UpdateCoin(skinPantsSO.skinPrice, false);
 
             player.SetSkinPantID(skinPantsSO.IDSkin);
 
@@ -44,7 +45,7 @@ public class BuySkinButton : Singleton<BuySkinButton>
 
         else if (shopSkinTag == ShopSkinTag.hair && player.Coins >= skinHairSO.skinPrice && skinHairSO != null)
         {
-            player.Coins -= skinHairSO.skinPrice;
+            player.UpdateCoin(skinHairSO.skinPrice, false);
 
             player.SetSkinHairID(skinHairSO.IDSkin);
 
@@ -55,7 +56,7 @@ public class BuySkinButton : Singleton<BuySkinButton>
 
         else if (shopSkinTag == ShopSkinTag.shield && player.Coins >= skinShieldSO.skinPrice && skinShieldSO != null)
         {
-            player.Coins -= skinShieldSO.skinPrice;
+            player.UpdateCoin(skinShieldSO.skinPrice, false);
 
             player.SetSkinShieldID(skinShieldSO.IDSkin);
 
@@ -64,7 +65,6 @@ public class BuySkinButton : Singleton<BuySkinButton>
             ShopSkinDialog.Ins.SetCoinText(player.Coins);
         }
     }
-
     public void SetShopSkinTag(ShopSkinTag tag)
     {
         this.shopSkinTag = tag;

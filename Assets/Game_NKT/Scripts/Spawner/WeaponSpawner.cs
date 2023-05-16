@@ -47,7 +47,7 @@ public class WeaponSpawner : Spawner
     {
         ClearPastWeapon(parentSpawn);
 
-        WeaponSO weaponSO = WeaponSpawner.Instance.GetWeaponSOByID(id);
+        WeaponSO weaponSO = this.GetWeaponSOByID(id);
 
         Vector3 localPosition = weaponSO.weaponModel.transform.localPosition;
         Quaternion localRot = weaponSO.weaponModel.transform.localRotation;

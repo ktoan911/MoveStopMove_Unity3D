@@ -48,6 +48,8 @@ public class BuySkinButton : Singleton<BuySkinButton>
 
             player.SetSkinHairID(skinHairSO.IDSkin);
 
+            player.ChangeHair();
+
             ShopSkinDialog.Ins.SetCoinText(player.Coins);
         }
 
@@ -57,10 +59,10 @@ public class BuySkinButton : Singleton<BuySkinButton>
 
             player.SetSkinShieldID(skinShieldSO.IDSkin);
 
+            player.ChangeShield();
+
             ShopSkinDialog.Ins.SetCoinText(player.Coins);
         }
-
-        //else Debug.Log("null SO SkinShop");
     }
 
     public void SetShopSkinTag(ShopSkinTag tag)

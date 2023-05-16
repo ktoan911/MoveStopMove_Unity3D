@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New SkinHatsSO", menuName = "SkinHatsSO")]
 public class SkinHatSO : ScriptableObject
 {
-    public GameObject skinHatPrefab;
+    public Skin skinHatPrefab;
 
     public int IDSkin;
 

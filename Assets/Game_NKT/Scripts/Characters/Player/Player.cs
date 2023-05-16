@@ -11,8 +11,6 @@ public class Player : Characters
 
     public StateMachine<Player> currentState;
 
-    [SerializeField] private Transform rightHand;
-
     public int weaponID;
 
     private int skinHairID;
@@ -21,11 +19,13 @@ public class Player : Characters
 
     private int skinPantID;
 
+    [SerializeField] private Transform rightHand;
+
     [SerializeField] private SkinnedMeshRenderer pants;
 
-    [SerializeField] private Transform Hair;
+    [SerializeField] private Transform hair;
 
-    [SerializeField] private Transform HaiShield;
+    [SerializeField] private Transform leftHand;
 
 
 
@@ -147,8 +147,12 @@ public class Player : Characters
 
     public void ChangeHair()
     {
-
+        ChangeSkinPlayer.Ins.ChangeModelHair(hair, skinHairID);
     }
 
+    public void ChangeShield()
+    {
+        ChangeSkinPlayer.Ins.ChangeModelShield(leftHand, skinShieldID);
+    }
 
 }

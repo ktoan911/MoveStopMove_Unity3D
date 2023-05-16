@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChangeSkinPlayer : Singleton<ChangeSkinPlayer>
 {
-    private SkinPantsSO GetPantByID(int id)
+    private SkinPantsSO GetPantSOByID(int id)
     {
         for(int i = 0;   i  <SOManager.Ins.skinPantsS0.Count; i++)
         {
@@ -14,7 +14,7 @@ public class ChangeSkinPlayer : Singleton<ChangeSkinPlayer>
         return SOManager.Ins.skinPantsS0[0];
     }
 
-    private SkinHatSO GetHairByID(int id)
+    private SkinHatSO GetHairSOByID(int id)
     {
         for (int i = 0; i < SOManager.Ins.skinHairS0.Count; i++)
         {
@@ -24,7 +24,7 @@ public class ChangeSkinPlayer : Singleton<ChangeSkinPlayer>
         return SOManager.Ins.skinHairS0[0];
     }
 
-    private SkinShieldSO GetShieldByID(int id)
+    private SkinShieldSO GetShieldSOByID(int id)
     {
         for (int i = 0; i < SOManager.Ins.skinShieldS0.Count; i++)
         {
@@ -36,11 +36,52 @@ public class ChangeSkinPlayer : Singleton<ChangeSkinPlayer>
 
     public void ChangePant(SkinnedMeshRenderer skin, int id)
     {
-        skin.material = this.GetPantByID(id).skinPantPrefab;
+        skin.material = this.GetPantSOByID(id).skinPantPrefab;
     }
 
-    public void ChangeHair(Transform posChange, int id)
+    public void ChangeModelHair(Transform parentSpawn, int id)
     {
-       
+        ClearPastWeapon(parentSpawn);
+
+        SkinHatSO skinHairSO = this.GetHairSOByID(id);
+
+        Vector3 localPosition = skinHairSO.skinHatPrefab.transform.localPosition;
+        Quaternion localRot = skinHairSO.skinHatPrefab.transform.localRotation;
+
+        Skin hairModelPool = SimplePool.Spawn<Skin>(skinHairSO.skinHatPrefab, Vector3.zero, Quaternion.identity);
+        hairModelPool.gameObject.transform.SetParent(parentSpawn);
+
+        hairModelPool.gameObject.transform.localPosition = localPosition;
+
+        hairModelPool.gameObject.transform.localRotation = localRot;
+    }
+
+    public void ChangeModelShield(Transform parentSpawn, int id)
+    {
+        ClearPastWeapon(parentSpawn);
+
+        SkinShieldSO skinShieldSO = this.GetShieldSOByID(id);
+
+        Vector3 localPosition = skinShieldSO.skinShieldPrefab.transform.localPosition;
+        Quaternion localRot = skinShieldSO.skinShieldPrefab.transform.localRotation;
+
+        Skin shieldModelPool = SimplePool.Spawn<Skin>(skinShieldSO.skinShieldPrefab, Vector3.zero, Quaternion.identity);
+        shieldModelPool.gameObject.transform.SetParent(parentSpawn);
+
+        shieldModelPool.gameObject.transform.localPosition = localPosition;
+
+        shieldModelPool.gameObject.transform.localRotation = localRot;
+    }
+
+    private void ClearPastWeapon(Transform parentSpawn)
+    {
+        if (!parentSpawn || parentSpawn.childCount <= 0) return;
+
+        for (int i = 0; i < parentSpawn.childCount; i++)
+        {
+            var child = parentSpawn.GetChild(i);
+
+            if (child) Destroy(child.gameObject);
+        }
     }
 }

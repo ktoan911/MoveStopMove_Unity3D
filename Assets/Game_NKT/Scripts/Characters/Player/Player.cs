@@ -13,7 +13,7 @@ public class Player : Characters
 
     [SerializeField] private Transform rightHand;
 
-    private int weaponID;
+    public int weaponID;
 
     private int skinHairID;
 

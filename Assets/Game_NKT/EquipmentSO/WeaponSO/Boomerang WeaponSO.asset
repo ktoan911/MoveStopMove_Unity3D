@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Boomerang WeaponSO
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: -8369830691923314487, guid: 4484091a77a0f5d40a3b445f41b5dca6, type: 3}
-  weaponModel: {fileID: 1680807109515685742, guid: 580fe84d7ff730b43bcf642049822a9e, type: 3}
+  weaponModel: {fileID: -8188928166018587354, guid: 580fe84d7ff730b43bcf642049822a9e, type: 3}
   weaponName: Boomerang
   IDWeapon: 3
   weaponRange: 0

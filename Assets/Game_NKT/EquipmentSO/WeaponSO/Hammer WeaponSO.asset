@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hammer WeaponSO
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: -3354385288905101581, guid: 5aff4272bdd97404d9d4e80367732091, type: 3}
-  weaponModel: {fileID: 40574995681169076, guid: 6a79dcc7499434d4484b2c7dcb9d5cbd, type: 3}
+  weaponModel: {fileID: -3747673833073816896, guid: 6a79dcc7499434d4484b2c7dcb9d5cbd, type: 3}
   weaponName: Harmer
   IDWeapon: 8
   weaponRange: 0

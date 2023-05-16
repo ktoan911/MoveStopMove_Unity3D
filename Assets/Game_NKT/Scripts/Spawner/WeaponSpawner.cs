@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class WeaponSpawner : Spawner
 {
@@ -39,4 +41,35 @@ public class WeaponSpawner : Spawner
         weaponPool.SetTimeDestroy(attackRange);
         weaponPool.SetDirection(direction);
     }
+
+
+    public void ChangeModelWeaponPlayer(Transform parentSpawn, int id )
+    {
+        ClearPastWeapon(parentSpawn);
+
+        WeaponSO weaponSO = WeaponSpawner.Instance.GetWeaponSOByID(id);
+
+        Vector3 localPosition = weaponSO.weaponModel.transform.localPosition;
+        Quaternion localRot = weaponSO.weaponModel.transform.localRotation;
+
+        WeaponModel weaponModelPool = SimplePool.Spawn<WeaponModel>(weaponSO.weaponModel, Vector3.zero, Quaternion.identity);
+        weaponModelPool.gameObject.transform.SetParent(parentSpawn);
+
+        weaponModelPool.gameObject.transform.localPosition = localPosition;
+
+        weaponModelPool.gameObject.transform.localRotation = localRot;
+    }
+
+    private void ClearPastWeapon(Transform parentSpawn)
+    {
+        if (!parentSpawn || parentSpawn.childCount <= 0) return;
+
+        for (int i = 0; i < parentSpawn.childCount; i++)
+        {
+            var child = parentSpawn.GetChild(i);
+
+            if (child) Destroy(child.gameObject);
+        }
+    }
+
 }

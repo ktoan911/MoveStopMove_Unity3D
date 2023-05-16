@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: uzi WeaponSO
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 3032366297045821690, guid: 9606bea73caadb84291b3162324229f5, type: 3}
-  weaponModel: {fileID: 621115755998809792, guid: 6894d191d315e304081d7601e6b34ee0, type: 3}
+  weaponModel: {fileID: 8214802490269490426, guid: 6894d191d315e304081d7601e6b34ee0, type: 3}
   weaponName: Uzi
   IDWeapon: 10
   weaponRange: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9039996353547516519}
   - component: {fileID: 9039996353550416455}
   - component: {fileID: 9039996353549416583}
+  - component: {fileID: 2971886668370806246}
   m_Layer: 0
   m_Name: candy_0 1
   m_TagString: Weapon
@@ -85,3 +86,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2971886668370806246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9039996353547150919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017364877d02e1847afe172604e34983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: 0

@@ -34,11 +34,13 @@ public class ChangeSkinPlayer : Singleton<ChangeSkinPlayer>
         return SOManager.Ins.skinShieldS0[0];
     }
 
-
-
-
     public void ChangePant(SkinnedMeshRenderer skin, int id)
     {
         skin.material = this.GetPantByID(id).skinPantPrefab;
+    }
+
+    public void ChangeHair(Transform posChange, int id)
+    {
+       
     }
 }

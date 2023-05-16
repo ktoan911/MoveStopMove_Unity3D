@@ -79,7 +79,7 @@ public class ShopWeaponUI : Singleton<ShopWeaponUI>
 
             player.ChangeWeapon(currentIndex);
 
-            ShopSkinDialog.Ins.SetCoinText(player.Coins);
+            this.SetCoinText(player.Coins);
 
 
         }

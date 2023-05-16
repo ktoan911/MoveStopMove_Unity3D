@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Arrow WeaponSO
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 4045219508982867184, guid: ebf0d47c20ef4e3478a291dfa9f7790f, type: 3}
-  weaponModel: {fileID: 7775179229658531230, guid: 090d80a7c3efeb140b6072d1765280e5, type: 3}
+  weaponModel: {fileID: -2547635755922507572, guid: 090d80a7c3efeb140b6072d1765280e5, type: 3}
   weaponName: Arrow
   IDWeapon: 0
   weaponRange: 0

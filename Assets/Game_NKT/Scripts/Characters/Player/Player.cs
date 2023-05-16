@@ -23,6 +23,12 @@ public class Player : Characters
 
     [SerializeField] private SkinnedMeshRenderer pants;
 
+    [SerializeField] private Transform Hair;
+
+    [SerializeField] private Transform HaiShield;
+
+
+
     private int coins;
     public int Coins { get => coins; set => coins = value; }
 
@@ -127,43 +133,21 @@ public class Player : Characters
 
 
 
-    public void ChangeWeapon(int idx)
+    public void ChangeWeapon(int id)
     {
-        ClearPastWeapon();
+        this.weaponID= id;
 
-        weaponID= idx;
-
-        WeaponSO weapon = WeaponSpawner.Instance.GetWeaponSOByID(idx);
-
-        Vector3 localPosition = weapon.weaponModel.transform.localPosition;
-
-        Quaternion localRot = weapon.weaponModel.transform.localRotation;
-
-        var weaponClone = Instantiate(weapon.weaponModel);
-        weaponClone.transform.SetParent(rightHand);
-
-        weaponClone.transform.localPosition = localPosition;
-
-        weaponClone.transform.localRotation = localRot;
-
-
-        
-    }
-    private void ClearPastWeapon()
-    {
-        if (!rightHand || rightHand.childCount <= 0) return;
-
-        for (int i = 0; i < rightHand.childCount; i++)
-        {
-            var child = rightHand.GetChild(i);
-
-            if (child) Destroy(child.gameObject);
-        }
+        WeaponSpawner.Instance.ChangeModelWeaponPlayer(rightHand, id);
     }
 
     public void ChangePant()
     {
         ChangeSkinPlayer.Ins.ChangePant(pants, skinPantID);
+    }
+
+    public void ChangeHair()
+    {
+
     }
 
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2191049902422548615}
   - component: {fileID: 2191049902425415847}
   - component: {fileID: 2191049902424449639}
+  - component: {fileID: 3127974231126042082}
   m_Layer: 0
   m_Name: Axe_0 1
   m_TagString: Weapon
@@ -84,3 +85,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3127974231126042082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2191049902422457511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017364877d02e1847afe172604e34983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: 0

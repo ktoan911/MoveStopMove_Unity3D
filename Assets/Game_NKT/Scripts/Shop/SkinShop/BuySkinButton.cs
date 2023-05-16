@@ -24,10 +24,10 @@ public class BuySkinButton : Singleton<BuySkinButton>
 
     private void Start()
     {
-        btn.onClick.AddListener(SetData);
+        btn.onClick.AddListener(SetModel);
     }
 
-    private void SetData()
+    private void SetModel()
     {
         Player player = GameManager.Ins.Player;
 
@@ -36,9 +36,11 @@ public class BuySkinButton : Singleton<BuySkinButton>
 
             player.UpdateCoin(skinPantsSO.skinPrice, false);
 
-            player.SetSkinPantID(skinPantsSO.IDSkin);
+            Pref.SetBool(PrefConst.CUR_SKINPANT_ID + skinPantsSO.IDSkin, true);
 
-            player.ChangePant();
+            Pref.CurPantId = skinPantsSO.IDSkin;
+
+            player.ChangePant(skinPantsSO.IDSkin);
 
             ShopSkinDialog.Ins.SetCoinText(player.Coins);
         }
@@ -47,9 +49,11 @@ public class BuySkinButton : Singleton<BuySkinButton>
         {
             player.UpdateCoin(skinHairSO.skinPrice, false);
 
-            player.SetSkinHairID(skinHairSO.IDSkin);
+            Pref.SetBool(PrefConst.CUR_SKINHAIR_ID + skinHairSO.IDSkin, true);
 
-            player.ChangeHair();
+            Pref.CurHairId= skinHairSO.IDSkin;  
+
+            player.ChangeHair(skinHairSO.IDSkin);
 
             ShopSkinDialog.Ins.SetCoinText(player.Coins);
         }
@@ -58,13 +62,17 @@ public class BuySkinButton : Singleton<BuySkinButton>
         {
             player.UpdateCoin(skinShieldSO.skinPrice, false);
 
-            player.SetSkinShieldID(skinShieldSO.IDSkin);
+            Pref.SetBool(PrefConst.CUR_SKINSHIELD_ID + skinShieldSO.IDSkin, true);
 
-            player.ChangeShield();
+            Pref.CurShieldId= skinShieldSO.IDSkin;
+
+            player.ChangeShield(skinShieldSO.IDSkin);
 
             ShopSkinDialog.Ins.SetCoinText(player.Coins);
         }
     }
+
+
     public void SetShopSkinTag(ShopSkinTag tag)
     {
         this.shopSkinTag = tag;

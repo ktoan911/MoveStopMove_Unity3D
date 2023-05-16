@@ -9,11 +9,13 @@ public class ShopSkinPantUI : MonoBehaviour
 {
     public Image hud;
 
-    public SkinPantsSO skinPantsSO;
+    public SkinPantsSO skinPantSO;
 
-    public UnityAction<int> ShopSkinItemAction;
+    public UnityAction<string> ShopSkinItemAction;
 
     [SerializeField] private Button btn;
+
+    private int shopItemID;
 
 
     private void Start()
@@ -23,11 +25,25 @@ public class ShopSkinPantUI : MonoBehaviour
 
     private void ResetButton()
     {
-        this.ShopSkinItemAction(skinPantsSO.skinPrice);
-
         BuySkinButton.Ins.SetShopSkinTag(ShopSkinTag.pant);
 
-        BuySkinButton.Ins.SetSkinPantSO(skinPantsSO);
+        BuySkinButton.Ins.SetSkinPantSO(skinPantSO);
+
+
+        shopItemID = skinPantSO.IDSkin;
+
+        bool isUnlocked = Pref.GetBool(PrefConst.CUR_SKINPANT_ID + shopItemID);
+
+        if (isUnlocked)
+        {
+            if (shopItemID == Pref.CurPantId) this.ShopSkinItemAction("UnEqqip");
+            else this.ShopSkinItemAction("Select");
+        }
+        else
+        {
+            this.ShopSkinItemAction(skinPantSO.skinPrice.ToString());
+        }
+
     }
 
 
@@ -35,7 +51,7 @@ public class ShopSkinPantUI : MonoBehaviour
     {
         hud.sprite = SOManager.Ins.skinPantsS0[currentIndex].hud;
 
-        skinPantsSO = SOManager.Ins.skinPantsS0[currentIndex];
+        skinPantSO = SOManager.Ins.skinPantsS0[currentIndex];
     }
 
 

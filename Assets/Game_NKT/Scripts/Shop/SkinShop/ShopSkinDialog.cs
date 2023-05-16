@@ -134,9 +134,9 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
         }
     }
 
-    private void UpdatePriceText(int Price)
+    private void UpdatePriceText(string priceText)
     {
-        priceText.text = Price.ToString();
+        this.priceText.text = priceText;
     }
 
     public void HairButton()

@@ -11,13 +11,11 @@ public class ShopSkinHairUI : MonoBehaviour
 
     public SkinHatSO skinHairSO;
 
-    public int priceItem;
-
-    public int itemID;
-
-    public UnityAction<int> ShopSkinItemAction;
+    public UnityAction<string> ShopSkinItemAction;
 
     [SerializeField] private Button btn;
+
+    private int shopItemID;
 
 
     private void Start()
@@ -27,10 +25,23 @@ public class ShopSkinHairUI : MonoBehaviour
 
     private void ResetButton()
     {
-        this.ShopSkinItemAction(skinHairSO.skinPrice);
-
         BuySkinButton.Ins.SetShopSkinTag(ShopSkinTag.hair);
         BuySkinButton.Ins.SetSkinHairSO(skinHairSO);
+
+
+        shopItemID = skinHairSO.IDSkin;
+
+        bool isUnlocked = Pref.GetBool(PrefConst.CUR_SKINSHIELD_ID + shopItemID);
+
+        if (isUnlocked)
+        {
+            if (shopItemID == Pref.CurShieldId) this.ShopSkinItemAction("UnEqqip");
+            else this.ShopSkinItemAction("Select");
+        }
+        else
+        {
+            this.ShopSkinItemAction(skinHairSO.skinPrice.ToString());
+        }
     }
 
 

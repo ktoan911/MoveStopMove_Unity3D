@@ -43,11 +43,19 @@ public class Player : Characters
     {
         base.OnInit();
 
-        ChangeWeapon(Pref.CurWeaponId);
+        this.SetInitalEquip();
         currentState = new StateMachine<Player>();
         currentState.SetOwner(this);
         this.gravity = 20f;
         currentState.ChangeState(new IdleState());
+    }
+
+    private void SetInitalEquip()
+    {
+        this.ChangeWeapon(Pref.CurWeaponId);
+       // this.ChangeHair(Pref.CurHairId);
+        this.ChangePant(Pref.CurPantId);
+        this.ChangeShield(Pref.CurShieldId);
     }
 
     //====Update======
@@ -111,6 +119,13 @@ public class Player : Characters
         }
     }
 
+    public void UpdateCoin(int coinChange, bool isUp)
+    {
+        if (isUp) this.Coins += coinChange;
+        else this.Coins -= coinChange;
+        Pref.Coins = this.Coins;
+    }
+
     public void SetSkinPantID(int id)
     {
         this.skinPantID = id;
@@ -134,26 +149,25 @@ public class Player : Characters
         WeaponSpawner.Instance.ChangeModelWeaponPlayer(rightHand, id);
     }
 
-    public void ChangePant()
+    public void ChangePant(int id)
     {
+        this.skinPantID = id;
+
         ChangeSkinPlayer.Ins.ChangePant(pants, skinPantID);
     }
 
-    public void ChangeHair()
+    public void ChangeHair(int id)
     {
+
+        this.skinHairID = id;
         ChangeSkinPlayer.Ins.ChangeModelHair(hair, skinHairID);
     }
 
-    public void ChangeShield()
+    public void ChangeShield(int id)
     {
+        this.weaponID = id;
+
         ChangeSkinPlayer.Ins.ChangeModelShield(leftHand, skinShieldID);
     }
 
-
-    public void UpdateCoin(int coinChange, bool isUp)
-    {
-        if(isUp) this.Coins += coinChange;
-        else this.Coins -= coinChange;
-        Pref.Coins = this.Coins;
-    }
 }

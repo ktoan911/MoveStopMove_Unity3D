@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fabfac04b777024cb96e55ccbd5c740, type: 3}
   m_Name: Arrow
   m_EditorClassIdentifier: 
-  skinHatPrefab: {fileID: 5292279766294805704, guid: 516a6b27ff053d54aab602c0d1064b45, type: 3}
-  skinName: 
+  skinHatPrefab: {fileID: 790115668712031331, guid: 516a6b27ff053d54aab602c0d1064b45, type: 3}
   IDSkin: 0
   skinPrice: 0
   hud: {fileID: 21300000, guid: 2f8937590677b044b8619858abca9ecf, type: 3}

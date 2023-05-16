@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fabfac04b777024cb96e55ccbd5c740, type: 3}
   m_Name: Horn
   m_EditorClassIdentifier: 
-  skinHatPrefab: {fileID: 5988803155650344335, guid: 258998c0ab50d504f974963da8647c93, type: 3}
-  skinName: 
+  skinHatPrefab: {fileID: -3769299732522532163, guid: 258998c0ab50d504f974963da8647c93, type: 3}
   IDSkin: 8
   skinPrice: 1000
   hud: {fileID: 21300000, guid: c72f60a9ff619e54ea03f81d8477c714, type: 3}

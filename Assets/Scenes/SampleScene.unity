@@ -716,9 +716,11 @@ MonoBehaviour:
   Target: {fileID: 0}
   joystick: {fileID: 0}
   characterController: {fileID: 437415229}
-  rightHand: {fileID: 1719484191}
   weaponID: 0
+  rightHand: {fileID: 1719484191}
   pants: {fileID: 458979480}
+  hair: {fileID: 0}
+  leftHand: {fileID: 1966353541}
 --- !u!4 &437415228
 Transform:
   m_ObjectHideFlags: 0
@@ -1717,6 +1719,11 @@ Transform:
   m_Father: {fileID: 2108277241}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1150138340 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5420008163957686366, guid: 38f9296dc39c27647a0119314baf12a2, type: 3}
+  m_PrefabInstance: {fileID: 609133575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1192965413
 GameObject:
   m_ObjectHideFlags: 0
@@ -2548,6 +2555,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 295785419}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1966353540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1966353541}
+  m_Layer: 0
+  m_Name: Shield
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1966353541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966353540}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1150138340}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2005773445
 GameObject:

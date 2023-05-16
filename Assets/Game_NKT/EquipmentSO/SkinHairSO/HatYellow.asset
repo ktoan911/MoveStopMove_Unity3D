@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fabfac04b777024cb96e55ccbd5c740, type: 3}
   m_Name: HatYellow
   m_EditorClassIdentifier: 
-  skinHatPrefab: {fileID: 8647357737754663822, guid: 231406793b538a94f88a580d82e2b67d, type: 3}
-  skinName: 
+  skinHatPrefab: {fileID: -3850630262854996881, guid: 231406793b538a94f88a580d82e2b67d, type: 3}
   IDSkin: 6
   skinPrice: 200
   hud: {fileID: 21300000, guid: 69fc10e773b5a814198a5883e168c2b7, type: 3}

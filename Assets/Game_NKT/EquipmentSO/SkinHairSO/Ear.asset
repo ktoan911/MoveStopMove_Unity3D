@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fabfac04b777024cb96e55ccbd5c740, type: 3}
   m_Name: Ear
   m_EditorClassIdentifier: 
-  skinHatPrefab: {fileID: 453028462988211925, guid: 5ed3653f7e891004b85422b790a9afd2, type: 3}
-  skinName: 
+  skinHatPrefab: {fileID: 3898034641660256216, guid: 5ed3653f7e891004b85422b790a9afd2, type: 3}
   IDSkin: 3
   skinPrice: 100
   hud: {fileID: 21300000, guid: 5dd6afb8b1bc7b947853e77fc8811be4, type: 3}

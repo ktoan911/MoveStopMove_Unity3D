@@ -28,7 +28,9 @@ public class GameManager : Singleton<GameManager>
 
         Pref.Coins = 1000;
 
-        this.SetCoinPlayer();
+       // PlayerPrefs.DeleteAll();
+
+        this.SetStartSkinPlayer();
 
         MenuDialog.Ins.SetCoinText(player.Coins);
 
@@ -56,5 +58,22 @@ public class GameManager : Singleton<GameManager>
     }
 
 
-  
+    //vũ khí mặc định có ban đầu để id bằng 0 
+    private void SetStartSkinPlayer()
+    {
+        this.SetCoinPlayer();
+
+        //bool isUnlockWraponIntial = Pref.GetBool(PrefConst.WEAPON_PEFIX + 0);
+
+        //if (!isUnlockWraponIntial)
+        //{
+        //    Pref.SetBool(PrefConst.WEAPON_PEFIX + 0, true);
+        //    player.ChangeWeapon(0);
+        //}
+
+
+    }
+
+
+
 }

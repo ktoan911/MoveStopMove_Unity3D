@@ -52,10 +52,11 @@ public class Player : Characters
 
     private void SetInitalEquip()
     {
-        this.ChangeWeapon(Pref.CurWeaponId);
-       // this.ChangeHair(Pref.CurHairId);
-        this.ChangePant(Pref.CurPantId);
-        this.ChangeShield(Pref.CurShieldId);
+        if(Pref.CurWeaponId != null) this.ChangeWeapon(Pref.CurWeaponId);
+
+        if(Pref.CurPantId != null) this.ChangePant(Pref.CurPantId);
+
+        if (Pref.CurShieldId != null)  this.ChangeShield(Pref.CurShieldId);  
     }
 
     //====Update======

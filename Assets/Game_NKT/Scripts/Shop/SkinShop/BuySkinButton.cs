@@ -67,7 +67,7 @@ public class BuySkinButton : Singleton<BuySkinButton>
             this.ShopSkinItemBuyAction("UnEqip");
 
 
-            if (Pref.GetBool(PrefConst.SKINHAIR_PEFIX + skinPantsSO.IDSkin)) return;
+            if (Pref.GetBool(PrefConst.SKINHAIR_PEFIX + skinHairSO.IDSkin)) return;
 
             player.UpdateCoin(skinHairSO.skinPrice, false);
         }
@@ -85,7 +85,7 @@ public class BuySkinButton : Singleton<BuySkinButton>
             this.ShopSkinItemBuyAction("UnEqip");
 
 
-            if (Pref.GetBool(PrefConst.SKINSHIELD_PEFIX + skinPantsSO.IDSkin)) return;
+            if (Pref.GetBool(PrefConst.SKINSHIELD_PEFIX + skinShieldSO.IDSkin)) return;
 
             player.UpdateCoin(skinShieldSO.skinPrice, false);
         }

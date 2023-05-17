@@ -31,7 +31,7 @@ public class ShopSkinHairUI : MonoBehaviour
 
         shopItemID = skinHairSO.IDSkin;
 
-        bool isUnlocked = Pref.GetBool(PrefConst.CUR_SKINSHIELD_ID + shopItemID);
+        bool isUnlocked = Pref.GetBool(PrefConst.CUR_SKINHAIR_ID + shopItemID);
 
         if (isUnlocked)
         {

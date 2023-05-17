@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,6 +21,8 @@ public class BuySkinButton : Singleton<BuySkinButton>
 
     [SerializeField] private Button btn;
 
+    public UnityAction<string> ShopSkinItemBuyAction;
+
 
     private void Start()
     {
@@ -33,9 +35,6 @@ public class BuySkinButton : Singleton<BuySkinButton>
 
         if (shopSkinTag == ShopSkinTag.pant && player.Coins >= skinPantsSO.skinPrice && skinPantsSO != null)
         {
-
-            player.UpdateCoin(skinPantsSO.skinPrice, false);
-
             Pref.SetBool(PrefConst.CUR_SKINPANT_ID + skinPantsSO.IDSkin, true);
 
             Pref.CurPantId = skinPantsSO.IDSkin;
@@ -43,12 +42,20 @@ public class BuySkinButton : Singleton<BuySkinButton>
             player.ChangePant(skinPantsSO.IDSkin);
 
             ShopSkinDialog.Ins.SetCoinText(player.Coins);
+
+            this.ShopSkinItemBuyAction("UnEqip");
+
+
+            //check đã có chưa nếu chưa có thì trừ tiền
+            // if (!Pref.GetBool(PrefConst.SKINPANT_PEFIX + skinPantsSO.IDSkin)) return; tại sao cái này lại sai !!!!!!!!!!
+            if (Pref.GetBool(PrefConst.SKINPANT_PEFIX + skinPantsSO.IDSkin)) return;
+
+            player.UpdateCoin(skinPantsSO.skinPrice, false);
+
         }
 
         else if (shopSkinTag == ShopSkinTag.hair && player.Coins >= skinHairSO.skinPrice && skinHairSO != null)
         {
-            player.UpdateCoin(skinHairSO.skinPrice, false);
-
             Pref.SetBool(PrefConst.CUR_SKINHAIR_ID + skinHairSO.IDSkin, true);
 
             Pref.CurHairId= skinHairSO.IDSkin;  
@@ -56,12 +63,17 @@ public class BuySkinButton : Singleton<BuySkinButton>
             player.ChangeHair(skinHairSO.IDSkin);
 
             ShopSkinDialog.Ins.SetCoinText(player.Coins);
+
+            this.ShopSkinItemBuyAction("UnEqip");
+
+
+            if (Pref.GetBool(PrefConst.SKINHAIR_PEFIX + skinPantsSO.IDSkin)) return;
+
+            player.UpdateCoin(skinHairSO.skinPrice, false);
         }
 
         else if (shopSkinTag == ShopSkinTag.shield && player.Coins >= skinShieldSO.skinPrice && skinShieldSO != null)
         {
-            player.UpdateCoin(skinShieldSO.skinPrice, false);
-
             Pref.SetBool(PrefConst.CUR_SKINSHIELD_ID + skinShieldSO.IDSkin, true);
 
             Pref.CurShieldId= skinShieldSO.IDSkin;
@@ -69,6 +81,13 @@ public class BuySkinButton : Singleton<BuySkinButton>
             player.ChangeShield(skinShieldSO.IDSkin);
 
             ShopSkinDialog.Ins.SetCoinText(player.Coins);
+
+            this.ShopSkinItemBuyAction("UnEqip");
+
+
+            if (Pref.GetBool(PrefConst.SKINSHIELD_PEFIX + skinPantsSO.IDSkin)) return;
+
+            player.UpdateCoin(skinShieldSO.skinPrice, false);
         }
     }
 

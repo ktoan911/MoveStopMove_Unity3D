@@ -21,6 +21,8 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
 
     public void UpdateSkinHairUI()
     {
+        BuySkinButton.Ins.ShopSkinItemBuyAction += UpdatePriceText;
+
         List<SkinHatSO> items = SOManager.Ins.skinHairS0;
 
         if (items == null || items.Count < 1 || !itemHairUIPrefab || !gridRoot) return;

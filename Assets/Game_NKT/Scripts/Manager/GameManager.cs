@@ -26,7 +26,7 @@ public class GameManager : Singleton<GameManager>
         }
         UIManager.Ins.OpenUI<MainMenu>();
 
-
+        Pref.Coins = 1000;
 
         this.SetCoinPlayer();
 

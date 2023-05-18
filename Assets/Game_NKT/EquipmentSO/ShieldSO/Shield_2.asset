@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95c01fd5c8c4bd45a9bdde9bad62332, type: 3}
   m_Name: Shield_2
   m_EditorClassIdentifier: 
-  skinShieldPrefab: {fileID: -8707706994173359439, guid: 64b3d5aa9cf863a42b95a53dc24e6291, type: 3}
-  IDSkin: 1
-  skinRange: 0
-  skinPrice: 100
   hud: {fileID: 21300000, guid: 747d642799c526143b4b58d8bb495bc4, type: 3}
+  ID: 1
+  price: 200
+  skinShieldPrefab: {fileID: -8707706994173359439, guid: 64b3d5aa9cf863a42b95a53dc24e6291, type: 3}

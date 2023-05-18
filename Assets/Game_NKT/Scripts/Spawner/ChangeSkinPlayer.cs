@@ -8,7 +8,7 @@ public class ChangeSkinPlayer : Singleton<ChangeSkinPlayer>
     {
         for(int i = 0;   i  <SOManager.Ins.skinPantsS0.Count; i++)
         {
-            if (SOManager.Ins.skinPantsS0[i].IDSkin == id) return SOManager.Ins.skinPantsS0[i];
+            if (SOManager.Ins.skinPantsS0[i].ID == id) return SOManager.Ins.skinPantsS0[i];
         }
 
         return SOManager.Ins.skinPantsS0[0];
@@ -18,7 +18,7 @@ public class ChangeSkinPlayer : Singleton<ChangeSkinPlayer>
     {
         for (int i = 0; i < SOManager.Ins.skinHairS0.Count; i++)
         {
-            if (SOManager.Ins.skinHairS0[i].IDSkin == id) return SOManager.Ins.skinHairS0[i];
+            if (SOManager.Ins.skinHairS0[i].ID == id) return SOManager.Ins.skinHairS0[i];
         }
 
         return SOManager.Ins.skinHairS0[0];
@@ -28,7 +28,7 @@ public class ChangeSkinPlayer : Singleton<ChangeSkinPlayer>
     {
         for (int i = 0; i < SOManager.Ins.skinShieldS0.Count; i++)
         {
-            if (SOManager.Ins.skinShieldS0[i].IDSkin == id) return SOManager.Ins.skinShieldS0[i];
+            if (SOManager.Ins.skinShieldS0[i].ID == id) return SOManager.Ins.skinShieldS0[i];
         }
 
         return SOManager.Ins.skinShieldS0[0];

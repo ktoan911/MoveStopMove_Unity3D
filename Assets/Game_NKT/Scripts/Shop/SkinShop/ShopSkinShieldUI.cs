@@ -5,18 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class ShopSkinShieldUI : MonoBehaviour
+public class ShopSkinShieldUI : ShopSkinUI<SkinShieldSO>
 {
-    public Image hud;
-
-    public SkinShieldSO skinShieldSO;
-
-    public UnityAction<string> ShopSkinItemAction;
-
     [SerializeField] private Button btn;
-
-    private int shopItemID;
-
 
     private void Start()
     {
@@ -27,9 +18,9 @@ public class ShopSkinShieldUI : MonoBehaviour
     {
         BuySkinButton.Ins.SetShopSkinTag(ShopSkinTag.shield);
 
-        BuySkinButton.Ins.SetSkinShieldSO(skinShieldSO);
+        BuySkinButton.Ins.SetSkinShieldSO(skinSO);
 
-        shopItemID = skinShieldSO.IDSkin;
+        shopItemID = skinSO.ID;
 
         bool isUnlocked = Pref.GetBool(PrefConst.CUR_SKINSHIELD_ID + shopItemID);
 
@@ -40,16 +31,16 @@ public class ShopSkinShieldUI : MonoBehaviour
         }
         else
         {
-            this.ShopSkinItemAction(skinShieldSO.skinPrice.ToString());
+            this.ShopSkinItemAction(skinSO.price.ToString());
         }
     }
 
 
-    public void SetInfoItem(int currentIndex)
+    public override void SetInfoItem(int currentIndex)
     {
         hud.sprite = SOManager.Ins.skinShieldS0[currentIndex].hud;
 
-        skinShieldSO = SOManager.Ins.skinShieldS0[currentIndex];
+        skinSO = SOManager.Ins.skinShieldS0[currentIndex];
 
     }
 

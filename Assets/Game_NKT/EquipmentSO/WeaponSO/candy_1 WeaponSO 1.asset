@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b007645185abe449a87864741578bd, type: 3}
   m_Name: candy_1 WeaponSO 1
   m_EditorClassIdentifier: 
+  hud: {fileID: 21300000, guid: 724e4328a30d97c4fa51f406c3ff007d, type: 3}
+  ID: 5
+  price: 250
   weaponPrefab: {fileID: -3639016869874299535, guid: a960bef7feb2c5549826b629ef7afed1, type: 3}
   weaponModel: {fileID: 550422359851472934, guid: e6b7e49a18ae2f64e874cc47fefb0aca, type: 3}
   weaponName: candy_2
-  IDWeapon: 5
-  weaponRange: 0
-  weaPonPrice: 250
-  hud: {fileID: 21300000, guid: 724e4328a30d97c4fa51f406c3ff007d, type: 3}

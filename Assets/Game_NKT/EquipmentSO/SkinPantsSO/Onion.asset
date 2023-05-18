@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9a2e181e9027748a6740e566cf8f90, type: 3}
   m_Name: Onion
   m_EditorClassIdentifier: 
-  skinPantPrefab: {fileID: 2100000, guid: 37d95ae247dc5df4f89008d3e1925b8e, type: 2}
-  IDSkin: 4
-  skinRange: 0
-  skinPrice: 250
   hud: {fileID: 21300000, guid: be770e2a4bda55147bff7cac14cb8b34, type: 3}
+  ID: 4
+  price: 200
+  skinPantPrefab: {fileID: 2100000, guid: 37d95ae247dc5df4f89008d3e1925b8e, type: 2}

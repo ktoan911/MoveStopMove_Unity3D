@@ -9,6 +9,9 @@ public class Setting : UICanvas
         GameManager.Ins.ResumeGame();
 
         UIManager.Ins.OpenUI<GamePlay>().SetupOnOpen(GameManager.Ins.Player);
+
+        GamePlayDialog.Ins.OnInit();
+
         Close(0);
     }
 }

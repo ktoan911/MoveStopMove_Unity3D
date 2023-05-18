@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b007645185abe449a87864741578bd, type: 3}
   m_Name: Hammer WeaponSO
   m_EditorClassIdentifier: 
+  hud: {fileID: 21300000, guid: 2dbdf917bda18854c9feb89adc0a75f7, type: 3}
+  ID: 8
+  price: 400
   weaponPrefab: {fileID: -3354385288905101581, guid: 5aff4272bdd97404d9d4e80367732091, type: 3}
   weaponModel: {fileID: -3747673833073816896, guid: 6a79dcc7499434d4484b2c7dcb9d5cbd, type: 3}
   weaponName: Harmer
-  IDWeapon: 8
-  weaponRange: 0
-  weaPonPrice: 300
-  hud: {fileID: 21300000, guid: 2dbdf917bda18854c9feb89adc0a75f7, type: 3}

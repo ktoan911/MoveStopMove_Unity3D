@@ -12,6 +12,8 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private Enemy enemy;
     public Enemy Enemy { get => enemy; }
 
+    public int numberOfEnemies;
+
     protected void Awake()
     {
         Input.multiTouchEnabled = false;
@@ -26,17 +28,18 @@ public class GameManager : Singleton<GameManager>
         }
         UIManager.Ins.OpenUI<MainMenu>();
 
-        Pref.Coins = 1000;
+       // Pref.Coins = 1000;
 
-       // PlayerPrefs.DeleteAll();
-
-        this.SetStartSkinPlayer();
+        this.SetCoinPlayer();
 
         MenuDialog.Ins.SetCoinText(player.Coins);
 
         this.PauseGame();
+    }
 
-
+    private void Start()
+    {
+        numberOfEnemies = 100;
     }
 
     public void PauseGame()
@@ -57,21 +60,11 @@ public class GameManager : Singleton<GameManager>
         player.Coins = Pref.Coins;
     }
 
-
-    //vũ khí mặc định có ban đầu để id bằng 0 
-    private void SetStartSkinPlayer()
+    public void OnUpdateNumberEnemies()
     {
-        this.SetCoinPlayer();
+        --numberOfEnemies;
 
-        //bool isUnlockWraponIntial = Pref.GetBool(PrefConst.WEAPON_PEFIX + 0);
-
-        //if (!isUnlockWraponIntial)
-        //{
-        //    Pref.SetBool(PrefConst.WEAPON_PEFIX + 0, true);
-        //    player.ChangeWeapon(0);
-        //}
-
-
+        GamePlayDialog.Ins.SetNumberEnemiesText(numberOfEnemies);
     }
 
 

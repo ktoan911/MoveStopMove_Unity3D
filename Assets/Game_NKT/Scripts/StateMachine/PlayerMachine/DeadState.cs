@@ -22,6 +22,6 @@ public class DeadState : IState<Player>
 
     public void OnExit(Player t)
     {
-
+        
     }
 }

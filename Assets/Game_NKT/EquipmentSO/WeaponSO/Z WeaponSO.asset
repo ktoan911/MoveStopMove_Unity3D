@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b007645185abe449a87864741578bd, type: 3}
   m_Name: Z WeaponSO
   m_EditorClassIdentifier: 
+  hud: {fileID: 0}
+  ID: 11
+  price: 1000
   weaponPrefab: {fileID: 3847299834186880904, guid: 5817c034f19c5844bb10856076acdd82, type: 3}
   weaponModel: {fileID: 6394565541840563890, guid: 925ec69c4ccfca5438d677f4791c10b5, type: 3}
   weaponName: Z
-  IDWeapon: 0
-  weaponRange: 11
-  weaPonPrice: 1000
-  hud: {fileID: 0}

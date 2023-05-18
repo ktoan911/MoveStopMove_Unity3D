@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9a2e181e9027748a6740e566cf8f90, type: 3}
   m_Name: ChamBi
   m_EditorClassIdentifier: 
-  skinPantPrefab: {fileID: 2100000, guid: e7d8d0a10e588f2409bfbb0f549617b1, type: 2}
-  IDSkin: 1
-  skinRange: 0
-  skinPrice: 200
   hud: {fileID: 21300000, guid: 6d8c21d8e55123441ba02ac0fce3d675, type: 3}
+  ID: 1
+  price: 100
+  skinPantPrefab: {fileID: 2100000, guid: e7d8d0a10e588f2409bfbb0f549617b1, type: 2}

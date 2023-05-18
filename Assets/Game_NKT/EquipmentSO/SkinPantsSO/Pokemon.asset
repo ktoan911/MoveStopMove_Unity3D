@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9a2e181e9027748a6740e566cf8f90, type: 3}
   m_Name: Pokemon
   m_EditorClassIdentifier: 
-  skinPantPrefab: {fileID: 2100000, guid: 8b1736e9fe183b042b56931fd45ca6b5, type: 2}
-  IDSkin: 5
-  skinRange: 0
-  skinPrice: 300
   hud: {fileID: 21300000, guid: a482b056a7db15c449864b0f6737a4cb, type: 3}
+  ID: 5
+  price: 300
+  skinPantPrefab: {fileID: 2100000, guid: 8b1736e9fe183b042b56931fd45ca6b5, type: 2}

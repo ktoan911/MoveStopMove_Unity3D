@@ -31,7 +31,7 @@ public class Weapon : GameUnit
     {
         if (IsFire)
         {
-            transform.Translate(this.direction.normalized * this.moveSpeed * Time.deltaTime);
+            transform.Translate(this.direction.normalized * this.moveSpeed * Time.deltaTime, Space.World);
            
         }
     }  
@@ -54,7 +54,6 @@ public class Weapon : GameUnit
 
         moveSpeed = 4.5f;
 
-        this.timeSelfDestroy = 10f;
     }
     private void OnTriggerEnter(Collider other)
     {

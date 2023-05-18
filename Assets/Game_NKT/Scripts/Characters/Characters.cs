@@ -39,7 +39,7 @@ public class Characters : GameUnit
     {
         Vector3 direction = Target.position - this.transform.position;
         direction.y = 0f;
-        return direction;
+        return direction.normalized;
     }
 
     public void ChangeRotation()

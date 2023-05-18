@@ -63,7 +63,7 @@ public class ShopWeaponUI : Singleton<ShopWeaponUI>
     private void SetInfoItem(int currentIndex)
     {
 
-        int shopItemID = SOManager.Ins.weaponS0[currentIndex].IDWeapon;
+        int shopItemID = SOManager.Ins.weaponS0[currentIndex].ID;
 
         if (hud)
         {
@@ -88,15 +88,16 @@ public class ShopWeaponUI : Singleton<ShopWeaponUI>
 
             else
             {
-                if (priceText) priceText.text = SOManager.Ins.weaponS0[currentIndex].weaPonPrice.ToString();
+                if (priceText) priceText.text = SOManager.Ins.weaponS0[currentIndex].price.ToString();
             }
         }
     }
 
     public void BuyWeapon()
     {
+        //GameManager.Ins.Player.ChangeAttackRange(8);
 
-        int shopItemID = SOManager.Ins.weaponS0[currentIndex].IDWeapon;
+        int shopItemID = SOManager.Ins.weaponS0[currentIndex].ID;
 
         bool isUnlocked = Pref.GetBool(PrefConst.WEAPON_PEFIX + shopItemID);
 
@@ -106,22 +107,22 @@ public class ShopWeaponUI : Singleton<ShopWeaponUI>
 
             //nếu ko phải thì thay đổi dữ liệu currentid
             Pref.CurWeaponId = shopItemID;
-            player.ChangeWeapon(SOManager.Ins.weaponS0[currentIndex].IDWeapon);
+            player.ChangeWeapon(SOManager.Ins.weaponS0[currentIndex].ID);
             if (priceText) priceText.text = "Eqquiped";
         }
 
         else
         {
-            if (player.Coins >= SOManager.Ins.weaponS0[currentIndex].weaPonPrice) // check đủ tiền không
+            if (player.Coins >= SOManager.Ins.weaponS0[currentIndex].price) // check đủ tiền không
             {
                 //thay đổi tiền
-                player.UpdateCoin(SOManager.Ins.weaponS0[currentIndex].weaPonPrice, false);
+                player.UpdateCoin(SOManager.Ins.weaponS0[currentIndex].price, false);
 
                 //thay đổi trạng thái thành mở khóa
                 Pref.SetBool(PrefConst.WEAPON_PEFIX + shopItemID, true);
                 Pref.CurWeaponId = shopItemID;
 
-                player.ChangeWeapon(SOManager.Ins.weaponS0[currentIndex].IDWeapon);
+                player.ChangeWeapon(SOManager.Ins.weaponS0[currentIndex].ID);
                 if (priceText) priceText.text = "Eqquiped";
                 this.SetCoinText(player.Coins);
             }

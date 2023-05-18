@@ -9,6 +9,8 @@ public class EDeadState : IState<Enemy>
         t.IsMoving = false;
 
         t.ChangeAnim("Dead");
+
+        GameManager.Ins.OnUpdateNumberEnemies();
     }
 
     public void OnExecute(Enemy t)
@@ -21,6 +23,6 @@ public class EDeadState : IState<Enemy>
 
     public void OnExit(Enemy t)
     {
-
+       
     }
 }

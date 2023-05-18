@@ -29,5 +29,10 @@ public class CircleAroundPlayer : MonoBehaviour
 
         lineRenderer.SetPositions(positions);
     }
+
+    public void ChangeAttackRangeCircle(float attackRange)
+    {
+        this.radius = attackRange;
+    }
 }
 

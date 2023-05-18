@@ -11,8 +11,14 @@ public class PlayerRange : MonoBehaviour
 
     public void ChangeAttackRange(float attackRange)
     {
-        Vector3 Scale = Vector3.one * (attackRange / sphereCollider.radius) * 2;
-        this.transform.localScale = Scale;
+        if (sphereCollider != null)
+        {
+            sphereCollider.radius = attackRange / 10;
+        }
+        else
+        {
+            Debug.LogError("No Sphere Collider component found!");
+        }
 
     }
 

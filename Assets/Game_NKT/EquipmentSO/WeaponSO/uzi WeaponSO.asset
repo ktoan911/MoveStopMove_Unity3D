@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b007645185abe449a87864741578bd, type: 3}
   m_Name: uzi WeaponSO
   m_EditorClassIdentifier: 
+  hud: {fileID: 21300000, guid: 344190b4a34fea344b3b501047bdad40, type: 3}
+  ID: 10
+  price: 500
   weaponPrefab: {fileID: 3032366297045821690, guid: 9606bea73caadb84291b3162324229f5, type: 3}
   weaponModel: {fileID: 8214802490269490426, guid: 6894d191d315e304081d7601e6b34ee0, type: 3}
   weaponName: Uzi
-  IDWeapon: 10
-  weaponRange: 0
-  weaPonPrice: 200
-  hud: {fileID: 21300000, guid: 344190b4a34fea344b3b501047bdad40, type: 3}

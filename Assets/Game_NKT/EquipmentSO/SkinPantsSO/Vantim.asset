@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9a2e181e9027748a6740e566cf8f90, type: 3}
   m_Name: Vantim
   m_EditorClassIdentifier: 
-  skinPantPrefab: {fileID: 2100000, guid: 209b8e5c5ab2acd4fa06e5db76d94d8d, type: 2}
-  IDSkin: 8
-  skinRange: 0
-  skinPrice: 500
   hud: {fileID: 21300000, guid: ce130da2d9627654994c26c5c9da1967, type: 3}
+  ID: 8
+  price: 1000
+  skinPantPrefab: {fileID: 2100000, guid: 209b8e5c5ab2acd4fa06e5db76d94d8d, type: 2}

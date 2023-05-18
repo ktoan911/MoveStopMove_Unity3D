@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b007645185abe449a87864741578bd, type: 3}
   m_Name: Axe_0 WeaponSO
   m_EditorClassIdentifier: 
+  hud: {fileID: 21300000, guid: 29cf7060a95599b45b5032a6a3cd1798, type: 3}
+  ID: 1
+  price: 100
   weaponPrefab: {fileID: 2219956407724458424, guid: 4e070ce3d96c15c4797bc686a875f8e4, type: 3}
   weaponModel: {fileID: 3127974231126042082, guid: fb915944f24349d4db721784c250d90a, type: 3}
   weaponName: Axe_0
-  IDWeapon: 1
-  weaponRange: 0
-  weaPonPrice: 50
-  hud: {fileID: 21300000, guid: 29cf7060a95599b45b5032a6a3cd1798, type: 3}

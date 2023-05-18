@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9a2e181e9027748a6740e566cf8f90, type: 3}
   m_Name: Skull
   m_EditorClassIdentifier: 
-  skinPantPrefab: {fileID: 2100000, guid: dcc2670967dc37f4786fbf1e6c4bca2b, type: 2}
-  IDSkin: 7
-  skinRange: 0
-  skinPrice: 350
   hud: {fileID: 21300000, guid: 25eaab120aefcd243b5c20ed406b1184, type: 3}
+  ID: 7
+  price: 1000
+  skinPantPrefab: {fileID: 2100000, guid: dcc2670967dc37f4786fbf1e6c4bca2b, type: 2}

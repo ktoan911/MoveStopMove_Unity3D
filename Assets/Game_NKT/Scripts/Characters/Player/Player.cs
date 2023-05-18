@@ -24,6 +24,9 @@ public class Player : Characters
 
     [SerializeField] private Transform leftHand;
 
+    [SerializeField] private PlayerRange playerRange;
+
+    public CircleAroundPlayer range;
 
 
     private int coins;
@@ -33,6 +36,7 @@ public class Player : Characters
 
     private float horizontal;
     private float vertical;
+
 
     private void Start()
     {
@@ -52,11 +56,13 @@ public class Player : Characters
 
     private void SetInitalEquip()
     {
-        if(Pref.CurWeaponId != null) this.ChangeWeapon(Pref.CurWeaponId);
+        this.ChangeWeapon(Pref.CurWeaponId);
 
-        if(Pref.CurPantId != null) this.ChangePant(Pref.CurPantId);
+        this.ChangePant(Pref.CurPantId);
 
-        if (Pref.CurShieldId != null)  this.ChangeShield(Pref.CurShieldId);  
+        this.ChangeShield(Pref.CurShieldId);  
+
+        this.ChangeHair(Pref.CurHairId);
     }
 
     //====Update======
@@ -127,25 +133,10 @@ public class Player : Characters
         Pref.Coins = this.Coins;
     }
 
-    public void SetSkinPantID(int id)
-    {
-        this.skinPantID = id;
-    }
-
-    public void SetSkinHairID(int id)
-    {
-        this.skinHairID = id;
-    }
-
-    public void SetSkinShieldID(int id)
-    {
-        this.skinShieldID = id;
-    }
-
-
     public void ChangeWeapon(int id)
     {
         this.weaponID= id;
+        Debug.Log(this.weaponID);
 
         WeaponSpawner.Instance.ChangeModelWeaponPlayer(rightHand, id);
     }
@@ -161,14 +152,31 @@ public class Player : Characters
     {
 
         this.skinHairID = id;
+
         ChangeSkinPlayer.Ins.ChangeModelHair(hair, skinHairID);
     }
 
     public void ChangeShield(int id)
     {
-        this.weaponID = id;
+        this.skinShieldID = id;
 
         ChangeSkinPlayer.Ins.ChangeModelShield(leftHand, skinShieldID);
     }
+    
+    public void ChangeAttackRange(float percentChange)
+    {
+        playerRange.ChangeAttackRange(this.attackRange * (1 + percentChange / 100));
+
+        range.ChangeAttackRangeCircle(this.attackRange * (1 + percentChange / 100));
+    }
+
+    public void ChangeSpeed(float percentChange)
+    {
+        this.speed = this.speed * (1 + percentChange / 100);
+    }
+
+
+
+
 
 }

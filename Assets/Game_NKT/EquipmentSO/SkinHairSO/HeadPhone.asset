@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fabfac04b777024cb96e55ccbd5c740, type: 3}
   m_Name: HeadPhone
   m_EditorClassIdentifier: 
-  skinHatPrefab: {fileID: 6967090374509649941, guid: d354bc899700e8a48b03696bb7ff73c0, type: 3}
-  IDSkin: 7
-  skinPrice: 200
   hud: {fileID: 21300000, guid: 694f596b7929bdb409ba3630631783d9, type: 3}
+  ID: 7
+  price: 300
+  skinHatPrefab: {fileID: 6967090374509649941, guid: d354bc899700e8a48b03696bb7ff73c0, type: 3}

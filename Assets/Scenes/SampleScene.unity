@@ -299,6 +299,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &95332389 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3800467336962686104, guid: 38f9296dc39c27647a0119314baf12a2, type: 3}
+  m_PrefabInstance: {fileID: 609133575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &198102511
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +520,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 295785419}
-  - component: {fileID: 295785418}
   - component: {fileID: 295785420}
   m_Layer: 0
   m_Name: PoolManager
@@ -524,23 +528,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &295785418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 295785417}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73aded14d82a4c940b43fa8d64c08ef1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Pools:
-  - name: Enemy
-    prefab: {fileID: 6186479651976424494, guid: f818769fb2404c648845471550e049a0, type: 3}
-    size: 30
-    objParent: {fileID: 0}
 --- !u!4 &295785419
 Transform:
   m_ObjectHideFlags: 0
@@ -719,8 +706,10 @@ MonoBehaviour:
   weaponID: 0
   rightHand: {fileID: 1719484191}
   pants: {fileID: 458979480}
-  hair: {fileID: 0}
+  hair: {fileID: 1696502830}
   leftHand: {fileID: 1966353541}
+  playerRange: {fileID: 825627101}
+  range: {fileID: 437415230}
 --- !u!4 &437415228
 Transform:
   m_ObjectHideFlags: 0
@@ -1368,7 +1357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 437415227}
-  sphereCollider: {fileID: 0}
+  sphereCollider: {fileID: 825627098}
 --- !u!54 &825627102
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1894,6 +1883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 437415227}
   enemy: {fileID: 6186479651976424481, guid: f818769fb2404c648845471550e049a0, type: 3}
+  numberOfEnemies: 0
 --- !u!4 &1471179255
 Transform:
   m_ObjectHideFlags: 0
@@ -2251,6 +2241,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2108277241}
   m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1696502829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1696502830}
+  m_Layer: 0
+  m_Name: Hair
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1696502830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696502829}
+  m_LocalRotation: {x: 0.0000000014479157, y: 0.000000015963451, z: -0.0000000031723175, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 95332389}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1719484190
 GameObject:

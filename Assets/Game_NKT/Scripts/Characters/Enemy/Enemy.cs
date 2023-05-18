@@ -115,9 +115,9 @@ public class Enemy : Characters
 
         for (int i = 0; i < SOManager.Ins.weaponS0.Count; i++)
         {
-            if (SOManager.Ins.weaponS0[i].IDWeapon == TmpRandom) return SOManager.Ins.weaponS0[i].IDWeapon;
+            if (SOManager.Ins.weaponS0[i].ID == TmpRandom) return SOManager.Ins.weaponS0[i].ID;
         }
-        return SOManager.Ins.weaponS0[0].IDWeapon;
+        return SOManager.Ins.weaponS0[0].ID;
 
     }
 }

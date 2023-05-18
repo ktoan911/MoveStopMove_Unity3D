@@ -10,26 +10,26 @@ public class Pref
     {
         set => PlayerPrefs.SetInt(PrefConst.CUR_WEAPON_ID, value);
 
-        get => PlayerPrefs.GetInt(PrefConst.CUR_WEAPON_ID);
+        get => PlayerPrefs.GetInt(PrefConst.CUR_WEAPON_ID,0);
     }
     
     public static int CurHairId
     {
         set => PlayerPrefs.SetInt(PrefConst.CUR_SKINHAIR_ID, value);
 
-        get => PlayerPrefs.GetInt(PrefConst.CUR_SKINHAIR_ID);
+        get => PlayerPrefs.GetInt(PrefConst.CUR_SKINHAIR_ID,0);
     }
     public static int CurPantId
     {
         set => PlayerPrefs.SetInt(PrefConst.CUR_SKINPANT_ID, value);
 
-        get => PlayerPrefs.GetInt(PrefConst.CUR_SKINPANT_ID);
+        get => PlayerPrefs.GetInt(PrefConst.CUR_SKINPANT_ID,0);
     }
     public static int CurShieldId
     {
         set => PlayerPrefs.SetInt(PrefConst.CUR_SKINSHIELD_ID, value);
 
-        get => PlayerPrefs.GetInt(PrefConst.CUR_SKINSHIELD_ID);
+        get => PlayerPrefs.GetInt(PrefConst.CUR_SKINSHIELD_ID, 0);
     }
 
 
@@ -37,7 +37,7 @@ public class Pref
     {
         set => PlayerPrefs.SetInt(PrefConst.COIN_KEY, value);
 
-        get => PlayerPrefs.GetInt(PrefConst.COIN_KEY);
+        get => PlayerPrefs.GetInt(PrefConst.COIN_KEY, 200);
     }
 
 

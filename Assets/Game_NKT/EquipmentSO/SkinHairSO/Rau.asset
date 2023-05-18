@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fabfac04b777024cb96e55ccbd5c740, type: 3}
   m_Name: Rau
   m_EditorClassIdentifier: 
-  skinHatPrefab: {fileID: -6430210468713276988, guid: 45bd8d7e0f277904b8670a0b8ae67b5a, type: 3}
-  IDSkin: 9
-  skinPrice: 1000
   hud: {fileID: 21300000, guid: 0721f07e295ea594ba265006fe888315, type: 3}
+  ID: 9
+  price: 500
+  skinHatPrefab: {fileID: -6430210468713276988, guid: 45bd8d7e0f277904b8670a0b8ae67b5a, type: 3}

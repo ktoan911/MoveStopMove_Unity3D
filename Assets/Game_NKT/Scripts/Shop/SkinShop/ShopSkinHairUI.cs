@@ -5,18 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class ShopSkinHairUI : MonoBehaviour
+public class ShopSkinHairUI : ShopSkinUI<SkinHatSO>
 {
-    public Image hud;
-
-    public SkinHatSO skinHairSO;
-
-    public UnityAction<string> ShopSkinItemAction;
-
     [SerializeField] private Button btn;
-
-    private int shopItemID;
-
 
     private void Start()
     {
@@ -26,30 +17,30 @@ public class ShopSkinHairUI : MonoBehaviour
     private void ResetButton()
     {
         BuySkinButton.Ins.SetShopSkinTag(ShopSkinTag.hair);
-        BuySkinButton.Ins.SetSkinHairSO(skinHairSO);
+        BuySkinButton.Ins.SetSkinHairSO(skinSO);
 
 
-        shopItemID = skinHairSO.IDSkin;
+        shopItemID = skinSO.ID;
 
-        bool isUnlocked = Pref.GetBool(PrefConst.CUR_SKINHAIR_ID + shopItemID);
+        bool isUnlocked = Pref.GetBool(PrefConst.SKINHAIR_PEFIX + shopItemID);
 
         if (isUnlocked)
         {
-            if (shopItemID == Pref.CurShieldId) this.ShopSkinItemAction("UnEqqip");
+            if (shopItemID == Pref.CurHairId) this.ShopSkinItemAction("UnEqqip");
             else this.ShopSkinItemAction("Select");
         }
         else
         {
-            this.ShopSkinItemAction(skinHairSO.skinPrice.ToString());
+            this.ShopSkinItemAction(skinSO.price.ToString());
         }
     }
 
 
-    public void SetInfoItem(int currentIndex)
+    public override void SetInfoItem(int currentIndex)
     {
         hud.sprite = SOManager.Ins.skinHairS0[currentIndex].hud;
 
-        skinHairSO = SOManager.Ins.skinHairS0[currentIndex];
+        skinSO = SOManager.Ins.skinHairS0[currentIndex];
 
     }
 

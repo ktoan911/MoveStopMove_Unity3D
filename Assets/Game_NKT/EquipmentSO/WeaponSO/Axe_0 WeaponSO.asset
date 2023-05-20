@@ -18,3 +18,4 @@ MonoBehaviour:
   weaponPrefab: {fileID: 2219956407724458424, guid: 4e070ce3d96c15c4797bc686a875f8e4, type: 3}
   weaponModel: {fileID: 3127974231126042082, guid: fb915944f24349d4db721784c250d90a, type: 3}
   weaponName: Axe_0
+  percentUpRange: 5

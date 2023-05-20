@@ -15,4 +15,5 @@ MonoBehaviour:
   hud: {fileID: 21300000, guid: a482b056a7db15c449864b0f6737a4cb, type: 3}
   ID: 5
   price: 300
-  skinPantPrefab: {fileID: 2100000, guid: 8b1736e9fe183b042b56931fd45ca6b5, type: 2}
+  skinPantPrefab: {fileID: 2765566748739307388, guid: 5ca8a836d6f070a46984b03edd0016ec, type: 3}
+  percentUpSpeed: 8

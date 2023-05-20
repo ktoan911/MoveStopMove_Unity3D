@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public abstract class GameUnit : MonoBehaviour
 {
@@ -18,5 +19,7 @@ public abstract class GameUnit : MonoBehaviour
 
     public abstract void OnInit();
     public abstract void OnDespawn();
+
+    public abstract void OnInit(Characters t, int percentUp);
 
 }

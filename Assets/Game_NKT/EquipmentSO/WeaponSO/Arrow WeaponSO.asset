@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b007645185abe449a87864741578bd, type: 3}
   m_Name: Arrow WeaponSO
   m_EditorClassIdentifier: 
+  hud: {fileID: 21300000, guid: 317ab2e33cd06af499894eac0b795074, type: 3}
+  ID: 0
+  price: 0
   weaponPrefab: {fileID: 4045219508982867184, guid: ebf0d47c20ef4e3478a291dfa9f7790f, type: 3}
   weaponModel: {fileID: -2547635755922507572, guid: 090d80a7c3efeb140b6072d1765280e5, type: 3}
   weaponName: Arrow
-  IDWeapon: 0
-  weaponRange: 0
-  weaPonPrice: 0
-  hud: {fileID: 21300000, guid: 317ab2e33cd06af499894eac0b795074, type: 3}
+  percentUpRange: 5

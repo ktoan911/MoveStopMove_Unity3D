@@ -27,12 +27,12 @@ public class ShopSkinPantUI : ShopSkinUI<SkinPantsSO>
 
         if (isUnlocked)
         {
-            if (shopItemID == Pref.CurPantId) this.ShopSkinItemAction("UnEqqip");
-            else this.ShopSkinItemAction("Select");
+            if (shopItemID == Pref.CurPantId) this.ShopSkinItemAction("UnEqqip", frame, ShopManager.Ins.imageButtonUnEquip);
+            else this.ShopSkinItemAction("Select", frame, ShopManager.Ins.imageButtonSelect);
         }
         else
         {
-            this.ShopSkinItemAction(skinSO.price.ToString());
+            this.ShopSkinItemAction(skinSO.price.ToString(), frame, ShopManager.Ins.imageButtonBuy);
         }
 
     }

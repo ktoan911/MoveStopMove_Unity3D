@@ -19,14 +19,14 @@ public class BuySkinButton : Singleton<BuySkinButton>
 
     public ShopSkinTag shopSkinTag = ShopSkinTag.none;
 
-    [SerializeField] private Button btn;
+    [SerializeField] private Button btnBuy;
 
     public UnityAction<string> ShopSkinItemBuyAction;
 
 
     private void Start()
     {
-        btn.onClick.AddListener(SetModel);
+        btnBuy.onClick.AddListener(SetModel);
     }
 
     private void SetModel()
@@ -40,14 +40,14 @@ public class BuySkinButton : Singleton<BuySkinButton>
             {
                 this.ShopSkinItemBuyAction("UnEqip");
 
+                btnBuy.image.sprite = ShopManager.Ins.imageButtonUnEquip;
+
                 Pref.CurPantId = skinPantsSO.ID;
 
                 player.ChangePant(skinPantsSO.ID);
             }
             else if (player.Coins >= skinPantsSO.price)
             {
-                //GameManager.Ins.Player.ChangeSpeed(12);
-
                 Pref.SetBool(PrefConst.SKINPANT_PEFIX + skinPantsSO.ID, true);
 
                 Pref.CurPantId = skinPantsSO.ID;
@@ -59,6 +59,8 @@ public class BuySkinButton : Singleton<BuySkinButton>
                 ShopSkinDialog.Ins.SetCoinText(player.Coins);
 
                 this.ShopSkinItemBuyAction("UnEqip");
+
+                btnBuy.image.sprite = ShopManager.Ins.imageButtonUnEquip;
             }
         }
 
@@ -68,6 +70,8 @@ public class BuySkinButton : Singleton<BuySkinButton>
             if (isUnlocked)
             {
                 this.ShopSkinItemBuyAction("UnEqip");
+
+                btnBuy.image.sprite = ShopManager.Ins.imageButtonUnEquip;
 
                 Pref.CurHairId = skinHairSO.ID;
 
@@ -86,6 +90,8 @@ public class BuySkinButton : Singleton<BuySkinButton>
                 ShopSkinDialog.Ins.SetCoinText(player.Coins);
 
                 this.ShopSkinItemBuyAction("UnEqip");
+
+                btnBuy.image.sprite = ShopManager.Ins.imageButtonUnEquip;
             }
         }
 
@@ -95,6 +101,8 @@ public class BuySkinButton : Singleton<BuySkinButton>
             if (isUnlocked)
             {
                 this.ShopSkinItemBuyAction("UnEqip");
+
+                btnBuy.image.sprite = ShopManager.Ins.imageButtonUnEquip;
 
                 Pref.CurShieldId = skinShieldSO.ID;
 
@@ -113,6 +121,8 @@ public class BuySkinButton : Singleton<BuySkinButton>
                 ShopSkinDialog.Ins.SetCoinText(player.Coins);
 
                 this.ShopSkinItemBuyAction("UnEqip");
+
+                btnBuy.image.sprite = ShopManager.Ins.imageButtonUnEquip;
             }
         }
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeSkinPlayer : Singleton<ChangeSkinPlayer>
+public class ChangeSkin : Singleton<ChangeSkin>
 {
     private SkinPantsSO GetPantSOByID(int id)
     {
@@ -11,7 +11,7 @@ public class ChangeSkinPlayer : Singleton<ChangeSkinPlayer>
             if (SOManager.Ins.skinPantsS0[i].ID == id) return SOManager.Ins.skinPantsS0[i];
         }
 
-        return SOManager.Ins.skinPantsS0[0];
+        return null;
     }
 
     private SkinHatSO GetHairSOByID(int id)
@@ -21,7 +21,7 @@ public class ChangeSkinPlayer : Singleton<ChangeSkinPlayer>
             if (SOManager.Ins.skinHairS0[i].ID == id) return SOManager.Ins.skinHairS0[i];
         }
 
-        return SOManager.Ins.skinHairS0[0];
+        return null;
     }
 
     private SkinShieldSO GetShieldSOByID(int id)
@@ -31,12 +31,21 @@ public class ChangeSkinPlayer : Singleton<ChangeSkinPlayer>
             if (SOManager.Ins.skinShieldS0[i].ID == id) return SOManager.Ins.skinShieldS0[i];
         }
 
-        return SOManager.Ins.skinShieldS0[0];
+        return null;
     }
 
-    public void ChangePant(SkinnedMeshRenderer skin, int id)
+    public void ChangePant(Characters character, SkinnedMeshRenderer skin, int id)
     {
-        skin.material = this.GetPantSOByID(id).skinPantPrefab;
+        SkinPantsSO skinPantSO = this.GetPantSOByID(id);
+
+        if (skinPantSO == null) return;
+
+        Skin pantModelPool = SimplePool.Spawn<Skin>(skinPantSO.skinPantPrefab, Vector3.zero, Quaternion.identity);
+
+        pantModelPool.OnInit(character, skinPantSO.percentUpSpeed);
+
+        skin.material = pantModelPool.pantMaterial;
+
     }
 
     public void ChangeModelHair(Transform parentSpawn, int id)
@@ -44,6 +53,8 @@ public class ChangeSkinPlayer : Singleton<ChangeSkinPlayer>
         ClearPastSkin(parentSpawn);
 
         SkinHatSO skinHairSO = this.GetHairSOByID(id);
+
+        if(skinHairSO == null) return;
 
         Vector3 localPosition = skinHairSO.skinHatPrefab.transform.localPosition;
         Quaternion localRot = skinHairSO.skinHatPrefab.transform.localRotation;
@@ -61,6 +72,8 @@ public class ChangeSkinPlayer : Singleton<ChangeSkinPlayer>
         ClearPastSkin(parentSpawn);
 
         SkinShieldSO skinShieldSO = this.GetShieldSOByID(id);
+
+        if(skinShieldSO == null) return;
 
         Vector3 localPosition = skinShieldSO.skinShieldPrefab.transform.localPosition;
         Quaternion localRot = skinShieldSO.skinShieldPrefab.transform.localRotation;

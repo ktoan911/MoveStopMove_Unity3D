@@ -10,7 +10,6 @@ public class EnemyRange : MonoBehaviour
     {
         Vector3 Scale = Vector3.one * (attackRange / sphereCollider.radius) * 2;
         this.transform.localScale = Scale;
-
     }
 
     private void OnTriggerEnter(Collider other)

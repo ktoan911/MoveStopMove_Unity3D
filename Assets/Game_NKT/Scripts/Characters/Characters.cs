@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class Characters : GameUnit
 {
-    protected float speed;
+    private float speed;
+    public float Speed { get => speed; set => speed = value; }
 
     public float attackRange;
 
@@ -53,7 +54,7 @@ public class Characters : GameUnit
         IsMoving = false;
         IsAttack= false;
 
-        speed = 7f;
+        Speed = 7f;
         this.rotationSpeed = 100f;
         this.attackRange = 5f;
     }
@@ -68,6 +69,11 @@ public class Characters : GameUnit
         }
     }
     public override void OnDespawn()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void OnInit(Characters t, int percentUp)
     {
         throw new NotImplementedException();
     }

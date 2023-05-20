@@ -70,4 +70,9 @@ public class Weapon : GameUnit
 
         this.OnDespawn();
     }
+
+    public override void OnInit(Characters t, int percentUp)
+    {
+        throw new System.NotImplementedException();
+    }
 }

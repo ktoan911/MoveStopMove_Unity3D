@@ -10,5 +10,7 @@ public class WeaponSO : ParentSO
     public WeaponModel weaponModel;
 
     public string weaponName;
+
+    public int percentUpRange;
 }
 

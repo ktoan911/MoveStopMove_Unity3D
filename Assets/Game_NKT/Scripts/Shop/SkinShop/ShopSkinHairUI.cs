@@ -19,19 +19,18 @@ public class ShopSkinHairUI : ShopSkinUI<SkinHatSO>
         BuySkinButton.Ins.SetShopSkinTag(ShopSkinTag.hair);
         BuySkinButton.Ins.SetSkinHairSO(skinSO);
 
-
         shopItemID = skinSO.ID;
 
         bool isUnlocked = Pref.GetBool(PrefConst.SKINHAIR_PEFIX + shopItemID);
 
         if (isUnlocked)
         {
-            if (shopItemID == Pref.CurHairId) this.ShopSkinItemAction("UnEqqip");
-            else this.ShopSkinItemAction("Select");
+            if (shopItemID == Pref.CurHairId) this.ShopSkinItemAction("UnEqqip",frame,ShopManager.Ins.imageButtonUnEquip);
+            else this.ShopSkinItemAction("Select",frame, ShopManager.Ins.imageButtonSelect);
         }
         else
         {
-            this.ShopSkinItemAction(skinSO.price.ToString());
+            this.ShopSkinItemAction(skinSO.price.ToString(),frame, ShopManager.Ins.imageButtonBuy);
         }
     }
 

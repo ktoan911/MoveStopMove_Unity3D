@@ -24,7 +24,7 @@ public class Player : Characters
 
     [SerializeField] private Transform leftHand;
 
-    [SerializeField] private PlayerRange playerRange;
+    public PlayerRange playerRange;
 
     public CircleAroundPlayer range;
 
@@ -37,24 +37,27 @@ public class Player : Characters
     private float horizontal;
     private float vertical;
 
-
-    private void Start()
+    private void Awake()
     {
         this.OnInit();
+    }
+    private void Start()
+    {
+        currentState = new StateMachine<Player>();
+        currentState.SetOwner(this);
+
+        currentState.ChangeState(new IdleState());
     }
 
     public override void OnInit()
     {
         base.OnInit();
 
-        this.SetInitalEquip();
-        currentState = new StateMachine<Player>();
-        currentState.SetOwner(this);
         this.gravity = 20f;
-        currentState.ChangeState(new IdleState());
+
     }
 
-    private void SetInitalEquip()
+    public void SetInitalEquip()
     {
         this.ChangeWeapon(Pref.CurWeaponId);
 
@@ -120,7 +123,7 @@ public class Player : Characters
 
         if (Mathf.Abs(horizontal) > 0.1f || Mathf.Abs(vertical) > 0.1f)
         {
-            characterController.Move(direction * speed * Time.deltaTime);
+            characterController.Move(direction * Speed * Time.deltaTime);
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             this.transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
@@ -136,16 +139,15 @@ public class Player : Characters
     public void ChangeWeapon(int id)
     {
         this.weaponID= id;
-        Debug.Log(this.weaponID);
 
-        WeaponSpawner.Instance.ChangeModelWeaponPlayer(rightHand, id);
+        WeaponSpawner.Instance.ChangeModelWeaponPlayer(this,rightHand, id);
     }
 
     public void ChangePant(int id)
     {
         this.skinPantID = id;
 
-        ChangeSkinPlayer.Ins.ChangePant(pants, skinPantID);
+        ChangeSkin.Ins.ChangePant(this, pants, skinPantID);
     }
 
     public void ChangeHair(int id)
@@ -153,30 +155,14 @@ public class Player : Characters
 
         this.skinHairID = id;
 
-        ChangeSkinPlayer.Ins.ChangeModelHair(hair, skinHairID);
+        ChangeSkin.Ins.ChangeModelHair(hair, skinHairID);
     }
 
     public void ChangeShield(int id)
     {
         this.skinShieldID = id;
 
-        ChangeSkinPlayer.Ins.ChangeModelShield(leftHand, skinShieldID);
+        ChangeSkin.Ins.ChangeModelShield(leftHand, skinShieldID);
     }
-    
-    public void ChangeAttackRange(float percentChange)
-    {
-        playerRange.ChangeAttackRange(this.attackRange * (1 + percentChange / 100));
-
-        range.ChangeAttackRangeCircle(this.attackRange * (1 + percentChange / 100));
-    }
-
-    public void ChangeSpeed(float percentChange)
-    {
-        this.speed = this.speed * (1 + percentChange / 100);
-    }
-
-
-
-
 
 }

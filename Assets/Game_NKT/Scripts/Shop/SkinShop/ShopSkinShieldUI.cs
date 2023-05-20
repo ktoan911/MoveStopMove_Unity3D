@@ -26,12 +26,12 @@ public class ShopSkinShieldUI : ShopSkinUI<SkinShieldSO>
 
         if (isUnlocked)
         {
-            if (shopItemID == Pref.CurShieldId) this.ShopSkinItemAction("UnEqqip");
-            else this.ShopSkinItemAction("Select");
+            if (shopItemID == Pref.CurShieldId) this.ShopSkinItemAction("UnEquip", frame, ShopManager.Ins.imageButtonUnEquip);
+            else this.ShopSkinItemAction("Select", frame, ShopManager.Ins.imageButtonSelect);
         }
         else
         {
-            this.ShopSkinItemAction(skinSO.price.ToString());
+            this.ShopSkinItemAction(skinSO.price.ToString(), frame, ShopManager.Ins.imageButtonBuy);
         }
     }
 

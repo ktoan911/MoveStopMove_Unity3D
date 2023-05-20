@@ -14,4 +14,9 @@ public class WeaponModel : GameUnit
         throw new System.NotImplementedException();
     }
 
+    public override void OnInit(Characters t, int percentUp)
+    {
+        EquipManager.Ins.ChangePlayerAttackRange(percentUp, (Player)t);
+    }
+
 }

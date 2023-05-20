@@ -18,3 +18,4 @@ MonoBehaviour:
   weaponPrefab: {fileID: 3798092655142971573, guid: ecc88625ffe67204eaf65cba6fa19251, type: 3}
   weaponModel: {fileID: -2315910925893894316, guid: 1e3e9b83d6a5d914781f546f23d6f9d4, type: 3}
   weaponName: candy_4
+  percentUpRange: 10

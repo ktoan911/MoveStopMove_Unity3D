@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using static UnityEditor.Progress;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 
 public class ShopWeaponUI : Singleton<ShopWeaponUI>
 {
@@ -19,7 +20,10 @@ public class ShopWeaponUI : Singleton<ShopWeaponUI>
 
     private int currentIndex = 0;
 
+    [SerializeField] private TMP_Text description;
 
+    [SerializeField] private Button btnBuy;
+    
     private void Start()
     {
         SetInfoItem(currentIndex);
@@ -52,7 +56,7 @@ public class ShopWeaponUI : Singleton<ShopWeaponUI>
             currentIndex = 0;
         }
 
-        else if(currentIndex <=0)
+        else if(currentIndex < 0)
         {
             currentIndex = SOManager.Ins.weaponS0.Count - 1;
         }
@@ -71,6 +75,8 @@ public class ShopWeaponUI : Singleton<ShopWeaponUI>
 
             nameEquipment.text = SOManager.Ins.weaponS0[currentIndex].weaponName;
 
+            description.text = "+ " + SOManager.Ins.weaponS0[currentIndex].percentUpRange + "% Attack Range";
+
             bool isUnlocked = Pref.GetBool(PrefConst.WEAPON_PEFIX + shopItemID);
 
             if (isUnlocked)
@@ -78,17 +84,23 @@ public class ShopWeaponUI : Singleton<ShopWeaponUI>
                 if (shopItemID == Pref.CurWeaponId)
                 {
                     if (priceText) priceText.text = "Eqquiped";
+
+                    btnBuy.image.sprite = ShopManager.Ins.imageButtonUnEquip;
                 }
 
                 else
                 {
                     if (priceText) priceText.text = "Select";
+
+                    btnBuy.image.sprite = ShopManager.Ins.imageButtonSelect;
                 }
             }
 
             else
             {
                 if (priceText) priceText.text = SOManager.Ins.weaponS0[currentIndex].price.ToString();
+
+                btnBuy.image.sprite = ShopManager.Ins.imageButtonBuy;
             }
         }
     }
@@ -108,7 +120,9 @@ public class ShopWeaponUI : Singleton<ShopWeaponUI>
             //nếu ko phải thì thay đổi dữ liệu currentid
             Pref.CurWeaponId = shopItemID;
             player.ChangeWeapon(SOManager.Ins.weaponS0[currentIndex].ID);
+
             if (priceText) priceText.text = "Eqquiped";
+            btnBuy.image.sprite = ShopManager.Ins.imageButtonUnEquip;
         }
 
         else
@@ -123,7 +137,10 @@ public class ShopWeaponUI : Singleton<ShopWeaponUI>
                 Pref.CurWeaponId = shopItemID;
 
                 player.ChangeWeapon(SOManager.Ins.weaponS0[currentIndex].ID);
+
                 if (priceText) priceText.text = "Eqquiped";
+                btnBuy.image.sprite = ShopManager.Ins.imageButtonUnEquip;
+
                 this.SetCoinText(player.Coins);
             }
         }

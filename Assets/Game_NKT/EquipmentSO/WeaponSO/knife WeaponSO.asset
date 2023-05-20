@@ -18,3 +18,4 @@ MonoBehaviour:
   weaponPrefab: {fileID: -7677522107716371786, guid: e3de3e596ca208349aa82804b34780ab, type: 3}
   weaponModel: {fileID: -7999846058987200716, guid: 57242117261b9c9489c07f312513c564, type: 3}
   weaponName: Knife
+  percentUpRange: 15

@@ -17,19 +17,19 @@ public class Pref
     {
         set => PlayerPrefs.SetInt(PrefConst.CUR_SKINHAIR_ID, value);
 
-        get => PlayerPrefs.GetInt(PrefConst.CUR_SKINHAIR_ID,0);
+        get => PlayerPrefs.GetInt(PrefConst.CUR_SKINHAIR_ID,-1);
     }
     public static int CurPantId
     {
         set => PlayerPrefs.SetInt(PrefConst.CUR_SKINPANT_ID, value);
 
-        get => PlayerPrefs.GetInt(PrefConst.CUR_SKINPANT_ID,0);
+        get => PlayerPrefs.GetInt(PrefConst.CUR_SKINPANT_ID,-1);
     }
     public static int CurShieldId
     {
         set => PlayerPrefs.SetInt(PrefConst.CUR_SKINSHIELD_ID, value);
 
-        get => PlayerPrefs.GetInt(PrefConst.CUR_SKINSHIELD_ID, 0);
+        get => PlayerPrefs.GetInt(PrefConst.CUR_SKINSHIELD_ID, -1);
     }
 
 

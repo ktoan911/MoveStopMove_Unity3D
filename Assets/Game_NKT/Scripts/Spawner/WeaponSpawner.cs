@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class WeaponSpawner : Spawner
 {
@@ -45,7 +44,7 @@ public class WeaponSpawner : Spawner
     }
 
 
-    public void ChangeModelWeaponPlayer(Transform parentSpawn, int id )
+    public void ChangeModelWeaponPlayer(Player player, Transform parentSpawn, int id )
     {
         ClearPastWeapon(parentSpawn);
 
@@ -55,6 +54,9 @@ public class WeaponSpawner : Spawner
         Quaternion localRot = weaponSO.weaponModel.transform.localRotation;
 
         WeaponModel weaponModelPool = SimplePool.Spawn<WeaponModel>(weaponSO.weaponModel, Vector3.zero, Quaternion.identity);
+
+        if(id != 0) weaponModelPool.OnInit(player, weaponSO.percentUpRange);
+
         weaponModelPool.gameObject.transform.SetParent(parentSpawn);
 
         weaponModelPool.gameObject.transform.localPosition = localPosition;

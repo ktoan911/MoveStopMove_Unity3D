@@ -9,6 +9,9 @@ public class PlayerRange : MonoBehaviour
 
     [SerializeField] private SphereCollider sphereCollider;
 
+
+    //Nếu muốn cộng dồn thì phải thay đổi giá trị player.atkrange nhưng mà game
+    //này chưa đến mức cộng dồn
     public void ChangeAttackRange(float attackRange)
     {
         if (sphereCollider != null)

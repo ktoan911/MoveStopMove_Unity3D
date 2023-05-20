@@ -50,9 +50,7 @@ public class GameManager : Singleton<GameManager>
 
     public void ResumeGame()
     {
-        Time.timeScale = 1f;
-
-        
+        Time.timeScale = 1f; 
     }
 
     public void SetCoinPlayer()

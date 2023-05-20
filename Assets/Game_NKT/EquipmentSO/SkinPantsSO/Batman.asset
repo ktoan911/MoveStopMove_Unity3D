@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9a2e181e9027748a6740e566cf8f90, type: 3}
   m_Name: Batman
   m_EditorClassIdentifier: 
-  skinPantPrefab: {fileID: 2100000, guid: 56507925b90e6964bab4a55527cb611d, type: 2}
-  IDSkin: 0
-  skinRange: 0
-  skinPrice: 100
   hud: {fileID: 21300000, guid: 0806d2ad9e543b64dab8a6583c3b2039, type: 3}
+  ID: 0
+  price: 0
+  skinPantPrefab: {fileID: -7811108081233883625, guid: 783cd0fe080c40c41ac455f204ed5a41, type: 3}
+  percentUpSpeed: 8

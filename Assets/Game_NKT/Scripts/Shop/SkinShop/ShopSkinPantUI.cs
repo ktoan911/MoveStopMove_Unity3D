@@ -23,16 +23,23 @@ public class ShopSkinPantUI : ShopSkinUI<SkinPantsSO>
 
         shopItemID = skinSO.ID;
 
-        bool isUnlocked = Pref.GetBool(PrefConst.CUR_SKINPANT_ID + shopItemID);
+        bool isUnlocked = Pref.GetBool(PrefConst.SKINPANT_PEFIX + shopItemID);
 
         if (isUnlocked)
         {
-            if (shopItemID == Pref.CurPantId) this.ShopSkinItemAction("UnEqqip", frame, ShopManager.Ins.imageButtonUnEquip);
-            else this.ShopSkinItemAction("Select", frame, ShopManager.Ins.imageButtonSelect);
+            if (shopItemID == Pref.CurPantId)
+            {
+                this.ShopSkinItemAction("UnEqqip", frame, ShopManager.Ins.imageButtonUnEquip, EquipText);
+
+            }
+            else
+            {
+                this.ShopSkinItemAction("Select", frame, ShopManager.Ins.imageButtonSelect, EquipText);
+            }
         }
         else
         {
-            this.ShopSkinItemAction(skinSO.price.ToString(), frame, ShopManager.Ins.imageButtonBuy);
+            this.ShopSkinItemAction(skinSO.price.ToString(), frame, ShopManager.Ins.imageButtonBuy, EquipText);
         }
 
     }

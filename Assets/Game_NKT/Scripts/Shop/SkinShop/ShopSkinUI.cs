@@ -12,9 +12,13 @@ public class ShopSkinUI<T> : MonoBehaviour where T : ParentSO
 
     public T skinSO;
 
-    public UnityAction<string, GameObject, Sprite> ShopSkinItemAction;
+    public UnityAction<string, GameObject, Sprite, GameObject> ShopSkinItemAction;
 
     public GameObject frame;
+
+    public GameObject iconBlock;
+
+    public GameObject EquipText;
     public virtual void SetInfoItem(int currentIndex)
     {
 

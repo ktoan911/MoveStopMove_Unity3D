@@ -25,12 +25,19 @@ public class ShopSkinHairUI : ShopSkinUI<SkinHatSO>
 
         if (isUnlocked)
         {
-            if (shopItemID == Pref.CurHairId) this.ShopSkinItemAction("UnEqqip",frame,ShopManager.Ins.imageButtonUnEquip);
-            else this.ShopSkinItemAction("Select",frame, ShopManager.Ins.imageButtonSelect);
+            if (shopItemID == Pref.CurHairId)
+            {
+                this.ShopSkinItemAction("UnEqqip", frame, ShopManager.Ins.imageButtonUnEquip, EquipText);
+
+            }
+            else
+            {
+                this.ShopSkinItemAction("Select",frame, ShopManager.Ins.imageButtonSelect, EquipText);
+            }
         }
         else
         {
-            this.ShopSkinItemAction(skinSO.price.ToString(),frame, ShopManager.Ins.imageButtonBuy);
+            this.ShopSkinItemAction(skinSO.price.ToString(),frame, ShopManager.Ins.imageButtonBuy, EquipText);
         }
     }
 

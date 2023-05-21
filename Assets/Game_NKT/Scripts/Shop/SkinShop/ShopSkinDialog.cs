@@ -6,6 +6,7 @@ using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class ShopSkinDialog : Singleton<ShopSkinDialog>
 {
     public Transform gridRoot;
@@ -24,15 +25,38 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
 
     private GameObject curFrame;
 
+    private ShopSkinTag shopSkinTag;
+
+    private GameObject curTextEquipMent;
+
+    private GameObject pastTextEquipMent;
+
     public Button curEquipTypeButton;
+
+    private int prefCurTypeSkin;
 
     public void UpdateSkinUI<T, U>(List<T> items, U itemUIPrefab) where T : ParentSO where U : ShopSkinUI<T>
     {
-        BuySkinButton.Ins.ShopSkinItemBuyAction += UpdatePriceText;
+        BuySkinButton.Ins.ShopSkinItemBuyAction += UpdateEventBuyItem;
 
         if (items == null || items.Count < 1 || !itemUIPrefab || !gridRoot) return;
 
         this.ClearChildren();
+
+
+        switch (shopSkinTag)
+        {
+            case ShopSkinTag.hair:
+                prefCurTypeSkin = Pref.CurHairId;
+                break;
+            case ShopSkinTag.pant:
+                prefCurTypeSkin = Pref.CurPantId;
+                break;
+            case ShopSkinTag.shield:
+                prefCurTypeSkin = Pref.CurShieldId;
+                break;
+        }
+
 
         for (int i = 0; i < items.Count; i++)
         {
@@ -48,6 +72,14 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
 
                 itemUIClone.SetInfoItem(i);
                 itemUIClone.ShopSkinItemAction += UpdateButton;
+
+                if (item.ID == prefCurTypeSkin)
+                {
+                    curTextEquipMent = itemUIClone.EquipText;
+
+                    curTextEquipMent.SetActive(true);
+                }
+
             }
             else
             {
@@ -58,23 +90,29 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
 
     public void UpdateSkinHairUI()
     {
+        shopSkinTag = ShopSkinTag.hair;
+
         List<SkinHatSO> items = SOManager.Ins.skinHairS0;
         UpdateSkinUI(items, itemHairUIPrefab);
     }
 
     public void UpdateSkinPantsUI()
     {
-        List<SkinPantsSO> items = SOManager.Ins.skinPantsS0;
+        shopSkinTag = ShopSkinTag.pant;
+
+        List <SkinPantsSO> items = SOManager.Ins.skinPantsS0;
         UpdateSkinUI(items, itemPantUIPrefab);
     }
 
     public void UpdateSkinShieldUI()
     {
+        shopSkinTag = ShopSkinTag.shield;
+
         List<SkinShieldSO> items = SOManager.Ins.skinShieldS0;
         UpdateSkinUI(items, itemShieldUIPrefab);
     }
 
-    public void ClearChildren()
+    private void ClearChildren()
     {
         if(!gridRoot || gridRoot.childCount <= 0) return;
 
@@ -86,25 +124,32 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
         }
     }
 
-    private void UpdatePriceText(string priceText)
+    private void UpdateEventBuyItem(string priceText)
     {
         this.priceText.text = priceText;
+
+        if(pastTextEquipMent) pastTextEquipMent.SetActive(false);
+
+        curTextEquipMent.SetActive(true);
+
+
     }
 
-
-    private void UpdateButton(string priceText, GameObject currrentFrame, Sprite buttonImage)
+    private void UpdateButton(string priceText, GameObject currrentFrame, Sprite buttonImage, GameObject EquipText)
     {
         if(curFrame != null)
         {
             curFrame.SetActive(false);
         }
 
-        UpdatePriceText(priceText);
+        this.priceText.text = priceText;
 
         buyButton.image.sprite = buttonImage;
-
-
         this.curFrame = currrentFrame;
+
+        this.pastTextEquipMent = curTextEquipMent;
+
+        this.curTextEquipMent= EquipText;
 
         curFrame.SetActive(true);
     }

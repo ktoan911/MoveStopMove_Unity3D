@@ -89,4 +89,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolType: 0
   buffType: 0
-  material: {fileID: 2100000, guid: 37d95ae247dc5df4f89008d3e1925b8e, type: 2}
+  pantMaterial: {fileID: 2100000, guid: 37d95ae247dc5df4f89008d3e1925b8e, type: 2}

@@ -13,6 +13,6 @@ public class GamePlayDialog : Singleton<GamePlayDialog>
     }
     public void SetNumberEnemiesText(int numberEnemies)
     {
-        numberEnemiesText.text = numberEnemies.ToString();
+        numberEnemiesText.text = "Alive: " + numberEnemies;
     }
 }

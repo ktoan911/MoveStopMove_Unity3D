@@ -43,6 +43,7 @@ public class EnemySpawner : Spawner
         for (int i = 0; i < spawnPos.Count; i++)
         {
             Enemy enemyPool = SimplePool.Spawn<Enemy>(enemyPrfab, GetClosestPointOnNavmesh(SpawnPos().position), SpawnPos().rotation);
+
             enemyPool.OnInit();
             numberSpawn++;
         }

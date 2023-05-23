@@ -15,7 +15,7 @@ MonoBehaviour:
   hud: {fileID: 21300000, guid: 850560a3d5d05414985431b7fe969284, type: 3}
   ID: 3
   price: 200
-  weaponPrefab: {fileID: -8369830691923314487, guid: 4484091a77a0f5d40a3b445f41b5dca6, type: 3}
+  weaponPrefab: {fileID: 1025105472895052291, guid: 4484091a77a0f5d40a3b445f41b5dca6, type: 3}
   weaponModel: {fileID: -8188928166018587354, guid: 580fe84d7ff730b43bcf642049822a9e, type: 3}
   weaponName: Boomerang
   percentUpRange: 10

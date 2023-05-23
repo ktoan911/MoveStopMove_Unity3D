@@ -15,7 +15,7 @@ MonoBehaviour:
   hud: {fileID: 21300000, guid: 33c349a86a058c34196d38bf8d1d2ca9, type: 3}
   ID: 9
   price: 400
-  weaponPrefab: {fileID: -7677522107716371786, guid: e3de3e596ca208349aa82804b34780ab, type: 3}
+  weaponPrefab: {fileID: -2573274021469725172, guid: e3de3e596ca208349aa82804b34780ab, type: 3}
   weaponModel: {fileID: -7999846058987200716, guid: 57242117261b9c9489c07f312513c564, type: 3}
   weaponName: Knife
   percentUpRange: 15

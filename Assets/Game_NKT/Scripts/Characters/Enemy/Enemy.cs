@@ -34,6 +34,8 @@ public class Enemy : Characters
         IsAttack = false;
         currentState.ChangeState(new ESleepState());
 
+        SpawnWayPoint(this.transform.position);
+
         this.enemyIDWeapon = RandomWeapon();
     }
 
@@ -119,5 +121,11 @@ public class Enemy : Characters
         }
         return SOManager.Ins.weaponS0[0].ID;
 
+    }
+
+    public void SpawnWayPoint(Vector3 pos)
+    {
+        WayPoint waypointClone = SimplePool.Spawn<WayPoint>(wayPointPrefab, pos, Quaternion.identity);
+        waypointClone.OnInit(this);
     }
 }

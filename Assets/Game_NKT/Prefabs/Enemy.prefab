@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &193257336433765554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2641595078544035786}
+  m_Layer: 0
+  m_Name: ThrowPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2641595078544035786
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193257336433765554}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.108, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6186479651976424494}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6186479651939607579
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +193,7 @@ Transform:
   - {fileID: 6186479651939607576}
   - {fileID: 1198096836697163209}
   - {fileID: 8650138909488783912}
+  - {fileID: 2641595078544035786}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -200,8 +232,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolType: 0
+  attackRange: 0
   anim: {fileID: 9091216752348375219}
   Target: {fileID: 0}
+  throwPoint: {fileID: 2641595078544035786}
+  wayPointPrefab: {fileID: 5538745933338826293, guid: 8e82fd994d48dad4a89fbd2cc6e2e108, type: 3}
   agent: {fileID: 1966872626502863952}
   finalPosition: {x: 0, y: 0, z: 0}
   player: {fileID: 1198096836697163209}
@@ -323,6 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 6186479651976424481}
+  sphereCollider: {fileID: 0}
 --- !u!54 &2196710235711066114
 Rigidbody:
   m_ObjectHideFlags: 0

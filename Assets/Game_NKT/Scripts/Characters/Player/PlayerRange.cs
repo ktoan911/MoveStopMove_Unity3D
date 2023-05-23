@@ -35,5 +35,12 @@ public class PlayerRange : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        player.Target = null;
+
+        player.IsAttack = false;
+    }
+
  
 }

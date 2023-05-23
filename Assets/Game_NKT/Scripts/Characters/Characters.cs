@@ -26,6 +26,10 @@ public class Characters : GameUnit
 
     public Transform Target;
 
+    public Transform throwPoint;
+
+    public WayPoint wayPointPrefab;
+
     private void Update()
     {
         this.CharactersUpdate();

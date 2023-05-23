@@ -15,7 +15,7 @@ MonoBehaviour:
   hud: {fileID: 21300000, guid: 5a7af5be6b42eb940ac6d08116d0fe7e, type: 3}
   ID: 7
   price: 300
-  weaponPrefab: {fileID: 3798092655142971573, guid: ecc88625ffe67204eaf65cba6fa19251, type: 3}
+  weaponPrefab: {fileID: -5050326252302688881, guid: ecc88625ffe67204eaf65cba6fa19251, type: 3}
   weaponModel: {fileID: -2315910925893894316, guid: 1e3e9b83d6a5d914781f546f23d6f9d4, type: 3}
   weaponName: candy_4
   percentUpRange: 10

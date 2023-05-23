@@ -130,7 +130,7 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
 
         if(pastTextEquipMent) pastTextEquipMent.SetActive(false);
 
-        curTextEquipMent.SetActive(true);
+        if(curTextEquipMent != null) curTextEquipMent.SetActive(true);
 
 
     }
@@ -158,7 +158,7 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
     {
         if(curEquipTypeButton!= null)
         {
-            curEquipTypeButton.image.color = new Color(0, 0, 0, 120f / 255); 
+            curEquipTypeButton.image.color = new Color(0, 0, 0, 121f / 255); 
         }
 
         this.UpdateSkinHairUI();
@@ -167,7 +167,7 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
     {
         if (curEquipTypeButton != null)
         {
-            curEquipTypeButton.image.color = new Color(0, 0, 0, 120f / 255);
+            curEquipTypeButton.image.color = new Color(0, 0, 0, 121f / 255);
         }
 
         this.UpdateSkinPantsUI();
@@ -176,7 +176,7 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
     {
         if (curEquipTypeButton != null)
         {
-            curEquipTypeButton.image.color = new Color(0, 0, 0, 120f / 255);
+            curEquipTypeButton.image.color = new Color(0, 0, 0, 121f / 255);
         }
 
         this.UpdateSkinShieldUI();

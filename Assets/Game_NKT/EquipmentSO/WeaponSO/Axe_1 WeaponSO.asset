@@ -15,7 +15,7 @@ MonoBehaviour:
   hud: {fileID: 21300000, guid: dd47ffa33ce48924eb157693923298bb, type: 3}
   ID: 2
   price: 100
-  weaponPrefab: {fileID: 6967378847428034135, guid: ddee198a9924fbb448a1a9923f4b8407, type: 3}
+  weaponPrefab: {fileID: -3485373572144789377, guid: ddee198a9924fbb448a1a9923f4b8407, type: 3}
   weaponModel: {fileID: -1853298620136182930, guid: bd8df239410ccff40a1ce251c285f049, type: 3}
   weaponName: Axe_1
   percentUpRange: 5

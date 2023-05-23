@@ -24,6 +24,8 @@ public class Enemy : Characters
 
     public int enemyIDWeapon;
 
+    public WayPoint waypointClone;
+
     public override void OnInit()
     {
         base.OnInit();
@@ -34,7 +36,7 @@ public class Enemy : Characters
         IsAttack = false;
         currentState.ChangeState(new ESleepState());
 
-        SpawnWayPoint(this.transform.position);
+        SpawnWayPoint(this.transform.position); // sinh ra waypoint
 
         this.enemyIDWeapon = RandomWeapon();
     }
@@ -125,7 +127,7 @@ public class Enemy : Characters
 
     public void SpawnWayPoint(Vector3 pos)
     {
-        WayPoint waypointClone = SimplePool.Spawn<WayPoint>(wayPointPrefab, pos, Quaternion.identity);
+        waypointClone = SimplePool.Spawn<WayPoint>(wayPointPrefab, pos, Quaternion.identity);
         waypointClone.OnInit(this);
     }
 }

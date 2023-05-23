@@ -19,6 +19,7 @@ public class EDeadState : IState<Enemy>
         if (timeDelayDead > 0) return;
 
         t.OnDespawn();
+        t.waypointClone.OnDespawn();
     }
 
     public void OnExit(Enemy t)

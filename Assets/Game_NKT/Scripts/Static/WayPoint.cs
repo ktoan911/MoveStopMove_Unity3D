@@ -37,7 +37,7 @@ public class WayPoint : GameUnit
     }
     public override void OnDespawn()
     {
-        throw new System.NotImplementedException();
+        SimplePool.Despawn(this);
     }
 
     public override void OnInit()

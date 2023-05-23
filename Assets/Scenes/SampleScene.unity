@@ -568,6 +568,66 @@ MonoBehaviour:
     amount: 30
     collect: 1
     clamp: 0
+  - root: {fileID: 1946066014}
+    prefab: {fileID: 1914284165031448918, guid: ebf0d47c20ef4e3478a291dfa9f7790f, type: 3}
+    amount: 5
+    collect: 1
+    clamp: 0
+  - root: {fileID: 1946066014}
+    prefab: {fileID: 1563348748351675762, guid: 4e070ce3d96c15c4797bc686a875f8e4, type: 3}
+    amount: 5
+    collect: 1
+    clamp: 0
+  - root: {fileID: 1946066014}
+    prefab: {fileID: -3485373572144789377, guid: ddee198a9924fbb448a1a9923f4b8407, type: 3}
+    amount: 5
+    collect: 1
+    clamp: 0
+  - root: {fileID: 1946066014}
+    prefab: {fileID: 1025105472895052291, guid: 4484091a77a0f5d40a3b445f41b5dca6, type: 3}
+    amount: 5
+    collect: 1
+    clamp: 0
+  - root: {fileID: 1946066014}
+    prefab: {fileID: 4806868402547625706, guid: 2a9ccd56ac466444eb00cc00224bf719, type: 3}
+    amount: 5
+    collect: 1
+    clamp: 0
+  - root: {fileID: 1946066014}
+    prefab: {fileID: 734204828197187233, guid: a960bef7feb2c5549826b629ef7afed1, type: 3}
+    amount: 5
+    collect: 1
+    clamp: 0
+  - root: {fileID: 1946066014}
+    prefab: {fileID: 8071454035112202685, guid: 18b09583bd1ad9240bbeab133c2804f8, type: 3}
+    amount: 5
+    collect: 1
+    clamp: 0
+  - root: {fileID: 1946066014}
+    prefab: {fileID: -5050326252302688881, guid: ecc88625ffe67204eaf65cba6fa19251, type: 3}
+    amount: 5
+    collect: 1
+    clamp: 0
+  - root: {fileID: 1946066014}
+    prefab: {fileID: 3819801102518065347, guid: 5aff4272bdd97404d9d4e80367732091, type: 3}
+    amount: 5
+    collect: 1
+    clamp: 0
+  - root: {fileID: 1946066014}
+    prefab: {fileID: -2573274021469725172, guid: e3de3e596ca208349aa82804b34780ab, type: 3}
+    amount: 5
+    collect: 1
+    clamp: 0
+  - root: {fileID: 1946066014}
+    prefab: {fileID: 4994769125273591114, guid: 9606bea73caadb84291b3162324229f5, type: 3}
+    amount: 5
+    collect: 1
+    clamp: 0
+  - root: {fileID: 1946066014}
+    prefab: {fileID: -9175810112943612797, guid: 5817c034f19c5844bb10856076acdd82, type: 3}
+    amount: 5
+    collect: 1
+    clamp: 0
   Particle: []
 --- !u!1 &391202401
 GameObject:

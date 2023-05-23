@@ -131,5 +131,6 @@ public class Enemy : Characters
     {
         waypointClone = SimplePool.Spawn<WayPoint>(wayPointPrefab, pos, Quaternion.identity);
         waypointClone.OnInit(this);
+        waypointClone.transform.localRotation = wayPointPrefab.transform.rotation;
     }
 }

@@ -9,6 +9,8 @@ public class WayPoint : GameUnit
 
     private Transform target;
 
+    public Vector3 offset = new Vector3(0,20,0);
+
     private void Update()
     {
         this.UpdatePosition();
@@ -21,13 +23,13 @@ public class WayPoint : GameUnit
 
         float minY = img.GetPixelAdjustedRect().height / 2;
         float maxY = Screen.height - minY;
-        Vector2 pos = Camera.main.WorldToScreenPoint(target.position);
+        Vector3 pos = Camera.main.WorldToScreenPoint(target.position + offset);
 
-        //if (Vector3.Dot((target.position - transform.position), transform.forward) < 0)
-        //{
-        //    if (pos.x < Screen.width / 2) pos.x = maxX;
-        //}
-        //else pos.x = minX;
+        if (pos.z < 0)
+        {
+            pos.y = Screen.height - pos.y;
+            pos.x = Screen.width - pos.x;
+        }
 
 
         pos.x = Mathf.Clamp(pos.x, minX, maxX);
@@ -53,5 +55,6 @@ public class WayPoint : GameUnit
     public void OnInit(Characters character)
     {
         target = character.transform;
+
     }
 }

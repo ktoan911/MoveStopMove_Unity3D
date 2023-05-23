@@ -26,6 +26,8 @@ public class Enemy : Characters
 
     public WayPoint waypointClone;
 
+    public bool isIntialActive = false;
+
     public override void OnInit()
     {
         base.OnInit();

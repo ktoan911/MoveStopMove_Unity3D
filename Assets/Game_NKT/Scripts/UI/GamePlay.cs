@@ -14,6 +14,6 @@ public class GamePlay : UICanvas
     {
         UIManager.Ins.OpenUI<Setting>();
 
-        GameManager.Ins.PauseGame();
+        //GameManager.Ins.PauseGame();
     }
 }

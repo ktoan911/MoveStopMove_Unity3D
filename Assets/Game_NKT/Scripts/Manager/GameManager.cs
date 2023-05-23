@@ -14,6 +14,8 @@ public class GameManager : Singleton<GameManager>
 
     public int numberOfEnemies;
 
+    public bool isPlayGame = false;
+
     protected void Awake()
     {
         Input.multiTouchEnabled = false;
@@ -28,29 +30,16 @@ public class GameManager : Singleton<GameManager>
         }
         UIManager.Ins.OpenUI<MainMenu>();
 
-       // Pref.Coins = 1000;
-
         this.SetCoinPlayer();
 
         MenuDialog.Ins.SetCoinText(player.Coins);
 
-        this.PauseGame();
+        //this.PauseGame();
     }
 
     private void Start()
     {
         numberOfEnemies = 100;
-    }
-
-    public void PauseGame()
-    {
-        Time.timeScale = 0f;
-        
-    }
-
-    public void ResumeGame()
-    {
-        Time.timeScale = 1f; 
     }
 
     public void SetCoinPlayer()

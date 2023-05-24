@@ -12,8 +12,6 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private Enemy enemy;
     public Enemy Enemy { get => enemy; }
 
-    public int numberOfEnemies;
-
     public bool isPlayGame = false;
 
     protected void Awake()
@@ -37,22 +35,11 @@ public class GameManager : Singleton<GameManager>
         //this.PauseGame();
     }
 
-    private void Start()
-    {
-        numberOfEnemies = 100;
-    }
-
     public void SetCoinPlayer()
     {
         player.Coins = Pref.Coins;
     }
 
-    public void OnUpdateNumberEnemies()
-    {
-        --numberOfEnemies;
-
-        GamePlayDialog.Ins.SetNumberEnemiesText(numberOfEnemies);
-    }
 
 
 

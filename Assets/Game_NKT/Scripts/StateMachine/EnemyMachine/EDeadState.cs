@@ -10,7 +10,7 @@ public class EDeadState : IState<Enemy>
 
         t.ChangeAnim("Dead");
 
-        GameManager.Ins.OnUpdateNumberEnemies();
+        PlatformManager.Ins.OnUpdateNumberEnemies();
     }
 
     public void OnExecute(Enemy t)

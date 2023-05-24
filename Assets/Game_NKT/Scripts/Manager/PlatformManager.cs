@@ -5,20 +5,17 @@ using UnityEngine;
 
 public class PlatformManager : Singleton<PlatformManager>
 {
-    private List<Transform> platformList;
-
     public int numberEnemiesDead;
 
     public int numberEnemies;
 
+    public int numberOfEnemies;
 
-    private void Awake()
-    {
-        platformList = new List<Transform>();
-    }
     private void Start()
     {
         EnemySpawner.Instance.SpawnEnemies();
+
+        numberOfEnemies = 100;
     }
     private void Update()
     {
@@ -27,10 +24,19 @@ public class PlatformManager : Singleton<PlatformManager>
 
     private void ReSpawnEnemies()
     {
-        if(numberEnemiesDead > 15)
+        if(numberEnemiesDead >= 7 )
         {
-            EnemySpawner.Instance.ReSpawn(15);
+            EnemySpawner.Instance.ReSpawn(8);
             numberEnemiesDead = 0;
         }
+    }
+
+    public void OnUpdateNumberEnemies()
+    {
+        --numberOfEnemies;
+
+        numberEnemiesDead++;
+
+        GamePlayDialog.Ins.SetNumberEnemiesText(numberOfEnemies);
     }
 }

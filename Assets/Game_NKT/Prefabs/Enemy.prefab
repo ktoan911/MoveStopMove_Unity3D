@@ -246,6 +246,8 @@ MonoBehaviour:
   enemyCollider: {fileID: 6186479651939607577}
   hitColliders: []
   enemyIDWeapon: 0
+  waypointClone: {fileID: 0}
+  isIntialActive: 0
 --- !u!1 &9098254931599917614
 GameObject:
   m_ObjectHideFlags: 0

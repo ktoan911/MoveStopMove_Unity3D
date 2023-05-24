@@ -9,7 +9,7 @@ public class GamePlayDialog : Singleton<GamePlayDialog>
 
     public void OnInit()
     {
-        this.SetNumberEnemiesText(GameManager.Ins.numberOfEnemies);
+        this.SetNumberEnemiesText(PlatformManager.Ins.numberOfEnemies);
     }
     public void SetNumberEnemiesText(int numberEnemies)
     {

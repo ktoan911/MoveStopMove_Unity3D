@@ -14,6 +14,8 @@ public class EnemySpawner : Spawner
 
     [SerializeField] protected List<Transform> spawnPos = new List<Transform>();
 
+    [SerializeField] protected List<Transform> reSpawnPos = new List<Transform>();
+
     private void Awake()
     {
         instance = this;
@@ -37,6 +39,16 @@ public class EnemySpawner : Spawner
         }
         return spawnPos[numberSpawn];
     }
+
+    public Transform ReSpawnPos()
+    {
+        if (reSpawnPos.Count < numberSpawn + 1)
+        {
+            return null;
+        }
+        return reSpawnPos[numberSpawn];
+    }
+
     protected override void OnSpawn()
     {
         base.OnSpawn();
@@ -47,6 +59,8 @@ public class EnemySpawner : Spawner
             enemyPool.OnInit();
             numberSpawn++;
         }
+
+        this.numberSpawn = 0;
 
     }
 
@@ -59,9 +73,12 @@ public class EnemySpawner : Spawner
     {
         for (int i = 0; i < numberSpawn - 1; i++)
         {
-            Enemy enemyPool = SimplePool.Spawn<Enemy>(enemyPrfab, GetClosestPointOnNavmesh(SpawnPos().position), SpawnPos().rotation);
+            Enemy enemyPool = SimplePool.Spawn<Enemy>(enemyPrfab, GetClosestPointOnNavmesh(ReSpawnPos().position), ReSpawnPos().rotation);
             enemyPool.OnInit();
+            this.numberSpawn++;
         }
+
+        this.numberSpawn = 0;
     }
 
 

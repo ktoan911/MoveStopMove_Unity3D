@@ -50,38 +50,56 @@ public class Enemy : Characters
         base.CharactersUpdate();
     }
 
+    public static Vector3 GetRandomPoint(Vector3 center, float maxDistance)
+    {
+        // Get Random Point inside Sphere which position is center, radius is maxDistance
+        Vector3 randomPos = Random.insideUnitSphere * maxDistance + center;
+
+        NavMeshHit hit; // NavMesh Sampling Info Container
+
+        // from randomPos find a nearest point on NavMesh surface in range of maxDistance
+        NavMesh.SamplePosition(randomPos, out hit, maxDistance, NavMesh.AllAreas);
+
+        return hit.position;
+    }
+
     public void SeekForTarget() 
     {
-        Vector3 scaleBox = new Vector3(100, 5, 100);
-        hitColliders = Physics.OverlapBox(this.transform.position, scaleBox / 2, Quaternion.identity, layerCharacter);
 
-        if(hitColliders.Length <2)
-        {
-            finalPosition = player.position; // ko the keo tha transform player ???
+        #region seek enemy
+        //Vector3 scaleBox = new Vector3(100, 5, 100);
+        //hitColliders = Physics.OverlapBox(this.transform.position, scaleBox / 2, Quaternion.identity, layerCharacter);
 
-            return;
-        }
+        //if(hitColliders.Length <2)
+        //{
+        //    finalPosition = player.position; // ko the keo tha transform player ???
 
-        float minDistance = float.MaxValue;
-        Vector3 minPos = Vector3.zero;
+        //    return;
+        //}
 
-        for (int i = 0; i < hitColliders.Length; i++)
-        {
-            if (hitColliders[i] == this.enemyCollider)
-            {
-                continue;
-            }
+        //float minDistance = float.MaxValue;
+        //Vector3 minPos = Vector3.zero;
 
-            float distanceTmp = Vector3.Distance(hitColliders[i].transform.position, this.transform.position);
+        //for (int i = 0; i < hitColliders.Length; i++)
+        //{
+        //    if (hitColliders[i] == this.enemyCollider)
+        //    {
+        //        continue;
+        //    }
 
-            if (distanceTmp < minDistance)
-            {
-                minDistance = distanceTmp;
-                minPos = hitColliders[i].transform.position;
-            }
-        }
+        //    float distanceTmp = Vector3.Distance(hitColliders[i].transform.position, this.transform.position);
 
-        finalPosition = minPos;
+        //    if (distanceTmp < minDistance)
+        //    {
+        //        minDistance = distanceTmp;
+        //        minPos = hitColliders[i].transform.position;
+        //    }
+        //}
+
+        #endregion
+
+        finalPosition = GetRandomPoint(new Vector3(0, 0, 0), 50f) ;
+
         IsFoundCharacter = true;
         GotoTarget();
     }
@@ -90,7 +108,11 @@ public class Enemy : Characters
     public void GotoTarget()
     {
         agent.SetDestination(finalPosition);
+    }
 
+    public void GotoPoint(Vector3 pos)
+    {
+        agent.SetDestination(pos);
     }
 
     public void StopMove()

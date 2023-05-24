@@ -11,7 +11,7 @@ public class EIdleState : IState<Enemy>
     {
         t.IsMoving = false;
 
-        timer = 0.5f;
+        timer = 0f;
         currentTime = 0;
 
         t.StopMove();

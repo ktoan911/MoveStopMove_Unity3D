@@ -1,5 +1,6 @@
 ﻿using System.Runtime.ExceptionServices;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 
 public class Weapon : GameUnit
@@ -14,6 +15,8 @@ public class Weapon : GameUnit
 
     private float timeSelfDestroy;
 
+    private Characters characterAttack;
+
     private void Update()
     {
         SelfDestroy();
@@ -21,10 +24,14 @@ public class Weapon : GameUnit
         MoveToTargetStraight();
     }
 
-    public void SetDirection(Vector3 dir) 
+    public void SetDataWeapon(Vector3 dir, Characters character) 
     {
+        this.characterAttack = character;
+
         direction = dir;
         IsFire = true;
+
+
     }
 
     public void MoveToTargetStraight()
@@ -60,6 +67,8 @@ public class Weapon : GameUnit
         if (other.CompareTag("Enemy") || other.CompareTag("Player"))
         {
             this.OnDespawn();
+
+            UpdateLevelCharacter(characterAttack);
         }
     }
 
@@ -69,6 +78,11 @@ public class Weapon : GameUnit
         if (timeSelfDestroy > 0) return;
 
         this.OnDespawn();
+    }
+
+    private void UpdateLevelCharacter(Characters character)
+    {
+        character.level++;
     }
 
     public override void OnInit(Characters t, int percentUp)

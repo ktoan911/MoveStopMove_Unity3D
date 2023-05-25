@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : Characters
 {
@@ -27,6 +28,8 @@ public class Player : Characters
     public PlayerRange playerRange;
 
     public CircleAroundPlayer range;
+
+    public UnityAction DeadUI;
 
 
     private int coins;

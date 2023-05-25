@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class WayPoint : GameUnit
@@ -9,7 +7,14 @@ public class WayPoint : GameUnit
 
     private Transform target;
 
-    public Vector3 offset = new Vector3(0,20,0);
+    public Vector3 offset;
+
+    public GameObject arrow;
+
+    public GameObject arrowRotate;
+
+    private Vector2 targetDirection;
+
 
     private void Update()
     {
@@ -17,6 +22,8 @@ public class WayPoint : GameUnit
         {
             UpdatePosition();
         }
+
+        UpdateArrow();
     }
     
     private void UpdatePosition()
@@ -40,6 +47,30 @@ public class WayPoint : GameUnit
 
         img.transform.position = pos;
     }
+
+    private void UpdateArrow()
+    {
+        Vector2 pos = new Vector2(img.transform.position.x, img.transform.position.y);
+
+        Vector2 centerPoint = new Vector2(Screen.width / 2, Screen.height / 2);
+
+        targetDirection = pos - centerPoint;
+
+        Vector2 posY = new Vector2(0, 1);
+
+        float angle = Vector2.Angle(posY, targetDirection);
+
+        if (targetDirection.x > posY.x) // Kiểm tra xem vector đầu tiên nằm bên phải vector thứ hai
+        {
+            angle = 360 - angle; // Trừ giá trị góc khỏi 360 để có giá trị góc âm
+        }
+
+        arrow.transform.eulerAngles = Vector3.forward * angle;
+
+        arrowRotate.transform.eulerAngles = Vector3.forward * angle;
+
+
+    }
     public override void OnDespawn()
     {
         SimplePool.Despawn(this);
@@ -61,3 +92,16 @@ public class WayPoint : GameUnit
 
     }
 }
+
+
+//Vector2 pos = new Vector2(img.transform.position.x, img.transform.position.y);
+
+//Vector2 centerPoint = new Vector2(Screen.width / 2, Screen.height / 2);
+
+//targetDirection = pos - centerPoint;
+
+//Vector2 posY = new Vector2(0, 1);
+
+//float angle = Mathf.Atan2(posY, targetDirection) * Mathf.Rad2Deg;
+
+//arrow.transform.eulerAngles = Vector3.forward * angle;

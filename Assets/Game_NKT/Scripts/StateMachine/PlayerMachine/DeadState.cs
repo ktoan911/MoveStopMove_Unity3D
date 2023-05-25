@@ -18,6 +18,7 @@ public class DeadState : IState<Player>
         timeDelayDead -= Time.deltaTime;
         if (timeDelayDead > 0) return;
 
+        t.DeadUI();
         t.gameObject.SetActive(false);
 
     }

@@ -15,6 +15,8 @@ public class ESleepState : IState<Enemy>
         if (GameManager.Ins.IsPlayGame)
         {
             t.currentState.ChangeState(new EIdleState());
+
+            t.SpawnWayPoint(t.transform.position); // sinh ra waypoint
         }
     }
 

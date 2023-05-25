@@ -15,7 +15,7 @@ public class AttackState : IState<Player>
         attackDelayTime = 1f;
 
         t.ChangeAnim("Attack");
-        WeaponSpawner.Instance.SpawnPlayerWeapon(t.weaponID, t.TargetDirection(), t.throwPoint.position, t.attackRange);
+        WeaponSpawner.Instance.SpawnPlayerWeapon(t);
 
     }
 

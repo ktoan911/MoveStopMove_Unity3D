@@ -30,6 +30,10 @@ public class Characters : GameUnit
 
     public WayPoint wayPointPrefab;
 
+    public WayPoint waypointClone;
+
+    public int level;
+
     private void Update()
     {
         this.CharactersUpdate();
@@ -61,6 +65,8 @@ public class Characters : GameUnit
         Speed = 7f;
         this.rotationSpeed = 100f;
         this.attackRange = 5f;
+
+        this.level = 1;
     }
 
     public void ChangeAnim(string animName)
@@ -71,6 +77,18 @@ public class Characters : GameUnit
             currentAnim = animName;
             anim.SetTrigger(currentAnim);
         }
+    }
+
+    public void SpawnWayPoint(Vector3 pos)
+    {
+        waypointClone = SimplePool.Spawn<WayPoint>(wayPointPrefab, pos, Quaternion.identity);
+        waypointClone.OnInit(this);
+        waypointClone.transform.localRotation = wayPointPrefab.transform.rotation;
+    }
+
+    public virtual void UpdateLevel(int level)
+    {
+
     }
     public override void OnDespawn()
     {

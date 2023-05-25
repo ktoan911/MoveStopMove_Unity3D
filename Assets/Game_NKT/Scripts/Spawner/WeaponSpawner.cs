@@ -24,23 +24,23 @@ public class WeaponSpawner : Spawner
         return SOManager.Ins.weaponS0[0];
     }
 
-    public void SpawnPlayerWeapon(int weaponID, Vector3 direction, Vector3 pos, float attackRange)
+    public void SpawnPlayerWeapon(Player player)
     {
-        Weapon weaponPool = SimplePool.Spawn<Weapon>(GetWeaponSOByID(weaponID).weaponPrefab, pos , Quaternion.identity);
-        weaponPool.transform.rotation = Quaternion.LookRotation(direction);
+        Weapon weaponPool = SimplePool.Spawn<Weapon>(GetWeaponSOByID(player.weaponID).weaponPrefab, player.throwPoint.position, Quaternion.identity);
+        weaponPool.transform.rotation = Quaternion.LookRotation(player.TargetDirection());
         weaponPool.OnInit();
-        weaponPool.SetTimeDestroy(attackRange);
-        weaponPool.SetDirection(direction);
+        weaponPool.SetTimeDestroy(player.attackRange);
+        weaponPool.SetDataWeapon(player.TargetDirection(), player);
     }
 
-    public void SpawnEnemyWeapon(int Eid, Vector3 direction, Vector3 pos, float attackRange)
+    public void SpawnEnemyWeapon(Enemy enemy)
     {
          
-        Weapon weaponPool = SimplePool.Spawn<Weapon>(GetWeaponSOByID(Eid).weaponPrefab, pos, Quaternion.identity);
-        weaponPool.transform.rotation = Quaternion.LookRotation(direction);
+        Weapon weaponPool = SimplePool.Spawn<Weapon>(GetWeaponSOByID(enemy.enemyIDWeapon).weaponPrefab, enemy.throwPoint.position, Quaternion.identity);
+        weaponPool.transform.rotation = Quaternion.LookRotation(enemy.TargetDirection());
         weaponPool.OnInit();
-        weaponPool.SetTimeDestroy(attackRange);
-        weaponPool.SetDirection(direction);
+        weaponPool.SetTimeDestroy(enemy.attackRange);
+        weaponPool.SetDataWeapon(enemy.TargetDirection(),enemy);
     }
 
 

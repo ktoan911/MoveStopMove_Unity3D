@@ -8,12 +8,19 @@ public class GamePlay : UICanvas
     public void SetupOnOpen(Player player)
     {
         player.SetupJoystick(joystick);
+
+        player.DeadUI += LoseUI;
     }
 
     public void SettingButton()
     {
         UIManager.Ins.OpenUI<Setting>();
+    }
 
-        //GameManager.Ins.PauseGame();
+    public void LoseUI()
+    {
+        UIManager.Ins.OpenUI<LoseScreen>();
+
+        Close(0);
     }
 }

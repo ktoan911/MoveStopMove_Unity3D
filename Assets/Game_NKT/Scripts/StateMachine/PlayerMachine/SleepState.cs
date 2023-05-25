@@ -16,6 +16,8 @@ public class SleepState : IState<Player>
         if (GameManager.Ins.IsPlayGame)
         {
             t.currentState.ChangeState(new IdleState());
+
+            t.SpawnWayPoint(t.transform.position); // sinh ra waypoint
         }
     }
 

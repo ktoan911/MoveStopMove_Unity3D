@@ -24,8 +24,6 @@ public class Enemy : Characters
 
     public int enemyIDWeapon;
 
-    public WayPoint waypointClone;
-
     public bool isIntialActive = false;
 
     public SkinnedMeshRenderer mat;
@@ -41,8 +39,6 @@ public class Enemy : Characters
 
         IsAttack = false;
         currentState.ChangeState(new ESleepState());
-
-        SpawnWayPoint(this.transform.position); // sinh ra waypoint
 
         this.enemyIDWeapon = RandomWeapon();
 
@@ -153,13 +149,6 @@ public class Enemy : Characters
         }
         return SOManager.Ins.weaponS0[0].ID;
 
-    }
-
-    private void SpawnWayPoint(Vector3 pos)
-    {
-        waypointClone = SimplePool.Spawn<WayPoint>(wayPointPrefab, pos, Quaternion.identity);
-        waypointClone.OnInit(this);
-        waypointClone.transform.localRotation = wayPointPrefab.transform.rotation;
     }
 
     private void RandomMaterial()

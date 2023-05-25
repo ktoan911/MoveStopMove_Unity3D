@@ -9,6 +9,7 @@ public class CameraManager : Singleton<CameraManager>
     [SerializeField] private GameObject shopSkinCamera;
 
 
+
     public void PlayerViewInShopSkin()
     {
         shopSkinCamera.SetActive(true);

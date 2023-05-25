@@ -10,7 +10,8 @@ public class MainMenu : UICanvas
 
         GamePlayDialog.Ins.OnInit();
 
-        //GameManager.Ins.ResumeGame();
+
+        
         GameManager.Ins.IsPlayGame = true;
 
         Close(0);

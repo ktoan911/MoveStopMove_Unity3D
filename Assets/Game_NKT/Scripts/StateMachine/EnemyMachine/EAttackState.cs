@@ -14,7 +14,7 @@ public class EAttackState : IState<Enemy>
 
         t.ChangeAnim("Attack");
 
-        WeaponSpawner.Instance.SpawnEnemyWeapon(t.enemyIDWeapon,t.TargetDirection(), t.throwPoint.position, t.attackRange);
+        WeaponSpawner.Instance.SpawnEnemyWeapon(t);
     }
 
     public void OnExecute(Enemy t)

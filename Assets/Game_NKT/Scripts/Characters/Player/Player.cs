@@ -46,7 +46,7 @@ public class Player : Characters
         currentState = new StateMachine<Player>();
         currentState.SetOwner(this);
 
-        currentState.ChangeState(new IdleState());
+        currentState.ChangeState(new SleepState());
     }
 
     public override void OnInit()

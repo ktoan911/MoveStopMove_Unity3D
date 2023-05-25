@@ -1,6 +1,7 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Setting : UICanvas
 {
@@ -13,5 +14,10 @@ public class Setting : UICanvas
         GamePlayDialog.Ins.OnInit();
 
         Close(0);
+    }
+
+    public void BackToHomeButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

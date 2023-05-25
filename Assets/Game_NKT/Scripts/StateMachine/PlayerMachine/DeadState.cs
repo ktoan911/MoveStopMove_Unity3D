@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DeadState : IState<Player>
 {
-    private float timeDelayDead = 0.7f;
+    private float timeDelayDead = 1f;
 
     public void OnEnter(Player t)
     {
@@ -15,8 +15,10 @@ public class DeadState : IState<Player>
 
     public void OnExecute(Player t)
     {
-        //timeDelayDead -= Time.deltaTime;
-        //if (timeDelayDead > 0) return;
+        timeDelayDead -= Time.deltaTime;
+        if (timeDelayDead > 0) return;
+
+        t.gameObject.SetActive(false);
 
     }
 

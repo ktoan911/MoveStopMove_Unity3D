@@ -11,7 +11,7 @@ public class MainMenu : UICanvas
         GamePlayDialog.Ins.OnInit();
 
         //GameManager.Ins.ResumeGame();
-        GameManager.Ins.isPlayGame = true;
+        GameManager.Ins.IsPlayGame = true;
 
         Close(0);
     }
@@ -38,6 +38,8 @@ public class MainMenu : UICanvas
         ShopSkinDialog.Ins.UpdateSkinHairUI();
 
         ShopSkinDialog.Ins.SetCoinText(GameManager.Ins.Player.Coins);
+
+        CameraManager.Ins.PlayerViewInShopSkin();
 
         Close(0);
     }

@@ -240,14 +240,11 @@ MonoBehaviour:
   agent: {fileID: 1966872626502863952}
   finalPosition: {x: 0, y: 0, z: 0}
   player: {fileID: 1198096836697163209}
-  layerCharacter:
-    serializedVersion: 2
-    m_Bits: 192
-  enemyCollider: {fileID: 6186479651939607577}
-  hitColliders: []
   enemyIDWeapon: 0
   waypointClone: {fileID: 0}
   isIntialActive: 0
+  mat: {fileID: 5952681503501924409}
+  colordata: {fileID: 11400000, guid: 89da8881b0afdc0469a6dbc17a1f0fad, type: 2}
 --- !u!1 &9098254931599917614
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,6 +698,11 @@ PrefabInstance:
 --- !u!4 &1198096836697163209 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 38f9296dc39c27647a0119314baf12a2, type: 3}
+  m_PrefabInstance: {fileID: 6186479651205099219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &5952681503501924409 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -8699012472884554006, guid: 38f9296dc39c27647a0119314baf12a2, type: 3}
   m_PrefabInstance: {fileID: 6186479651205099219}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &9091216752348375219 stripped

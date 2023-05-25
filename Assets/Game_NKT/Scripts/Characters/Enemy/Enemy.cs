@@ -16,17 +16,21 @@ public class Enemy : Characters
     private bool isFoundCharacter;
     public bool IsFoundCharacter { get => isFoundCharacter; set => isFoundCharacter = value; }
 
-    [SerializeField] private LayerMask layerCharacter;
+   // [SerializeField] private LayerMask layerCharacter;
 
-    [SerializeField] private Collider enemyCollider;
+    //[SerializeField] private Collider enemyCollider;
 
-    public Collider[] hitColliders;
+    //public Collider[] hitColliders;
 
     public int enemyIDWeapon;
 
     public WayPoint waypointClone;
 
     public bool isIntialActive = false;
+
+    public SkinnedMeshRenderer mat;
+
+    [SerializeField] private ColorData colordata;
 
     public override void OnInit()
     {
@@ -41,6 +45,8 @@ public class Enemy : Characters
         SpawnWayPoint(this.transform.position); // sinh ra waypoint
 
         this.enemyIDWeapon = RandomWeapon();
+
+        this.RandomMaterial();
     }
 
     protected override void CharactersUpdate()
@@ -149,10 +155,18 @@ public class Enemy : Characters
 
     }
 
-    public void SpawnWayPoint(Vector3 pos)
+    private void SpawnWayPoint(Vector3 pos)
     {
         waypointClone = SimplePool.Spawn<WayPoint>(wayPointPrefab, pos, Quaternion.identity);
         waypointClone.OnInit(this);
         waypointClone.transform.localRotation = wayPointPrefab.transform.rotation;
     }
+
+    private void RandomMaterial()
+    {
+        int random = Random.Range(0, colordata.matsList.Count);
+
+        this.mat.material = colordata.matsList[random];
+    }
+    
 }

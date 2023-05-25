@@ -13,7 +13,10 @@ public class WayPoint : GameUnit
 
     private void Update()
     {
-        this.UpdatePosition();
+        if (CameraManager.Ins.CheckActiveMainCamera())
+        {
+            UpdatePosition();
+        }
     }
     
     private void UpdatePosition()

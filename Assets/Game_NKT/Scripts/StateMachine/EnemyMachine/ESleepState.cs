@@ -12,7 +12,7 @@ public class ESleepState : IState<Enemy>
 
     public void OnExecute(Enemy t)
     {
-        if (GameManager.Ins.isPlayGame)
+        if (GameManager.Ins.IsPlayGame)
         {
             t.currentState.ChangeState(new EIdleState());
         }

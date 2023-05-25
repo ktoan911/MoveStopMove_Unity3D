@@ -7,8 +7,6 @@ public class PlatformManager : Singleton<PlatformManager>
 {
     public int numberEnemiesDead;
 
-    public int numberEnemies;
-
     public int numberOfEnemies;
 
     private void Start()
@@ -16,6 +14,8 @@ public class PlatformManager : Singleton<PlatformManager>
         EnemySpawner.Instance.SpawnEnemies();
 
         numberOfEnemies = 100;
+
+        Debug.Log(numberOfEnemies);
     }
     private void Update()
     {
@@ -24,7 +24,7 @@ public class PlatformManager : Singleton<PlatformManager>
 
     private void ReSpawnEnemies()
     {
-        if(numberEnemiesDead >= 7 )
+        if(numberEnemiesDead >= 7 && GameManager.Ins.IsPlayGame)
         {
             EnemySpawner.Instance.ReSpawn(8);
             numberEnemiesDead = 0;

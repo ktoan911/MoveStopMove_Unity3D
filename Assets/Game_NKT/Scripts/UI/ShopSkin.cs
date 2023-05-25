@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ShopSkin : UICanvas
 {
-    //private Player player = GameManager.Ins.Player;
-
     public void BackMenuButton()
     {
         Player player = GameManager.Ins.Player;
@@ -13,6 +11,8 @@ public class ShopSkin : UICanvas
         UIManager.Ins.OpenUI<MainMenu>();
 
         MenuDialog.Ins.SetCoinText(player.Coins);
+
+        CameraManager.Ins.GamePlayView();
 
         Close(0);
     }

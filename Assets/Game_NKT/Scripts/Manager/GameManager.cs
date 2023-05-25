@@ -12,7 +12,8 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private Enemy enemy;
     public Enemy Enemy { get => enemy; }
 
-    public bool isPlayGame = false;
+    private bool isPlayGame = false;
+    public bool IsPlayGame { get => isPlayGame; set => isPlayGame = value; }
 
     protected void Awake()
     {
@@ -35,9 +36,27 @@ public class GameManager : Singleton<GameManager>
         //this.PauseGame();
     }
 
+    private void Update()
+    {
+        CheckGameWin();
+
+    }
+
     public void SetCoinPlayer()
     {
         player.Coins = Pref.Coins;
+    }
+
+    public void CheckGameWin()
+    {
+        if(PlatformManager.Ins.numberOfEnemies <= 0 )
+        {
+            PlatformManager.Ins.numberOfEnemies = 0;
+
+            GamePlayDialog.Ins.SetNumberEnemiesText(PlatformManager.Ins.numberOfEnemies);
+
+            this.IsPlayGame = false;
+        }
     }
 
 

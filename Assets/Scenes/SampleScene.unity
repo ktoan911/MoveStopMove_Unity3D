@@ -490,7 +490,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 49
   m_TargetDisplay: 0
@@ -785,7 +785,7 @@ MonoBehaviour:
     collect: 1
     clamp: 0
   - root: {fileID: 167532571}
-    prefab: {fileID: 5538745933338826293, guid: 8e82fd994d48dad4a89fbd2cc6e2e108, type: 3}
+    prefab: {fileID: 8008757578437198612, guid: 8e82fd994d48dad4a89fbd2cc6e2e108, type: 3}
     amount: 30
     collect: 1
     clamp: 0
@@ -988,9 +988,10 @@ MonoBehaviour:
   anim: {fileID: 936984163}
   Target: {fileID: 0}
   throwPoint: {fileID: 604566040}
-  wayPointPrefab: {fileID: 5538745933338826293, guid: 8e82fd994d48dad4a89fbd2cc6e2e108, type: 3}
+  wayPointPrefab: {fileID: 8008757578437198612, guid: 8e82fd994d48dad4a89fbd2cc6e2e108, type: 3}
   waypointClone: {fileID: 0}
   level: 0
+  CharacterBody: {fileID: 653884139}
   joystick: {fileID: 0}
   characterController: {fileID: 437415229}
   weaponID: 0
@@ -998,8 +999,8 @@ MonoBehaviour:
   pants: {fileID: 458979480}
   hair: {fileID: 1696502830}
   leftHand: {fileID: 1966353541}
-  playerRange: {fileID: 825627101}
-  range: {fileID: 437415230}
+  playerAttackRange: {fileID: 825627101}
+  circleRange: {fileID: 437415230}
 --- !u!4 &437415228
 Transform:
   m_ObjectHideFlags: 0
@@ -1483,6 +1484,11 @@ Transform:
   m_Father: {fileID: 2075714519}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &653884139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 38f9296dc39c27647a0119314baf12a2, type: 3}
+  m_PrefabInstance: {fileID: 609133575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -3061,7 +3067,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

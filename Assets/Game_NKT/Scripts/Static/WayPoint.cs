@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using static UnityEngine.GraphicsBuffer;
 
 public class WayPoint : GameUnit
 {
@@ -15,6 +17,10 @@ public class WayPoint : GameUnit
 
     private Vector2 targetDirection;
 
+    private Characters character;
+
+    [SerializeField] private TMP_Text levelText;
+
 
     private void Update()
     {
@@ -22,6 +28,8 @@ public class WayPoint : GameUnit
         {
             UpdatePosition();
         }
+
+        if (target != null) UpdateLevelText(character.level);
 
         UpdateArrow();
     }
@@ -90,18 +98,12 @@ public class WayPoint : GameUnit
     {
         target = character.transform;
 
+        this.character = character;
+    }
+
+    private void UpdateLevelText(int level)
+    {
+        levelText.text = level.ToString();  
     }
 }
 
-
-//Vector2 pos = new Vector2(img.transform.position.x, img.transform.position.y);
-
-//Vector2 centerPoint = new Vector2(Screen.width / 2, Screen.height / 2);
-
-//targetDirection = pos - centerPoint;
-
-//Vector2 posY = new Vector2(0, 1);
-
-//float angle = Mathf.Atan2(posY, targetDirection) * Mathf.Rad2Deg;
-
-//arrow.transform.eulerAngles = Vector3.forward * angle;

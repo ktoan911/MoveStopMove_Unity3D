@@ -82,7 +82,7 @@ public class Weapon : GameUnit
 
     private void UpdateLevelCharacter(Characters character)
     {
-        character.level++;
+        character.UpdateLevel(true);
     }
 
     public override void OnInit(Characters t, int percentUp)

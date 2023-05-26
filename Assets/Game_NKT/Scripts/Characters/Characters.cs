@@ -34,6 +34,12 @@ public class Characters : GameUnit
 
     public int level;
 
+    private float scale;
+
+    [SerializeField] private GameObject CharacterBody;
+
+
+
     private void Update()
     {
         this.CharactersUpdate();
@@ -86,9 +92,14 @@ public class Characters : GameUnit
         waypointClone.transform.localRotation = wayPointPrefab.transform.rotation;
     }
 
-    public virtual void UpdateLevel(int level)
+    public virtual void UpdateLevel(bool isUp)
     {
+        if (isUp) this.level++;
+        else this.level--;
 
+        scale = 1 + level * 0.05f;
+
+        CharacterBody.transform.localScale += new Vector3(1f, 1f, 1f) * scale;
     }
     public override void OnDespawn()
     {

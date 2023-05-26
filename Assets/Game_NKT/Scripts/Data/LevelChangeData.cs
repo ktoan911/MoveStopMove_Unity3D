@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.UIElements;
 
-//public struct InfoLevel
-//{
-//    public int level;
+public struct InfoLevel
+{
+    public int level;
 
-//    public int scale;
-//}
+    public int scale;
+}
 
-[CreateAssetMenu(fileName = "new LevelChangeData", menuName = "LevelChangeData")]
+[CreateAssetMenu(fileName = "LevelChangeData", menuName = "LevelChangeData")]
 public class LevelChangeData : ScriptableObject
 {
-    
-    public int x;
+    public List<int> levels = new List<int>();
 
 }
+

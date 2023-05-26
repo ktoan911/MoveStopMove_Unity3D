@@ -236,12 +236,15 @@ MonoBehaviour:
   anim: {fileID: 9091216752348375219}
   Target: {fileID: 0}
   throwPoint: {fileID: 2641595078544035786}
-  wayPointPrefab: {fileID: 5538745933338826293, guid: 8e82fd994d48dad4a89fbd2cc6e2e108, type: 3}
+  wayPointPrefab: {fileID: 8008757578437198612, guid: 8e82fd994d48dad4a89fbd2cc6e2e108, type: 3}
+  waypointClone: {fileID: 0}
+  level: 0
+  CharacterBody: {fileID: 2808882091407472602}
   agent: {fileID: 1966872626502863952}
   finalPosition: {x: 0, y: 0, z: 0}
   player: {fileID: 1198096836697163209}
+  enemyAttackRange: {fileID: 198188154888456038}
   enemyIDWeapon: 0
-  waypointClone: {fileID: 0}
   isIntialActive: 0
   mat: {fileID: 5952681503501924409}
   colordata: {fileID: 11400000, guid: 89da8881b0afdc0469a6dbc17a1f0fad, type: 2}
@@ -357,7 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 6186479651976424481}
-  sphereCollider: {fileID: 0}
+  sphereCollider: {fileID: 3594866484618488882}
 --- !u!54 &2196710235711066114
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -698,6 +701,11 @@ PrefabInstance:
 --- !u!4 &1198096836697163209 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 38f9296dc39c27647a0119314baf12a2, type: 3}
+  m_PrefabInstance: {fileID: 6186479651205099219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2808882091407472602 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 38f9296dc39c27647a0119314baf12a2, type: 3}
   m_PrefabInstance: {fileID: 6186479651205099219}
   m_PrefabAsset: {fileID: 0}
 --- !u!137 &5952681503501924409 stripped

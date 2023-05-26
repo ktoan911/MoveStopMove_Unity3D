@@ -25,17 +25,15 @@ public class Player : Characters
 
     [SerializeField] private Transform leftHand;
 
-    public PlayerRange playerRange;
+    public PlayerRange playerAttackRange;
 
-    public CircleAroundPlayer range;
+    public CircleAroundPlayer circleRange;
 
     public UnityAction DeadUI;
 
 
     private int coins;
     public int Coins { get => coins; set => coins = value; }
-
-    private float gravity;
 
     private float horizontal;
     private float vertical;
@@ -55,9 +53,6 @@ public class Player : Characters
     public override void OnInit()
     {
         base.OnInit();
-
-        this.gravity = 20f;
-
     }
 
     public void SetInitalEquip()
@@ -77,7 +72,7 @@ public class Player : Characters
     {
         currentState.UpdateState(this);
 
-        SetGravity();
+        //SetGravity();
 
         base.CharactersUpdate();
 
@@ -89,13 +84,6 @@ public class Player : Characters
     public void SetupJoystick(FloatingJoystick joystick)
     {
         this.joystick = joystick;
-    }
-
-
-    //=====SetGravity======
-    private void SetGravity()
-    {
-        characterController.Move(Vector3.down * gravity * Time.deltaTime);
     }
 
     //===PlayerMovement=====
@@ -130,6 +118,14 @@ public class Player : Characters
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             this.transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
+    }
+
+
+    public override void UpdateLevel(bool isUp)
+    {
+        base.UpdateLevel(isUp);
+
+        EquipManager.Ins.ChangePlayerAttackRange(10, this);
     }
 
     public void UpdateCoin(int coinChange, bool isUp)

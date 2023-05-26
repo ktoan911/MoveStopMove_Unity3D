@@ -16,11 +16,7 @@ public class Enemy : Characters
     private bool isFoundCharacter;
     public bool IsFoundCharacter { get => isFoundCharacter; set => isFoundCharacter = value; }
 
-   // [SerializeField] private LayerMask layerCharacter;
-
-    //[SerializeField] private Collider enemyCollider;
-
-    //public Collider[] hitColliders;
+    public EnemyRange enemyAttackRange;
 
     public int enemyIDWeapon;
 
@@ -157,5 +153,11 @@ public class Enemy : Characters
 
         this.mat.material = colordata.matsList[random];
     }
-    
+
+    public override void UpdateLevel(bool isUp)
+    {
+        base.UpdateLevel(isUp);
+
+        EquipManager.Ins.ChangeEnemyAttackRange(10, this);
+    }
 }

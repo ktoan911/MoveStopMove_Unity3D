@@ -6,9 +6,15 @@ public class EquipManager : Singleton<EquipManager>
 {
     public void ChangePlayerAttackRange(float percentChange, Player player)
     {
-        player.playerRange.ChangeAttackRange(player.attackRange * (1 + percentChange / 100));
+        player.playerAttackRange.ChangeAttackRange(player.attackRange * (1 + percentChange / 100));
 
-        player.range.ChangeAttackRangeCircle(player.attackRange * (1 + percentChange / 100));
+        player.circleRange.ChangeAttackRangeCircle(player.attackRange * (1 + percentChange / 100));
+    }
+
+    public void ChangeEnemyAttackRange(float percentChange, Enemy enemy)
+    {
+        enemy.enemyAttackRange.ChangeAttackRange(enemy.attackRange * (1 + percentChange / 100));
+       
     }
 
     public void ChangeSpeed(float percentChange, Characters character)

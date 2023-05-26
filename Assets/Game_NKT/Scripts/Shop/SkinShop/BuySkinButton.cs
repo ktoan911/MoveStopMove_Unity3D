@@ -9,17 +9,17 @@ public enum ShopSkinTag { pant, shield, hair, none}
 
 public class BuySkinButton : Singleton<BuySkinButton>
 {
-    public int skinID;
-
     private SkinHatSO skinHairSO;
 
     private SkinShieldSO skinShieldSO;
 
     private SkinPantsSO skinPantsSO;
 
-    public ShopSkinTag shopSkinTag = ShopSkinTag.none;
-
     [SerializeField] private Button btnBuy;
+
+    public int skinID;
+
+    public ShopSkinTag shopSkinTag = ShopSkinTag.none;
 
     public UnityAction<string> ShopSkinItemBuyAction;
 

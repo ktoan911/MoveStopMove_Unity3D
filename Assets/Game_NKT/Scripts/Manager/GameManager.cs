@@ -7,13 +7,14 @@ using UnityEngine.Events;
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] private Player player;
-    public Player Player { get => player; }
 
     [SerializeField] private Enemy enemy;
     public Enemy Enemy { get => enemy; }
 
     private bool isPlayGame = false;
     public bool IsPlayGame { get => isPlayGame; set => isPlayGame = value; }
+
+    public Player Player { get => player; }
 
     protected void Awake()
     {

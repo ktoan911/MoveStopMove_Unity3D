@@ -4,18 +4,17 @@ using UnityEngine.TextCore.Text;
 
 
 public class Weapon : GameUnit
-{   
+{
+    private float timeSelfDestroy;
+
+    private bool isFire;
+
+    private Characters characterAttack;
 
     [SerializeField] private float moveSpeed;
 
     public Vector3 direction;
-
-    [SerializeField] private bool isFire;
     public bool IsFire { get => isFire; set => isFire = value; }
-
-    private float timeSelfDestroy;
-
-    private Characters characterAttack;
 
     private void Update()
     {

@@ -7,36 +7,38 @@ using UnityEngine;
 public class Characters : GameUnit
 {
     private float speed;
-    public float Speed { get => speed; set => speed = value; }
-
-    public float attackRange;
 
     private bool isMoving;
-    public bool IsMoving { get => isMoving; set => isMoving = value; }
 
     private bool isAttack;
-    public bool IsAttack { get => isAttack; set => isAttack = value; }
 
-    public Animator anim;
+    private string currentAnim;
+
+    private float scale;
+
+    [SerializeField] private GameObject CharacterBody;
+
+    [SerializeField] protected WayPoint wayPointPrefab;
 
     protected float rotationSpeed;
 
-
-    private string currentAnim;
+    public Animator anim;
 
     public Transform Target;
 
     public Transform throwPoint;
 
-    public WayPoint wayPointPrefab;
+    
 
     public WayPoint waypointClone;
 
     public int level;
 
-    private float scale;
+    public float attackRange;
 
-    [SerializeField] private GameObject CharacterBody;
+    public float Speed { get => speed; set => speed = value; }
+    public bool IsMoving { get => isMoving; set => isMoving = value; }
+    public bool IsAttack { get => isAttack; set => isAttack = value; }
 
 
 
@@ -85,7 +87,7 @@ public class Characters : GameUnit
         }
     }
 
-    public void SpawnWayPoint(Vector3 pos)
+    public virtual void SpawnWayPoint(Vector3 pos)
     {
         waypointClone = SimplePool.Spawn<WayPoint>(wayPointPrefab, pos, Quaternion.identity);
         waypointClone.OnInit(this);

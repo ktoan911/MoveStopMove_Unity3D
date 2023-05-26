@@ -9,6 +9,20 @@ using UnityEngine.UI;
 
 public class ShopSkinDialog : Singleton<ShopSkinDialog>
 {
+    private GameObject curFrame;
+
+    private ShopSkinTag shopSkinTag;
+
+    private GameObject curTextEquipMent;
+
+    private GameObject pastTextEquipMent;
+
+    private int prefCurTypeSkin;
+
+    [SerializeField] private TMP_Text coinText;
+
+    [SerializeField] private Button buyButton;
+
     public Transform gridRoot;
 
     public TMP_Text priceText;
@@ -19,21 +33,10 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
 
     public ShopSkinShieldUI itemShieldUIPrefab;
 
-    [SerializeField] private TMP_Text coinText;
-
-    [SerializeField] private Button buyButton;
-
-    private GameObject curFrame;
-
-    private ShopSkinTag shopSkinTag;
-
-    private GameObject curTextEquipMent;
-
-    private GameObject pastTextEquipMent;
-
     public Button curEquipTypeButton;
 
-    private int prefCurTypeSkin;
+
+
 
     public void UpdateSkinUI<T, U>(List<T> items, U itemUIPrefab) where T : ParentSO where U : ShopSkinUI<T>
     {

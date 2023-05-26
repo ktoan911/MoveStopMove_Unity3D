@@ -850,6 +850,11 @@ MonoBehaviour:
     collect: 1
     clamp: 0
   Particle: []
+--- !u!137 &334017312 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -8699012472884554006, guid: 38f9296dc39c27647a0119314baf12a2, type: 3}
+  m_PrefabInstance: {fileID: 609133575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &391202401
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,23 +989,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolType: 0
-  attackRange: 0
+  CharacterBody: {fileID: 653884139}
+  wayPointPrefab: {fileID: 8008757578437198612, guid: 8e82fd994d48dad4a89fbd2cc6e2e108, type: 3}
   anim: {fileID: 936984163}
   Target: {fileID: 0}
   throwPoint: {fileID: 604566040}
-  wayPointPrefab: {fileID: 8008757578437198612, guid: 8e82fd994d48dad4a89fbd2cc6e2e108, type: 3}
   waypointClone: {fileID: 0}
   level: 0
-  CharacterBody: {fileID: 653884139}
-  joystick: {fileID: 0}
-  characterController: {fileID: 437415229}
-  weaponID: 0
+  attackRange: 0
   rightHand: {fileID: 1719484191}
   pants: {fileID: 458979480}
   hair: {fileID: 1696502830}
   leftHand: {fileID: 1966353541}
+  materialPlayer: {fileID: 334017312}
+  joystick: {fileID: 0}
+  characterController: {fileID: 437415229}
   playerAttackRange: {fileID: 825627101}
   circleRange: {fileID: 437415230}
+  weaponID: 0
 --- !u!4 &437415228
 Transform:
   m_ObjectHideFlags: 0

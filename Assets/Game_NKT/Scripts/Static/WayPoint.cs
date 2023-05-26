@@ -5,9 +5,15 @@ using static UnityEngine.GraphicsBuffer;
 
 public class WayPoint : GameUnit
 {
-    public Image img;
+    private Vector2 targetDirection;
+
+    private Characters character;
 
     private Transform target;
+
+    [SerializeField] private TMP_Text levelText;
+
+    public Image img;
 
     public Vector3 offset;
 
@@ -15,11 +21,7 @@ public class WayPoint : GameUnit
 
     public GameObject arrowRotate;
 
-    private Vector2 targetDirection;
-
-    private Characters character;
-
-    [SerializeField] private TMP_Text levelText;
+    public Image image;
 
 
     private void Update()

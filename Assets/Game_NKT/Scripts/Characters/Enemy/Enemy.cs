@@ -5,16 +5,15 @@ using UnityEngine.AI;
 
 public class Enemy : Characters
 {
-    public StateMachine<Enemy> currentState;
+    private bool isFoundCharacter;
 
     [SerializeField] public NavMeshAgent agent;
 
-    public Vector3 finalPosition;
-
     [SerializeField] private Transform player;
 
-    private bool isFoundCharacter;
-    public bool IsFoundCharacter { get => isFoundCharacter; set => isFoundCharacter = value; }
+    public StateMachine<Enemy> currentState;
+
+    public Vector3 finalPosition;
 
     public EnemyRange enemyAttackRange;
 
@@ -25,6 +24,7 @@ public class Enemy : Characters
     public SkinnedMeshRenderer mat;
 
     [SerializeField] private ColorData colordata;
+    public bool IsFoundCharacter { get => isFoundCharacter; set => isFoundCharacter = value; }
 
     public override void OnInit()
     {
@@ -159,5 +159,12 @@ public class Enemy : Characters
         base.UpdateLevel(isUp);
 
         EquipManager.Ins.ChangeEnemyAttackRange(10, this);
+    }
+
+    public override void SpawnWayPoint(Vector3 pos)
+    {
+        base.SpawnWayPoint(pos);
+
+        waypointClone.image.color = this.mat.material.color;
     }
 }

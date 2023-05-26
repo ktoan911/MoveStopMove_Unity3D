@@ -11,18 +11,18 @@ public class ShopWeaponUI : Singleton<ShopWeaponUI>
 
     private Player player;
 
-    public TMP_Text priceText;
-
-    [SerializeField] private TMP_Text coinText;
-
-    public TMP_Text nameEquipment;
-    public Image hud;
-
     private int currentIndex = 0;
 
     [SerializeField] private TMP_Text description;
 
     [SerializeField] private Button btnBuy;
+
+    [SerializeField] private TMP_Text coinText;
+
+    public TMP_Text priceText;
+
+    public TMP_Text nameEquipment;
+    public Image hud;
     
     private void Start()
     {

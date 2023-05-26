@@ -3,14 +3,6 @@ using UnityEngine.Events;
 
 public class Player : Characters
 {
-    [SerializeField] private FloatingJoystick joystick;
-
-    [SerializeField] private CharacterController characterController;
-
-    public StateMachine<Player> currentState;
-
-    public int weaponID;
-
     private int skinHairID;
 
     private int skinShieldID;
@@ -25,11 +17,22 @@ public class Player : Characters
 
     [SerializeField] private Transform leftHand;
 
+    [SerializeField] private SkinnedMeshRenderer materialPlayer;
+
+    [SerializeField] private FloatingJoystick joystick;
+
+    [SerializeField] private CharacterController characterController;
+
     public PlayerRange playerAttackRange;
 
     public CircleAroundPlayer circleRange;
 
     public UnityAction DeadUI;
+
+    public StateMachine<Player> currentState;
+
+    public int weaponID;
+
 
 
     private int coins;
@@ -118,6 +121,13 @@ public class Player : Characters
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             this.transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
+    }
+
+    public override void SpawnWayPoint(Vector3 pos)
+    {
+        base.SpawnWayPoint(pos);
+
+        waypointClone.image.color = this.materialPlayer.material.color;
     }
 
 

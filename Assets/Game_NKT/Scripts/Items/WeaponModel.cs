@@ -16,7 +16,7 @@ public class WeaponModel : GameUnit
 
     public override void OnInit(Characters t, int percentUp)
     {
-        EquipManager.Ins.ChangePlayerAttackRange(percentUp, (Player)t);
+        ChangepropertiesCharacter.Ins.ChangePlayerAttackRange(percentUp, (Player)t);
     }
 
 }

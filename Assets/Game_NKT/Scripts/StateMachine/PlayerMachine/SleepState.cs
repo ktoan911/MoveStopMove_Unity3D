@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +13,7 @@ public class SleepState : IState<Player>
 
     public void OnExecute(Player t)
     {
-        if (GameManager.Ins.IsPlayGame)
+        if (GameManager.Ins.IsPlayGame)  // GManager phụ trách việc chuyển sang idle
         {
             t.currentState.ChangeState(new IdleState());
 

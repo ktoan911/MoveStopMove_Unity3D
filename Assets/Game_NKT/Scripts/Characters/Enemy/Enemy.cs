@@ -158,13 +158,13 @@ public class Enemy : Characters
     {
         base.UpdateLevel(isUp);
 
-        EquipManager.Ins.ChangeEnemyAttackRange(10, this);
+        ChangepropertiesCharacter.Ins.ChangeEnemyAttackRange(10, this);
     }
 
     public override void SpawnWayPoint(Vector3 pos)
     {
         base.SpawnWayPoint(pos);
 
-        waypointClone.image.color = this.mat.material.color;
+        waypointClone.imgPoint.color = this.mat.material.color;
     }
 }

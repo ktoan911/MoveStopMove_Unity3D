@@ -14,7 +14,7 @@ public class Characters : GameUnit
 
     private string currentAnim;
 
-    private float scale;
+    private float scaleChangePercent;
 
     [SerializeField] private GameObject CharacterBody;
 
@@ -99,9 +99,9 @@ public class Characters : GameUnit
         if (isUp) this.level++;
         else this.level--;
 
-        scale = 1 + level * 0.05f;
+        scaleChangePercent = level * 0.05f;
 
-        CharacterBody.transform.localScale += new Vector3(1f, 1f, 1f) * scale;
+        CharacterBody.transform.localScale += new Vector3(1f, 1f, 1f) * scaleChangePercent;
     }
     public override void OnDespawn()
     {

@@ -127,7 +127,7 @@ public class Player : Characters
     {
         base.SpawnWayPoint(pos);
 
-        waypointClone.image.color = this.materialPlayer.material.color;
+        waypointClone.imgPoint.color = this.materialPlayer.material.color;
     }
 
 
@@ -135,7 +135,7 @@ public class Player : Characters
     {
         base.UpdateLevel(isUp);
 
-        EquipManager.Ins.ChangePlayerAttackRange(10, this);
+        ChangepropertiesCharacter.Ins.ChangePlayerAttackRange(10, this);
     }
 
     public void UpdateCoin(int coinChange, bool isUp)

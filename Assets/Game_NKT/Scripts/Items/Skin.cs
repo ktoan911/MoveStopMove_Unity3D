@@ -28,6 +28,6 @@ public class Skin : GameUnit
 
     public override void OnInit(Characters t, int percentUp)
     {
-        EquipManager.Ins.ChangeSpeed(percentUp, t);
+        ChangepropertiesCharacter.Ins.ChangeSpeed(percentUp, t);
     }
 }

@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using static UnityEngine.GraphicsBuffer;
-
 public class WayPoint : GameUnit
 {
     private Vector2 targetDirection;
@@ -13,7 +11,7 @@ public class WayPoint : GameUnit
 
     [SerializeField] private TMP_Text levelText;
 
-    public Image img;
+    public Image imgPoint;
 
     public Vector3 offset;
 
@@ -21,10 +19,8 @@ public class WayPoint : GameUnit
 
     public GameObject arrowRotate;
 
-    public Image image;
 
-
-    private void Update()
+    private void LateUpdate()
     {
         if (CameraManager.Ins.CheckActiveMainCamera())
         {
@@ -38,10 +34,10 @@ public class WayPoint : GameUnit
     
     private void UpdatePosition()
     {
-        float minX = img.GetPixelAdjustedRect().width / 2;
+        float minX = imgPoint.GetPixelAdjustedRect().width / 2;
         float maxX = Screen.width - minX;
 
-        float minY = img.GetPixelAdjustedRect().height / 2;
+        float minY = imgPoint.GetPixelAdjustedRect().height / 2;
         float maxY = Screen.height - minY;
         Vector3 pos = Camera.main.WorldToScreenPoint(target.position + offset);
 
@@ -55,12 +51,12 @@ public class WayPoint : GameUnit
         pos.x = Mathf.Clamp(pos.x, minX, maxX);
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
 
-        img.transform.position = pos;
+        imgPoint.transform.position = pos;
     }
 
     private void UpdateArrow()
     {
-        Vector2 pos = new Vector2(img.transform.position.x, img.transform.position.y);
+        Vector2 pos = new Vector2(imgPoint.transform.position.x, imgPoint.transform.position.y);
 
         Vector2 centerPoint = new Vector2(Screen.width / 2, Screen.height / 2);
 

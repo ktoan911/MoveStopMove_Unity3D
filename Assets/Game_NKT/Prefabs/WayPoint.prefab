@@ -441,9 +441,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolType: 0
-  img: {fileID: 8622653348712400677}
+  levelText: {fileID: 4597162989054630550}
+  imgPoint: {fileID: 8622653348712400677}
   offset: {x: 0, y: 3.2, z: 0}
   arrow: {fileID: 4403270234013264102}
   arrowRotate: {fileID: 7990744276243967441}
-  image: {fileID: 8622653348712400677}
-  levelText: {fileID: 4597162989054630550}

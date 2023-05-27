@@ -987,6 +987,7 @@ MonoBehaviour:
   materialCharacter: {fileID: 334017312}
   characterKill: {fileID: 0}
   characterInRange: []
+  colliderCharacter: {fileID: 1627483813}
   rightHand: {fileID: 1719484191}
   pants: {fileID: 458979480}
   hair: {fileID: 1696502830}
@@ -1009,10 +1010,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 936984162}
-  - {fileID: 1627483816}
   - {fileID: 825627097}
   - {fileID: 599257969}
   - {fileID: 604566040}
+  - {fileID: 1627483816}
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1275,7 +1276,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 437415228}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &604566039
 GameObject:
@@ -1306,7 +1307,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 437415228}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &604571343
 GameObject:
@@ -1675,7 +1676,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 437415228}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &825627098
 SphereCollider:
@@ -1753,6 +1754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 437415227}
+  playerCollider: {fileID: 0}
   sphereCollider: {fileID: 825627098}
 --- !u!54 &825627102
 Rigidbody:
@@ -1783,6 +1785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 437415227}
+  playerCollider: {fileID: 1627483813}
   sphereCollider: {fileID: 825627098}
 --- !u!1 &874835143
 GameObject:
@@ -2726,6 +2729,7 @@ GameObject:
   - component: {fileID: 1627483814}
   - component: {fileID: 1627483813}
   - component: {fileID: 1627483818}
+  - component: {fileID: 1627483819}
   m_Layer: 6
   m_Name: Collider
   m_TagString: Player
@@ -2810,7 +2814,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 437415228}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1627483818
 Rigidbody:
@@ -2828,6 +2832,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1627483819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627483810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4552d3085e73e8c42bcffb03962f2d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 437415227}
 --- !u!1 &1678014649
 GameObject:
   m_ObjectHideFlags: 0

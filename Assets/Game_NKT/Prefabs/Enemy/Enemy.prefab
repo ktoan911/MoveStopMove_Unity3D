@@ -29,7 +29,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6186479651976424494}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6186479651939607579
 GameObject:
@@ -65,7 +65,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6186479651976424494}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6186479651939607783
 MeshFilter:
@@ -190,10 +190,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6186479651939607576}
   - {fileID: 1198096836697163209}
   - {fileID: 8650138909488783912}
   - {fileID: 2641595078544035786}
+  - {fileID: 6186479651939607576}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -235,17 +235,19 @@ MonoBehaviour:
   CharacterBody: {fileID: 2808882091407472602}
   wayPointPrefab: {fileID: 8008757578437198612, guid: 8e82fd994d48dad4a89fbd2cc6e2e108, type: 3}
   anim: {fileID: 9091216752348375219}
-  Target: {fileID: 0}
   throwPoint: {fileID: 2641595078544035786}
   characterName: 
   waypointClone: {fileID: 0}
   level: 0
   attackRange: 0
   materialCharacter: {fileID: 5952681503501924409}
+  characterKill: {fileID: 0}
+  characterInRange: []
+  colliderCharacter: {fileID: 6186479651939607577}
   agent: {fileID: 1966872626502863952}
   player: {fileID: 1198096836697163209}
   finalPosition: {x: 0, y: 0, z: 0}
-  enemyAttackRange: {fileID: 198188154888456038}
+  enemyAttackRange: {fileID: 6179367699636377785}
   enemyIDWeapon: 0
   isIntialActive: 0
   colordata: {fileID: 11400000, guid: 89da8881b0afdc0469a6dbc17a1f0fad, type: 2}
@@ -261,10 +263,10 @@ GameObject:
   - component: {fileID: 1769577594943953087}
   - component: {fileID: 5659650214736411257}
   - component: {fileID: 3594866484618488882}
-  - component: {fileID: 198188154888456038}
   - component: {fileID: 2196710235711066114}
+  - component: {fileID: 6179367699636377785}
   m_Layer: 0
-  m_Name: AttackRange (1)
+  m_Name: AttackRangeEnemy
   m_TagString: Range
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -283,7 +285,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6186479651976424494}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1769577594943953087
 MeshFilter:
@@ -348,20 +350,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &198188154888456038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9098254931599917614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d07bc33d47da4f4b86b2dbd46c531ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 6186479651976424481}
-  sphereCollider: {fileID: 3594866484618488882}
 --- !u!54 &2196710235711066114
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -378,6 +366,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6179367699636377785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9098254931599917614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211f65c02808179499f45f6319d9107d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 6186479651976424481}
+  enemyCollider: {fileID: 6186479651939607577}
+  sphereCollider: {fileID: 3594866484618488882}
 --- !u!1001 &6186479651205099219
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -467,7 +470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 38f9296dc39c27647a0119314baf12a2, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 38f9296dc39c27647a0119314baf12a2, type: 3}
       propertyPath: m_LocalPosition.x

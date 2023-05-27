@@ -15,7 +15,7 @@ public class Enemy : Characters
 
     public Vector3 finalPosition;
 
-    public CharacterAttackRange enemyAttackRange;
+    public EnemyRange enemyAttackRange;
 
     public int enemyIDWeapon;
 

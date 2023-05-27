@@ -11,7 +11,7 @@ public class EDeadState : IState<Enemy>
 
         t.ChangeAnim("Dead");
 
-        t.RemoveCharacterInRangeAction(t.gameObject);
+        t.RemoveCharacterInRangeAction(t.colliderCharacter.gameObject);
 
         PlatformManager.Ins.OnUpdateNumberEnemies();
 
@@ -22,7 +22,6 @@ public class EDeadState : IState<Enemy>
     {
         timeDelayDead -= Time.deltaTime;
         if (timeDelayDead > 0) return;
-
         t.OnDespawn();
         t.waypointClone.OnDespawn();
     }

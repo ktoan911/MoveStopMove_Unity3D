@@ -10,7 +10,7 @@ public class DeadState : IState<Player>
     {
         t.IsMoving= false;
 
-        t.RemoveCharacterInRangeAction(t.gameObject);
+       // t.RemoveCharacterInRangeAction(t.colliderCharacter.gameObject);
 
         t.ChangeAnim("Dead");
     }

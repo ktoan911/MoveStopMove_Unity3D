@@ -42,7 +42,10 @@ public class Characters : GameUnit
 
     public UnityAction<GameObject> RemoveCharacterInRangeAction;
 
-    
+    public Collider colliderCharacter;
+
+
+
 
     public float Speed { get => speed; set => speed = value; }
     public bool IsMoving { get => isMoving; set => isMoving = value; }

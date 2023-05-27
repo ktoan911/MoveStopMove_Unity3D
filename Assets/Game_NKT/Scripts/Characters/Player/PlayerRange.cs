@@ -7,6 +7,8 @@ public class PlayerRange : MonoBehaviour
 {
     [SerializeField] private Player player;
 
+    [SerializeField] private Collider playerCollider;
+
     [SerializeField] private SphereCollider sphereCollider;
 
 
@@ -33,7 +35,10 @@ public class PlayerRange : MonoBehaviour
 
             player.IsAttack = true;
 
-            player.characterInRange.Add(other.gameObject);
+            if (!player.characterInRange.Contains(other.gameObject))
+            {
+                player.characterInRange.Add(other.gameObject);
+            }
 
             enemyTmp.RemoveCharacterInRangeAction += player.RemoveCharacterInRange;
         }
@@ -41,11 +46,17 @@ public class PlayerRange : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.CompareTag("Enemy"))
+        {
+            Enemy enemyTmp = Cache.GetEnemyBody(other).enemy;
 
-        player.characterInRange.Remove(other.gameObject);
+            player.characterInRange.Remove(other.gameObject);
 
-        player.IsAttack = false;
+            player.IsAttack = false;
+
+            enemyTmp.RemoveCharacterInRangeAction -= player.RemoveCharacterInRange;
+        }
     }
 
- 
+
 }

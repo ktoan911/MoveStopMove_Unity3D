@@ -58,14 +58,24 @@ public class Weapon : GameUnit
     {
         this.IsFire = false;
 
-        moveSpeed = 4.5f;
+        moveSpeed = 6f;
 
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy") || other.CompareTag("Player"))
         {
+           if (other.CompareTag("Player"))
+            {
+                Player character = Cache.GetPlayerBody(other).player;
+
+                character.characterKill = this.characterAttack;
+            }
+
+
             this.OnDespawn();
+
+            
 
             UpdateLevelCharacter(characterAttack);
         }

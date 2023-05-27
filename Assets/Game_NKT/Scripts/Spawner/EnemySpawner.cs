@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemySpawner : Spawner
+public class EnemySpawner : MonoBehaviour
 {
     private static EnemySpawner instance;
     public static EnemySpawner Instance { get => instance; }
@@ -31,7 +32,7 @@ public class EnemySpawner : Spawner
         }
         return pos;
     }
-    public override Transform SpawnPos()
+    public Transform SpawnPos()
     {
         if (spawnPos.Count < numberSpawn + 1)
         {
@@ -49,12 +50,13 @@ public class EnemySpawner : Spawner
         return reSpawnPos[numberSpawn];
     }
 
-    protected override void OnSpawn()
+    protected void OnSpawn(List<string> listName)
     {
-        base.OnSpawn();
         for (int i = 0; i < spawnPos.Count; i++)
         {
             Enemy enemyPool = SimplePool.Spawn<Enemy>(enemyPrfab, GetClosestPointOnNavmesh(SpawnPos().position), SpawnPos().rotation);
+
+            enemyPool.RandomName(listName);
 
             enemyPool.OnInit();
             numberSpawn++;
@@ -64,16 +66,18 @@ public class EnemySpawner : Spawner
 
     }
 
-    public void SpawnEnemies()
+    public void SpawnEnemiesInitial(List<string> listName)
     {
-        this.OnSpawn();
+        this.OnSpawn(listName);
     }
 
-    public void ReSpawn(int numberSpawn)
+    public void ReSpawn(int numberSpawn, List<string> listName)
     {
         for (int i = 0; i < numberSpawn - 1; i++)
         {
             Enemy enemyPool = SimplePool.Spawn<Enemy>(enemyPrfab, GetClosestPointOnNavmesh(ReSpawnPos().position), ReSpawnPos().rotation);
+            enemyPool.RandomName(listName);
+
             enemyPool.OnInit();
             this.numberSpawn++;
         }

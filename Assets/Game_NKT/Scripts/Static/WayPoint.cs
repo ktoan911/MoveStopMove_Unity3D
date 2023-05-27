@@ -7,15 +7,15 @@ public class WayPoint : GameUnit
 
     private Characters character;
 
-    private Transform target;
-
     [SerializeField] private TMP_Text levelText;
+
+    public TMP_Text characterName;
 
     public Image imgPoint;
 
     public Vector3 offset;
 
-    public GameObject arrow;
+    public Image arrow;
 
     public GameObject arrowRotate;
 
@@ -25,9 +25,22 @@ public class WayPoint : GameUnit
         if (CameraManager.Ins.CheckActiveMainCamera())
         {
             UpdatePosition();
+
+            if (IsGameObjectInViewport(character.gameObject))
+            {
+                arrowRotate.SetActive(false);
+
+                characterName.gameObject.SetActive(true);
+            }
+            else
+            {
+                arrowRotate.SetActive(true);
+
+                characterName.gameObject.SetActive(false);
+            }
         }
 
-        if (target != null) UpdateLevelText(character.level);
+        if (character.transform != null) UpdateLevelText(character.level);
 
         UpdateArrow();
     }
@@ -39,7 +52,7 @@ public class WayPoint : GameUnit
 
         float minY = imgPoint.GetPixelAdjustedRect().height / 2;
         float maxY = Screen.height - minY;
-        Vector3 pos = Camera.main.WorldToScreenPoint(target.position + offset);
+        Vector3 pos = Camera.main.WorldToScreenPoint(character.transform.position + offset);
 
         if (pos.z < 0)
         {
@@ -77,6 +90,21 @@ public class WayPoint : GameUnit
 
 
     }
+
+    private bool IsGameObjectInViewport(GameObject gameObject)
+    {
+        Vector3 viewportPosition = Camera.main.WorldToViewportPoint(gameObject.transform.position);
+
+        // Kiểm tra xem vị trí của gameobject có nằm trong phạm vi viewport [0, 1] hay không
+        if (viewportPosition.x >= 0 && viewportPosition.x <= 1 &&
+            viewportPosition.y >= 0 && viewportPosition.y <= 1 &&
+            viewportPosition.z > 0)
+        {
+            return true; // GameObject nằm trong màn hình
+        }
+
+        return false; // GameObject không nằm trong màn hình
+    }
     public override void OnDespawn()
     {
         SimplePool.Despawn(this);
@@ -94,10 +122,22 @@ public class WayPoint : GameUnit
 
     public void OnInit(Characters character)
     {
-        target = character.transform;
-
         this.character = character;
+
+        this.characterName.text = character.characterName;
+
+        this.SetColorWayPoint();
     }
+
+    private void SetColorWayPoint()
+    {
+        this.characterName.color = this.character.materialCharacter.material.color;
+
+        this.imgPoint.color = this.character.materialCharacter.material.color;
+
+        this.arrow.color = this.character.materialCharacter.material.color;
+    }
+    
 
     private void UpdateLevelText(int level)
     {

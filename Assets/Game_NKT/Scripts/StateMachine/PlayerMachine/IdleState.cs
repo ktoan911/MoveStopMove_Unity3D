@@ -19,7 +19,7 @@ public class IdleState : IState<Player>
             return;
         }
 
-        if (t.IsAttack)
+        if (t.IsAttack) 
         {
             t.ChangeRotation();
 

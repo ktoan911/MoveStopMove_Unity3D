@@ -15,16 +15,15 @@ public class Enemy : Characters
 
     public Vector3 finalPosition;
 
-    public EnemyRange enemyAttackRange;
+    public CharacterAttackRange enemyAttackRange;
 
     public int enemyIDWeapon;
 
     public bool isIntialActive = false;
 
-    public SkinnedMeshRenderer mat;
-
     [SerializeField] private ColorData colordata;
     public bool IsFoundCharacter { get => isFoundCharacter; set => isFoundCharacter = value; }
+
 
     public override void OnInit()
     {
@@ -151,7 +150,17 @@ public class Enemy : Characters
     {
         int random = Random.Range(0, colordata.matsList.Count);
 
-        this.mat.material = colordata.matsList[random];
+        this.materialCharacter.material = colordata.matsList[random];
+    }
+
+    public void RandomName(List<string> listName)
+    {
+        int nameRandomNumber = Random.Range(0, listName.Count);
+
+        this.characterName = listName[nameRandomNumber];
+        listName.Remove(this.characterName);
+
+
     }
 
     public override void UpdateLevel(bool isUp)
@@ -159,12 +168,5 @@ public class Enemy : Characters
         base.UpdateLevel(isUp);
 
         ChangepropertiesCharacter.Ins.ChangeEnemyAttackRange(10, this);
-    }
-
-    public override void SpawnWayPoint(Vector3 pos)
-    {
-        base.SpawnWayPoint(pos);
-
-        waypointClone.imgPoint.color = this.mat.material.color;
     }
 }

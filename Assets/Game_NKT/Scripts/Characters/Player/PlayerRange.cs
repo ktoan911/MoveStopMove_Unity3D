@@ -29,15 +29,20 @@ public class PlayerRange : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            Enemy enemyTmp = Cache.GetEnemyBody(other).enemy;
+
             player.IsAttack = true;
 
-            player.Target = other.transform;
+            player.characterInRange.Add(other.gameObject);
+
+            enemyTmp.RemoveCharacterInRangeAction += player.RemoveCharacterInRange;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        player.Target = null;
+
+        player.characterInRange.Remove(other.gameObject);
 
         player.IsAttack = false;
     }

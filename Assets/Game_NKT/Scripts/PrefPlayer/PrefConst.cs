@@ -16,6 +16,8 @@ public class PrefConst
 
     public const string COIN_KEY = "coins";
 
+    public const string NAME_PLAYER = "namePlayer";
+
 
 
 }

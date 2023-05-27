@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -12,7 +12,7 @@ public class ESleepState : IState<Enemy>
 
     public void OnExecute(Enemy t)
     {
-        if (GameManager.Ins.IsPlayGame) // GManager ph? tr�ch vi?c chuy?n sang idle
+        if (GameManager.Ins.IsPlayGame) // GManager phụ trách việc chuyển sang idle
         {
             t.currentState.ChangeState(new EIdleState());
 

@@ -1349,9 +1349,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dad521e7bb589c3459487d24f39477c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btnBuy: {fileID: 6375677454054806749}
   skinID: 0
   shopSkinTag: 3
-  btnBuy: {fileID: 6375677454054806749}
 --- !u!1 &7144424246049257879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1885,7 +1885,7 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2036,13 +2036,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2647fa921a54f84998e73ffe016a036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinText: {fileID: 5581770851287723615}
+  buyButton: {fileID: 6375677454054806749}
   gridRoot: {fileID: 8050702995709856105}
   priceText: {fileID: 311841398844563788}
   itemHairUIPrefab: {fileID: 9126473460001688116, guid: 1810877a49a531041a7120d5c163df37, type: 3}
   itemPantUIPrefab: {fileID: 3497225181635723645, guid: e122eb3ad014a714783e8205261dee90, type: 3}
   itemShieldUIPrefab: {fileID: 7842560837685063783, guid: 9981c9acd2c0eab43b444cf7aa4110a5, type: 3}
-  coinText: {fileID: 5581770851287723615}
-  buyButton: {fileID: 6375677454054806749}
   curEquipTypeButton: {fileID: 0}
 --- !u!1 &9104061420476513187
 GameObject:

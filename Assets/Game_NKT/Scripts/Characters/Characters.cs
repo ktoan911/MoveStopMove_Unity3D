@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 public class Characters : GameUnit
 {
@@ -24,17 +24,25 @@ public class Characters : GameUnit
 
     public Animator anim;
 
-    public Transform Target;
-
     public Transform throwPoint;
 
-    
+    public string characterName;
 
     public WayPoint waypointClone;
 
     public int level;
 
     public float attackRange;
+
+    public SkinnedMeshRenderer materialCharacter;
+
+    public Characters characterKill;
+
+    public List<GameObject> characterInRange = new List<GameObject>();
+
+    public UnityAction<GameObject> RemoveCharacterInRangeAction;
+
+    
 
     public float Speed { get => speed; set => speed = value; }
     public bool IsMoving { get => isMoving; set => isMoving = value; }
@@ -54,7 +62,7 @@ public class Characters : GameUnit
 
     public Vector3 TargetDirection()
     {
-        Vector3 direction = Target.position - this.transform.position;
+        Vector3 direction = this.characterInRange[0].transform.position - this.transform.position;
         direction.y = 0f;
         return direction.normalized;
     }
@@ -102,6 +110,13 @@ public class Characters : GameUnit
         scaleChangePercent = level * 0.05f;
 
         CharacterBody.transform.localScale += new Vector3(1f, 1f, 1f) * scaleChangePercent;
+    }
+
+    public void RemoveCharacterInRange(GameObject character)
+    {
+        if (character == null) return;
+
+        characterInRange.Remove(character);
     }
     public override void OnDespawn()
     {

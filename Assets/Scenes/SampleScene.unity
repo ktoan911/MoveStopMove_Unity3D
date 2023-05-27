@@ -379,7 +379,6 @@ GameObject:
   - component: {fileID: 167532575}
   - component: {fileID: 167532574}
   - component: {fileID: 167532573}
-  - component: {fileID: 167532572}
   m_Layer: 5
   m_Name: Canvas - WayPoint
   m_TagString: Untagged
@@ -403,22 +402,10 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 540, y: 960}
-  m_SizeDelta: {x: 1080, y: 1920}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &167532572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 167532570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33c20953a7b5abe4fbcbe044477d6492, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &167532573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,13 +681,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288488349}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.748924, y: 2.3890615, z: -10.057727}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.748901, y: 2.389038, z: -10.057727}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &288488351
 MonoBehaviour:
@@ -992,16 +979,18 @@ MonoBehaviour:
   CharacterBody: {fileID: 653884139}
   wayPointPrefab: {fileID: 8008757578437198612, guid: 8e82fd994d48dad4a89fbd2cc6e2e108, type: 3}
   anim: {fileID: 936984163}
-  Target: {fileID: 0}
   throwPoint: {fileID: 604566040}
+  characterName: 
   waypointClone: {fileID: 0}
   level: 0
   attackRange: 0
+  materialCharacter: {fileID: 334017312}
+  characterKill: {fileID: 0}
+  characterInRange: []
   rightHand: {fileID: 1719484191}
   pants: {fileID: 458979480}
   hair: {fileID: 1696502830}
   leftHand: {fileID: 1966353541}
-  materialPlayer: {fileID: 334017312}
   joystick: {fileID: 0}
   characterController: {fileID: 437415229}
   playerAttackRange: {fileID: 825627101}
@@ -1997,7 +1986,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.04848807, y: -6.7490316e-18, z: 0.000000005780228, w: 0.99882376}
-  m_LocalPosition: {x: 0, y: 9.61, z: -27.93}
+  m_LocalPosition: {x: -0, y: 10.325, z: -29.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2312,12 +2301,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1286626092}
   m_LocalRotation: {x: 0.16881841, y: -0.0000000044556088, z: -0.000000037844487, w: 0.9856472}
-  m_LocalPosition: {x: 0.3, y: 3, z: -24.1}
+  m_LocalPosition: {x: -0.1, y: 4.3, z: -23.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 19.438, y: 0, z: 0}
 --- !u!1 &1300109790
 GameObject:
@@ -2633,6 +2622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberEnemiesDead: 0
   numberOfEnemies: 0
+  listNameEnemy: []
 --- !u!1 &1549929052
 GameObject:
   m_ObjectHideFlags: 0
@@ -3073,7 +3063,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

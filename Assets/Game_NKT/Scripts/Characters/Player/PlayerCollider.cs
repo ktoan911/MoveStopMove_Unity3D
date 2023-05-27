@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCollider : MonoBehaviour
 {
-    [SerializeField] private Player player;
+    public Player player;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Weapon"))

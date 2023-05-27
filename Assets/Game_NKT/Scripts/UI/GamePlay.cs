@@ -17,9 +17,11 @@ public class GamePlay : UICanvas
         UIManager.Ins.OpenUI<Setting>();
     }
 
-    public void LoseUI()
+    public void LoseUI(Characters character)
     {
         UIManager.Ins.OpenUI<LoseScreen>();
+
+        LoseScreenDialog.Ins.SetTextLoseScreen(character.characterName);
 
         Close(0);
     }

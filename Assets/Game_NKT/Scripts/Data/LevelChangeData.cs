@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+
+[System.Serializable]
 public struct InfoLevel
 {
     public int level;

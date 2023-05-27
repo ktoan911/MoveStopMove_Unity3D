@@ -5,7 +5,7 @@ using static UnityEditor.PlayerSettings;
 
 public class EnemyCollider : MonoBehaviour
 {
-    [SerializeField] private Enemy enemy;
+    public Enemy enemy;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Weapon"))

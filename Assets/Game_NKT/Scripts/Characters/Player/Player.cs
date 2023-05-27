@@ -17,8 +17,6 @@ public class Player : Characters
 
     [SerializeField] private Transform leftHand;
 
-    [SerializeField] private SkinnedMeshRenderer materialPlayer;
-
     [SerializeField] private FloatingJoystick joystick;
 
     [SerializeField] private CharacterController characterController;
@@ -27,13 +25,11 @@ public class Player : Characters
 
     public CircleAroundPlayer circleRange;
 
-    public UnityAction DeadUI;
+    public UnityAction<Characters> DeadUI;
 
     public StateMachine<Player> currentState;
 
     public int weaponID;
-
-
 
     private int coins;
     public int Coins { get => coins; set => coins = value; }
@@ -56,6 +52,8 @@ public class Player : Characters
     public override void OnInit()
     {
         base.OnInit();
+
+        this.ChangeNamePlayer(Pref.NamePlayer);
     }
 
     public void SetInitalEquip()
@@ -123,14 +121,6 @@ public class Player : Characters
         }
     }
 
-    public override void SpawnWayPoint(Vector3 pos)
-    {
-        base.SpawnWayPoint(pos);
-
-        waypointClone.imgPoint.color = this.materialPlayer.material.color;
-    }
-
-
     public override void UpdateLevel(bool isUp)
     {
         base.UpdateLevel(isUp);
@@ -172,6 +162,11 @@ public class Player : Characters
         this.skinShieldID = id;
 
         ChangeSkin.Ins.ChangeModelShield(leftHand, skinShieldID);
+    }
+
+    public void ChangeNamePlayer(string name)
+    {
+        this.characterName = name;
     }
 
 }

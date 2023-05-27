@@ -40,6 +40,13 @@ public class Pref
         get => PlayerPrefs.GetInt(PrefConst.COIN_KEY, 200);
     }
 
+    public static string NamePlayer
+    {
+        set => PlayerPrefs.SetString(PrefConst.NAME_PLAYER, value);
+
+        get => PlayerPrefs.GetString(PrefConst.NAME_PLAYER, "???");
+    }
+
 
     public static void SetBool(string key , bool isOn)
     {

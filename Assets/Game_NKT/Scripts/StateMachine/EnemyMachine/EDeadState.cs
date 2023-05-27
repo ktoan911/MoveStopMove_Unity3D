@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EDeadState : IState<Enemy>
@@ -10,7 +11,11 @@ public class EDeadState : IState<Enemy>
 
         t.ChangeAnim("Dead");
 
+        t.RemoveCharacterInRangeAction(t.gameObject);
+
         PlatformManager.Ins.OnUpdateNumberEnemies();
+
+        PlatformManager.Ins.listNameEnemy.Add(t.characterName);
     }
 
     public void OnExecute(Enemy t)

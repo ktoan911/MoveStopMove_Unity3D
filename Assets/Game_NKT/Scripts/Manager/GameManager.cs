@@ -12,8 +12,8 @@ public class GameManager : Singleton<GameManager>
     public Enemy Enemy { get => enemy; }
 
     private bool isPlayGame = false;
-    public bool IsPlayGame { get => isPlayGame; set => isPlayGame = value; }
 
+    public bool IsPlayGame { get => isPlayGame; set => isPlayGame = value; }
     public Player Player { get => player; }
 
     protected void Awake()

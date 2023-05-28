@@ -994,7 +994,7 @@ MonoBehaviour:
   leftHand: {fileID: 1966353541}
   joystick: {fileID: 0}
   characterController: {fileID: 437415229}
-  playerAttackRange: {fileID: 825627101}
+  playerAttackRange: {fileID: 0}
   circleRange: {fileID: 437415230}
   weaponID: 0
 --- !u!4 &437415228
@@ -1653,12 +1653,11 @@ GameObject:
   - component: {fileID: 825627100}
   - component: {fileID: 825627099}
   - component: {fileID: 825627098}
-  - component: {fileID: 825627101}
   - component: {fileID: 825627102}
   - component: {fileID: 825627103}
   m_Layer: 0
   m_Name: AttackRange
-  m_TagString: Range
+  m_TagString: RangePlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1741,21 +1740,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 825627096}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &825627101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 825627096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89b47759cf8d77d42bbcc873fdcf32d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 437415227}
-  playerCollider: {fileID: 0}
-  sphereCollider: {fileID: 825627098}
 --- !u!54 &825627102
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1785,7 +1769,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 437415227}
-  playerCollider: {fileID: 1627483813}
   sphereCollider: {fileID: 825627098}
 --- !u!1 &874835143
 GameObject:
@@ -2844,7 +2827,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4552d3085e73e8c42bcffb03962f2d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 437415227}
+  character: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &1678014649
 GameObject:
   m_ObjectHideFlags: 0

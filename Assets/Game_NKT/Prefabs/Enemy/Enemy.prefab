@@ -247,7 +247,7 @@ MonoBehaviour:
   agent: {fileID: 1966872626502863952}
   player: {fileID: 1198096836697163209}
   finalPosition: {x: 0, y: 0, z: 0}
-  enemyAttackRange: {fileID: 6179367699636377785}
+  enemyAttackRange: {fileID: 0}
   enemyIDWeapon: 0
   isIntialActive: 0
   colordata: {fileID: 11400000, guid: 89da8881b0afdc0469a6dbc17a1f0fad, type: 2}
@@ -264,10 +264,10 @@ GameObject:
   - component: {fileID: 5659650214736411257}
   - component: {fileID: 3594866484618488882}
   - component: {fileID: 2196710235711066114}
-  - component: {fileID: 6179367699636377785}
+  - component: {fileID: 7010305294942336571}
   m_Layer: 0
   m_Name: AttackRangeEnemy
-  m_TagString: Range
+  m_TagString: RangeEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -366,7 +366,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6179367699636377785
+--- !u!114 &7010305294942336571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -379,7 +379,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 6186479651976424481}
-  enemyCollider: {fileID: 6186479651939607577}
   sphereCollider: {fileID: 3594866484618488882}
 --- !u!1001 &6186479651205099219
 PrefabInstance:

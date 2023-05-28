@@ -9,6 +9,8 @@ TagManager:
   - Weapon
   - Range
   - Obstacle
+  - RangePlayer
+  - RangeEnemy
   layers:
   - Default
   - TransparentFX

@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class PlayerRange : MonoBehaviour
 {
-    [SerializeField] private Player player;
-
-    [SerializeField] private Collider playerCollider;
+    public Player player;
 
     [SerializeField] private SphereCollider sphereCollider;
 
@@ -55,6 +53,13 @@ public class PlayerRange : MonoBehaviour
             player.IsAttack = false;
 
             enemyTmp.RemoveCharacterInRangeAction -= player.RemoveCharacterInRange;
+        }
+
+        if (other.CompareTag("RangeEnemy"))
+        {
+            Enemy enemyTmp = Cache.GetEnemyRange(other).enemy;
+
+            player.RemoveCharacterInRangeAction -= enemyTmp.RemoveCharacterInRange;
         }
     }
 

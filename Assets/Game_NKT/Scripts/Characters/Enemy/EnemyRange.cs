@@ -2,7 +2,7 @@
 
 public class EnemyRange : MonoBehaviour
 {
-    [SerializeField] private Enemy enemy;
+    public Enemy enemy;
 
     [SerializeField] private SphereCollider sphereCollider;
 
@@ -21,11 +21,8 @@ public class EnemyRange : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other == enemy.colliderCharacter) return;
-
         if (other.CompareTag("Enemy"))
         {
-
             Enemy enemyTmp = Cache.GetEnemyBody(other).enemy;
 
             enemy.IsAttack = true;
@@ -49,28 +46,26 @@ public class EnemyRange : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Enemy"))
         {
-            Player playerTmp = Cache.GetPlayerBody(other).player;
-
             enemy.characterInRange.Remove(other.gameObject);
 
             enemy.IsAttack = false;
-
-            playerTmp.RemoveCharacterInRangeAction -= enemy.RemoveCharacterInRange;
         }
 
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("RangePlayer"))
         {
-            Enemy enemyTmp = Cache.GetEnemyBody(other).enemy;
+            Player playerTmp = Cache.GetPlayerRange(other).player;
 
-            enemy.characterInRange.Remove(other.gameObject);
-
-            enemy.IsAttack = false;
-
-            enemyTmp.RemoveCharacterInRangeAction -= enemy.RemoveCharacterInRange;
-
+            enemy.RemoveCharacterInRangeAction -= playerTmp.RemoveCharacterInRange;
         }
+        if (other.CompareTag("RangeEnemy"))
+        {
+            Enemy enemyTmp = Cache.GetEnemyRange(other).enemy;
+
+            enemy.RemoveCharacterInRangeAction -= enemyTmp.RemoveCharacterInRange;
+        }
+
     }
     
 }

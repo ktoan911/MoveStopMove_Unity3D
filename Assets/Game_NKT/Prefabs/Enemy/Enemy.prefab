@@ -379,6 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 6186479651976424481}
+  enemyCollider: {fileID: 6186479651939607577}
   sphereCollider: {fileID: 3594866484618488882}
 --- !u!1001 &6186479651205099219
 PrefabInstance:

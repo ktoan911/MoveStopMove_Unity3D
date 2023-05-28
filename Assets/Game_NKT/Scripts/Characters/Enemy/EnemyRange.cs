@@ -4,6 +4,8 @@ public class EnemyRange : MonoBehaviour
 {
     public Enemy enemy;
 
+    public Collider enemyCollider;
+
     [SerializeField] private SphereCollider sphereCollider;
 
     public void ChangeAttackRange(float attackRange)
@@ -21,6 +23,10 @@ public class EnemyRange : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other == enemyCollider) return;
+
+        enemy.ResetCharInRange();
+
         if (other.CompareTag("Enemy"))
         {
             Enemy enemyTmp = Cache.GetEnemyBody(other).enemy;

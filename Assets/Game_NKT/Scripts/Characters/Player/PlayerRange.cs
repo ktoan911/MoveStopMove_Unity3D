@@ -27,6 +27,8 @@ public class PlayerRange : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        player.ResetCharInRange();
+
         if (other.CompareTag("Enemy"))
         {
             Enemy enemyTmp = Cache.GetEnemyBody(other).enemy;

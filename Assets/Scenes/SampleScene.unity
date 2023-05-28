@@ -994,7 +994,7 @@ MonoBehaviour:
   leftHand: {fileID: 1966353541}
   joystick: {fileID: 0}
   characterController: {fileID: 437415229}
-  playerAttackRange: {fileID: 0}
+  playerAttackRange: {fileID: 825627103}
   circleRange: {fileID: 437415230}
   weaponID: 0
 --- !u!4 &437415228
@@ -2827,8 +2827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4552d3085e73e8c42bcffb03962f2d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 437415227}
 --- !u!1 &1678014649
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.TextCore.Text;
 
 public class Characters : GameUnit
 {
@@ -65,6 +66,8 @@ public class Characters : GameUnit
 
     public Vector3 TargetDirection()
     {
+        if(characterInRange.Count <= 0) return Vector3.zero;
+
         Vector3 direction = this.characterInRange[0].transform.position - this.transform.position;
         direction.y = 0f;
         return direction.normalized;
@@ -120,6 +123,33 @@ public class Characters : GameUnit
         if (character == null) return;
 
         characterInRange.Remove(character);
+    }
+
+    public void ResetCharInRange()
+    {
+        for(int i = 0; i < characterInRange.Count; i++)
+        {
+            if (!CheckIsAround(characterInRange[i]))
+            {
+                RemoveCharacterInRange(characterInRange[i]);
+            }
+        }
+
+
+        
+    }
+    public bool CheckIsAround(GameObject charInList)
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange);
+        for (int i = 0; i < hitColliders.Length; i++)
+        {
+            if (hitColliders[i].CompareTag("Player") || hitColliders[i].CompareTag("Enemy"))
+            {
+                if (charInList == hitColliders[i].gameObject) return true;
+            }
+        }
+        return false;
+
     }
     public override void OnDespawn()
     {

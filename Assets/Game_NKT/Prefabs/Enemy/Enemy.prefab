@@ -247,7 +247,7 @@ MonoBehaviour:
   agent: {fileID: 1966872626502863952}
   player: {fileID: 1198096836697163209}
   finalPosition: {x: 0, y: 0, z: 0}
-  enemyAttackRange: {fileID: 0}
+  enemyAttackRange: {fileID: 7010305294942336571}
   enemyIDWeapon: 0
   isIntialActive: 0
   colordata: {fileID: 11400000, guid: 89da8881b0afdc0469a6dbc17a1f0fad, type: 2}

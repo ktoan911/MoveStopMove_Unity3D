@@ -46,13 +46,10 @@ public class PlayerRange : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            Enemy enemyTmp = Cache.GetEnemyBody(other).enemy;
-
             player.characterInRange.Remove(other.gameObject);
 
             player.IsAttack = false;
 
-            enemyTmp.RemoveCharacterInRangeAction -= player.RemoveCharacterInRange;
         }
 
         if (other.CompareTag("RangeEnemy"))

@@ -39,7 +39,10 @@ public class EnemyRange : MonoBehaviour
 
             enemy.IsAttack = true;
 
-            enemy.characterInRange.Add(other.gameObject);
+            if (!enemy.characterInRange.Contains(other.gameObject))
+            {
+                enemy.characterInRange.Add(other.gameObject);
+            }
 
             playerTmp.RemoveCharacterInRangeAction += enemy.RemoveCharacterInRange;
         }

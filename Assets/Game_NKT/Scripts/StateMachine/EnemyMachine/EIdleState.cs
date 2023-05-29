@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class EIdleState : IState<Enemy>
 {
-    private float timer;
-    private float currentTime;
-
     public void OnEnter(Enemy t)
     {
         t.IsMoving = false;
-
-        timer = 0f;
-        currentTime = 0;
 
         t.StopMove();
 
@@ -30,13 +24,8 @@ public class EIdleState : IState<Enemy>
             return;
         }
 
-        currentTime += Time.deltaTime;
+        t.SeekForTarget();
 
-        if (currentTime > timer)
-        {
-            t.SeekForTarget();
-        }
-         
         if (t.IsFoundCharacter)
         {
             t.agent.isStopped = false;

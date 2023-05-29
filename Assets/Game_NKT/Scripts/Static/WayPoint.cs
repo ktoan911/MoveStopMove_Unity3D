@@ -22,22 +22,19 @@ public class WayPoint : GameUnit
 
     private void LateUpdate()
     {
-        if (CameraManager.Ins.CheckActiveMainCamera())
+        UpdatePosition();
+
+        if (IsGameObjectInViewport(character.gameObject))
         {
-            UpdatePosition();
+            arrowRotate.SetActive(false);
 
-            if (IsGameObjectInViewport(character.gameObject))
-            {
-                arrowRotate.SetActive(false);
+            characterName.gameObject.SetActive(true);
+        }
+        else
+        {
+            arrowRotate.SetActive(true);
 
-                characterName.gameObject.SetActive(true);
-            }
-            else
-            {
-                arrowRotate.SetActive(true);
-
-                characterName.gameObject.SetActive(false);
-            }
+            characterName.gameObject.SetActive(false);
         }
 
         if (character.transform != null) UpdateLevelText(character.level);
@@ -126,16 +123,16 @@ public class WayPoint : GameUnit
 
         this.characterName.text = character.characterName;
 
-        this.SetColorWayPoint();
+        this.SetColorWayPoint(this.character.materialCharacter.material.color);
     }
 
-    private void SetColorWayPoint()
+    private void SetColorWayPoint(Color color)
     {
-        this.characterName.color = this.character.materialCharacter.material.color;
+        this.characterName.color = color;
 
-        this.imgPoint.color = this.character.materialCharacter.material.color;
+        this.imgPoint.color = color;
 
-        this.arrow.color = this.character.materialCharacter.material.color;
+        this.arrow.color = color;
     }
     
 

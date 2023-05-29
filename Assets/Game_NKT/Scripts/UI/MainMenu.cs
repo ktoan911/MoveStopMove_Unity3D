@@ -40,7 +40,7 @@ public class MainMenu : UICanvas
 
         ShopSkinDialog.Ins.SetCoinText(GameManager.Ins.Player.Coins);
 
-        CameraManager.Ins.PlayerViewInShopSkin();
+        MainCamera.Ins.ShopSkinCamera();
 
         Close(0);
     }

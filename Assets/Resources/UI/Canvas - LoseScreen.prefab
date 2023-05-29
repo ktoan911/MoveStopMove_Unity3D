@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f768abff651e0c34695e56fb94542d4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noti: {fileID: 546112835844867946}
+  whoKill: {fileID: 546112835844867946}
   rankText: {fileID: 4933996540746129240}
 --- !u!1 &2070262467083040566
 GameObject:

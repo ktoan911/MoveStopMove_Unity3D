@@ -45,6 +45,8 @@ public class Characters : GameUnit
 
     public Collider colliderCharacter;
 
+    public HitVFX hitVFX;
+
 
 
 
@@ -138,6 +140,13 @@ public class Characters : GameUnit
 
         
     }
+
+    public void SpawnVFX()
+    {
+        HitVFX hit = SimplePool.Spawn<HitVFX>(this.hitVFX, this.transform.position + Vector3.up, Quaternion.identity);
+        hit.OnInit(materialCharacter.material.color);
+    }
+
     public bool CheckIsAround(GameObject charInList)
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange);
@@ -153,7 +162,7 @@ public class Characters : GameUnit
     }
     public override void OnDespawn()
     {
-        throw new NotImplementedException();
+        
     }
 
     public override void OnInit(Characters t, int percentUp)

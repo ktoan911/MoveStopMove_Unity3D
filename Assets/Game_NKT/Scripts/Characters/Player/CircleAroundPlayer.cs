@@ -19,6 +19,8 @@ public class CircleAroundPlayer : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.Ins.IsPlayGame) return;
+
         for (int i = 0; i <= segments; i++)
         {
             float angle = (float)i / (float)segments * Mathf.PI * 2f;

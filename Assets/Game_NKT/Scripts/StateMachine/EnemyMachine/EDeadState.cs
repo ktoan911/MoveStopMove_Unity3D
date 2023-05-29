@@ -11,6 +11,8 @@ public class EDeadState : IState<Enemy>
 
         t.ChangeAnim("Dead");
 
+        t.SpawnVFX();
+
         t.RemoveCharacterInRangeAction(t.colliderCharacter.gameObject);
 
         PlatformManager.Ins.OnUpdateNumberEnemies();

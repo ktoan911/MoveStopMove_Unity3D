@@ -169,4 +169,11 @@ public class Player : Characters
         this.characterName = name;
     }
 
+    public override void OnDespawn()
+    {
+        base.OnDespawn();
+
+        this.gameObject.SetActive(false);
+    }
+
 }

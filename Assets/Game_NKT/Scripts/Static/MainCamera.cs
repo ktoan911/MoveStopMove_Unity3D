@@ -12,9 +12,11 @@ public class MainCamera : Singleton<MainCamera>
 
     [SerializeField] private Transform playCameraPosition;
 
+    [SerializeField] private Transform mainMenuCameraPosition;
+
     private void Start()
     {
-        distance = this.transform.position - playerPosition.position;
+        distance = this.playCameraPosition.position - playerPosition.position;
     }
 
     private void LateUpdate()
@@ -37,5 +39,12 @@ public class MainCamera : Singleton<MainCamera>
         this.transform.position = this.playCameraPosition.position;
 
         this.transform.rotation = this.playCameraPosition.rotation;
+    }
+
+    public void MainMenuCamera()
+    {
+        this.transform.position = this.mainMenuCameraPosition.position;
+
+        this.transform.rotation = this.mainMenuCameraPosition.rotation;
     }
 }

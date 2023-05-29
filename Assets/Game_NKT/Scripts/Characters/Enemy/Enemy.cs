@@ -131,6 +131,8 @@ public class Enemy : Characters
 
     public override void OnDespawn()
     {
+        base.OnDespawn();
+    
         SimplePool.Despawn(this);
     }
 

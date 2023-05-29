@@ -244,6 +244,7 @@ MonoBehaviour:
   characterKill: {fileID: 0}
   characterInRange: []
   colliderCharacter: {fileID: 6186479651939607577}
+  hitVFX: {fileID: 6789855907474581258, guid: 51906d5125f00614a8071b17a1e199eb, type: 3}
   agent: {fileID: 1966872626502863952}
   player: {fileID: 1198096836697163209}
   finalPosition: {x: 0, y: 0, z: 0}

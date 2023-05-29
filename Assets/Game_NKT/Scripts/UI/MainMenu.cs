@@ -10,7 +10,7 @@ public class MainMenu : UICanvas
 
         GamePlayDialog.Ins.OnInit();
 
-
+        MainCamera.Ins.PlayCamera();
         
         GameManager.Ins.IsPlayGame = true;
 

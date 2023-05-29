@@ -10,7 +10,7 @@ public class DeadState : IState<Player>
     {
         t.IsMoving= false;
 
-       // t.RemoveCharacterInRangeAction(t.colliderCharacter.gameObject);
+        t.SpawnVFX();
 
         t.ChangeAnim("Dead");
     }
@@ -21,7 +21,7 @@ public class DeadState : IState<Player>
         if (timeDelayDead > 0) return;
 
         t.DeadUI(t.characterKill);
-        t.gameObject.SetActive(false);
+        t.OnDespawn();
 
     }
 

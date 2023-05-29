@@ -12,7 +12,7 @@ public class ShopSkin : UICanvas
 
         MenuDialog.Ins.SetCoinText(player.Coins);
 
-        MainCamera.Ins.PlayCamera();
+        MainCamera.Ins.MainMenuCamera();
 
         Close(0);
     }

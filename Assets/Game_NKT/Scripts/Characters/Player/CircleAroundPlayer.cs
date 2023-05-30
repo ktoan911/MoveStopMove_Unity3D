@@ -15,6 +15,7 @@ public class CircleAroundPlayer : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         positions = new Vector3[segments + 1];
         lineRenderer.positionCount = segments + 1;
+        lineRenderer.material.color = GameManager.Ins.Player.materialCharacter.material.color;
     }
 
     void Update()

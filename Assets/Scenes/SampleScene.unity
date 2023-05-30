@@ -1408,6 +1408,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrfab: {fileID: 6186479651976424481, guid: f818769fb2404c648845471550e049a0, type: 3}
+  reSpawnPos:
+  - {fileID: 874835144}
+  - {fileID: 1205560444}
+  - {fileID: 804580227}
+  - {fileID: 1443999630}
+  - {fileID: 19813452}
+  - {fileID: 615095755}
+  - {fileID: 240712914}
+  - {fileID: 131158978}
   spawnPos:
   - {fileID: 485700907}
   - {fileID: 1149786038}
@@ -1423,15 +1432,6 @@ MonoBehaviour:
   - {fileID: 214900306}
   - {fileID: 1300109791}
   - {fileID: 1678014650}
-  reSpawnPos:
-  - {fileID: 874835144}
-  - {fileID: 1205560444}
-  - {fileID: 804580227}
-  - {fileID: 1443999630}
-  - {fileID: 19813452}
-  - {fileID: 615095755}
-  - {fileID: 240712914}
-  - {fileID: 131158978}
 --- !u!4 &604571345
 Transform:
   m_ObjectHideFlags: 0
@@ -2673,6 +2673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberEnemiesDead: 0
   numberOfEnemies: 0
+  enemyList: []
   listNameEnemy: []
 --- !u!1 &1549929052
 GameObject:

@@ -13,9 +13,11 @@ public class EDeadState : IState<Enemy>
 
         t.SpawnVFX();
 
-        t.RemoveCharacterInRangeAction(t.colliderCharacter.gameObject);
+        //t.RemoveCharacterInRangeAction(t.colliderCharacter.gameObject);
 
         PlatformManager.Ins.OnUpdateNumberEnemies();
+
+        PlatformManager.Ins.ResetListEnemy(t, false);
 
         PlatformManager.Ins.listNameEnemy.Add(t.characterName);
     }

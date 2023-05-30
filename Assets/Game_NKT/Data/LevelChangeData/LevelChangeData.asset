@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - level: 1
-    scale: 0
-  - level: 1
-    scale: 0
-  - level: 1
-    scale: 0
-  - level: 1
-    scale: 0
-  - level: 1
-    scale: 0
+    scale: 1.2
+  - level: 3
+    scale: 1.5
+  - level: 7
+    scale: 1.7
+  - level: 9
+    scale: 2
+  - level: 15
+    scale: 2.2

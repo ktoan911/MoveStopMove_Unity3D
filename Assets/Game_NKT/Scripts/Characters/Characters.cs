@@ -136,9 +136,6 @@ public class Characters : GameUnit
                 RemoveCharacterInRange(characterInRange[i]);
             }
         }
-
-
-        
     }
 
     public void SpawnVFX()

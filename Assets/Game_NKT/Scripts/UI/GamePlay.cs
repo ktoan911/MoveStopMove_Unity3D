@@ -10,11 +10,14 @@ public class GamePlay : UICanvas
         player.SetupJoystick(joystick);
 
         player.DeadUI += LoseUI;
+
+        player.WinUI = WinUI;
     }
 
     public void SettingButton()
     {
         UIManager.Ins.OpenUI<Setting>();
+        Close(0);
     }
 
     public void LoseUI(Characters character)
@@ -22,6 +25,13 @@ public class GamePlay : UICanvas
         UIManager.Ins.OpenUI<LoseScreen>();
 
         LoseScreenDialog.Ins.SetTextLoseScreen(character);
+
+        Close(0);
+    }
+
+    public void WinUI()
+    {
+        UIManager.Ins.OpenUI<WinScreen>();
 
         Close(0);
     }

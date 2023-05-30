@@ -33,14 +33,6 @@ public class GameManager : Singleton<GameManager>
         this.SetCoinPlayer();
 
         MenuDialog.Ins.SetCoinText(player.Coins);
-
-        //this.PauseGame();
-    }
-
-    private void Update()
-    {
-        CheckGameWin();
-
     }
 
     public void SetCoinPlayer()
@@ -48,17 +40,6 @@ public class GameManager : Singleton<GameManager>
         player.Coins = Pref.Coins;
     }
 
-    public void CheckGameWin()
-    {
-        if(PlatformManager.Ins.numberOfEnemies <= 0 )
-        {
-            PlatformManager.Ins.numberOfEnemies = 0;
-
-            GamePlayDialog.Ins.SetNumberEnemiesText(PlatformManager.Ins.numberOfEnemies);
-
-            this.IsPlayGame = false;
-        }
-    }
 
 
 

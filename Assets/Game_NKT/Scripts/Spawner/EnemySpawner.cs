@@ -13,9 +13,9 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private Enemy enemyPrfab;
 
-    [SerializeField] protected List<Transform> spawnPos = new List<Transform>();
-
     [SerializeField] protected List<Transform> reSpawnPos = new List<Transform>();
+
+    public List<Transform> spawnPos = new List<Transform>();
 
     private void Awake()
     {
@@ -56,6 +56,8 @@ public class EnemySpawner : MonoBehaviour
         {
             Enemy enemyPool = SimplePool.Spawn<Enemy>(enemyPrfab, GetClosestPointOnNavmesh(SpawnPos().position), SpawnPos().rotation);
 
+            PlatformManager.Ins.ResetListEnemy(enemyPool, true);
+
             enemyPool.RandomName(listName);
 
             enemyPool.OnInit();
@@ -64,6 +66,22 @@ public class EnemySpawner : MonoBehaviour
 
         this.numberSpawn = 0;
 
+    }
+
+    public void LastSpawn(int numberLastSpawn, List<string> listName)
+    {
+        if (numberLastSpawn <= 0) return;
+
+        for (int i = 0; i < numberLastSpawn; i++)
+        {
+            Enemy enemyPool = SimplePool.Spawn<Enemy>(enemyPrfab, GetClosestPointOnNavmesh(ReSpawnPos().position), ReSpawnPos().rotation);
+
+            PlatformManager.Ins.ResetListEnemy(enemyPool, true);
+            enemyPool.RandomName(listName);
+
+            enemyPool.OnInit();
+            this.numberSpawn++;
+        }
     }
 
     public void SpawnEnemiesInitial(List<string> listName)
@@ -76,6 +94,8 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < numberSpawn - 1; i++)
         {
             Enemy enemyPool = SimplePool.Spawn<Enemy>(enemyPrfab, GetClosestPointOnNavmesh(ReSpawnPos().position), ReSpawnPos().rotation);
+
+            PlatformManager.Ins.ResetListEnemy(enemyPool, true);
             enemyPool.RandomName(listName);
 
             enemyPool.OnInit();

@@ -31,7 +31,7 @@ public class PlayerRange : MonoBehaviour
 
         if (other.CompareTag("Enemy"))
         {
-            Enemy enemyTmp = Cache.GetEnemyBody(other).enemy;
+           // Enemy enemyTmp = Cache.GetEnemyBody(other).enemy;
 
             player.IsAttack = true;
 
@@ -40,7 +40,7 @@ public class PlayerRange : MonoBehaviour
                 player.characterInRange.Add(other.gameObject);
             }
 
-            enemyTmp.RemoveCharacterInRangeAction += player.RemoveCharacterInRange;
+           // enemyTmp.RemoveCharacterInRangeAction += player.RemoveCharacterInRange;
         }
     }
 
@@ -54,12 +54,12 @@ public class PlayerRange : MonoBehaviour
 
         }
 
-        if (other.CompareTag("RangeEnemy"))
-        {
-            Enemy enemyTmp = Cache.GetEnemyRange(other).enemy;
+        //if (other.CompareTag("RangeEnemy"))
+        //{
+        //    Enemy enemyTmp = Cache.GetEnemyRange(other).enemy;
 
-            player.RemoveCharacterInRangeAction -= enemyTmp.RemoveCharacterInRange;
-        }
+        //    player.RemoveCharacterInRangeAction -= enemyTmp.RemoveCharacterInRange;
+        //}
     }
 
 

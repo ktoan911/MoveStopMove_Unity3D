@@ -27,6 +27,8 @@ public class Player : Characters
 
     public UnityAction<Characters> DeadUI;
 
+    public UnityAction WinUI;
+
     public StateMachine<Player> currentState;
 
     public int weaponID;

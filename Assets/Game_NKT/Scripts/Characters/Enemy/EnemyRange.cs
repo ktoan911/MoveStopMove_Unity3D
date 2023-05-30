@@ -29,19 +29,19 @@ public class EnemyRange : MonoBehaviour
 
         if (other.CompareTag("Enemy"))
         {
-            Enemy enemyTmp = Cache.GetEnemyBody(other).enemy;
+           // Enemy enemyTmp = Cache.GetEnemyBody(other).enemy;
 
             enemy.IsAttack = true;
 
             enemy.characterInRange.Add(other.gameObject);
 
-            enemyTmp.RemoveCharacterInRangeAction += enemy.RemoveCharacterInRange;
+            //enemyTmp.RemoveCharacterInRangeAction += enemy.RemoveCharacterInRange;
 
         }
 
         if (other.CompareTag("Player"))
         {
-            Player playerTmp = Cache.GetPlayerBody(other).player;
+           // Player playerTmp = Cache.GetPlayerBody(other).player;
 
             enemy.IsAttack = true;
 
@@ -50,7 +50,7 @@ public class EnemyRange : MonoBehaviour
                 enemy.characterInRange.Add(other.gameObject);
             }
 
-            playerTmp.RemoveCharacterInRangeAction += enemy.RemoveCharacterInRange;
+            //playerTmp.RemoveCharacterInRangeAction += enemy.RemoveCharacterInRange;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -62,18 +62,18 @@ public class EnemyRange : MonoBehaviour
             enemy.IsAttack = false;
         }
 
-        if (other.CompareTag("RangePlayer"))
-        {
-            Player playerTmp = Cache.GetPlayerRange(other).player;
+        //if (other.CompareTag("RangePlayer"))
+        //{
+        //    Player playerTmp = Cache.GetPlayerRange(other).player;
 
-            enemy.RemoveCharacterInRangeAction -= playerTmp.RemoveCharacterInRange;
-        }
-        if (other.CompareTag("RangeEnemy"))
-        {
-            Enemy enemyTmp = Cache.GetEnemyRange(other).enemy;
+        //    enemy.RemoveCharacterInRangeAction -= playerTmp.RemoveCharacterInRange;
+        //}
+        //if (other.CompareTag("RangeEnemy"))
+        //{
+        //    Enemy enemyTmp = Cache.GetEnemyRange(other).enemy;
 
-            enemy.RemoveCharacterInRangeAction -= enemyTmp.RemoveCharacterInRange;
-        }
+        //    enemy.RemoveCharacterInRangeAction -= enemyTmp.RemoveCharacterInRange;
+        //}
 
     }
     

@@ -17,5 +17,7 @@ public class Setting : UICanvas
     public void BackToHomeButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        GameManager.Ins.IsPlayGame = false;
     }
 }

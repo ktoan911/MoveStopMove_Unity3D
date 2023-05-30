@@ -9,7 +9,7 @@ public struct InfoLevel
 {
     public int level;
 
-    public int scale;
+    public float scale;
 }
 
 [CreateAssetMenu(fileName = "LevelChangeData", menuName = "LevelChangeData")]

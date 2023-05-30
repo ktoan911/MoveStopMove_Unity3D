@@ -29,28 +29,20 @@ public class EnemyRange : MonoBehaviour
 
         if (other.CompareTag("Enemy"))
         {
-           // Enemy enemyTmp = Cache.GetEnemyBody(other).enemy;
-
             enemy.IsAttack = true;
 
             enemy.characterInRange.Add(other.gameObject);
-
-            //enemyTmp.RemoveCharacterInRangeAction += enemy.RemoveCharacterInRange;
 
         }
 
         if (other.CompareTag("Player"))
         {
-           // Player playerTmp = Cache.GetPlayerBody(other).player;
-
             enemy.IsAttack = true;
 
             if (!enemy.characterInRange.Contains(other.gameObject))
             {
                 enemy.characterInRange.Add(other.gameObject);
             }
-
-            //playerTmp.RemoveCharacterInRangeAction += enemy.RemoveCharacterInRange;
         }
     }
     private void OnTriggerExit(Collider other)

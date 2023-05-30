@@ -131,6 +131,7 @@ public static class ParticlePool
     {
         if (prefab != null && !pools.ContainsKey(prefab.GetInstanceID()))
         {
+
             pools[prefab.GetInstanceID()] = new Pool(prefab, qty, parent);
         }
     }

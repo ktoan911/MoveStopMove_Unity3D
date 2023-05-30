@@ -166,6 +166,7 @@ public static class SimplePool
 
     static public void Preload(GameUnit prefab, int qty = 1, Transform parent = null, bool collect = false, bool clamp = false)
     {
+
         if (!poolTypes.ContainsKey(prefab.poolType))
         {
             poolTypes.Add(prefab.poolType, prefab);
@@ -183,7 +184,8 @@ public static class SimplePool
         GameUnit[] obs = new GameUnit[qty];
         for (int i = 0; i < qty; i++)
         {
-            obs[i] = Spawn(prefab);        
+            obs[i] = Spawn(prefab);
+            obs[i].TF.SetParent(parent);
         }
 
         // Now despawn them all.

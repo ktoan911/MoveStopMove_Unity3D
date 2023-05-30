@@ -33,41 +33,4 @@ public class Cache
 
         return player[collider];
     }
-
-
-    private static Dictionary<Collider, EnemyCollider> enemy = new Dictionary<Collider, EnemyCollider>();
-
-    public static EnemyCollider GetEnemyBody(Collider collider)
-    {
-        if (!enemy.ContainsKey(collider))
-        {
-            enemy.Add(collider, collider.GetComponent<EnemyCollider>());
-        }
-
-        return enemy[collider];
-    }
-
-    private static Dictionary<Collider, EnemyRange> ERange = new Dictionary<Collider, EnemyRange>();
-
-    public static EnemyRange GetEnemyRange(Collider collider)
-    {
-        if (!ERange.ContainsKey(collider))
-        {
-            ERange.Add(collider, collider.GetComponent <EnemyRange>());
-        }
-
-        return ERange[collider];
-    }
-
-    private static Dictionary<Collider, PlayerRange> Range = new Dictionary<Collider, PlayerRange>();
-
-    public static PlayerRange GetPlayerRange(Collider collider)
-    {
-        if (!Range.ContainsKey(collider))
-        {
-            Range.Add(collider, collider.GetComponent<PlayerRange>());
-        }
-
-        return Range[collider];
-    }
 }

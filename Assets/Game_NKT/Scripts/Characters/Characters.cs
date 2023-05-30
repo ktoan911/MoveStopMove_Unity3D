@@ -43,8 +43,6 @@ public class Characters : GameUnit
 
     public List<GameObject> characterInRange = new List<GameObject>();
 
-    //public UnityAction<GameObject> RemoveCharacterInRangeAction;
-
     public Collider colliderCharacter;
 
     public HitVFX hitVFX;

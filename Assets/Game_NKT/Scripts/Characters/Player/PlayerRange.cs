@@ -31,16 +31,12 @@ public class PlayerRange : MonoBehaviour
 
         if (other.CompareTag("Enemy"))
         {
-           // Enemy enemyTmp = Cache.GetEnemyBody(other).enemy;
-
             player.IsAttack = true;
 
             if (!player.characterInRange.Contains(other.gameObject))
             {
                 player.characterInRange.Add(other.gameObject);
             }
-
-           // enemyTmp.RemoveCharacterInRangeAction += player.RemoveCharacterInRange;
         }
     }
 
@@ -53,13 +49,6 @@ public class PlayerRange : MonoBehaviour
             player.IsAttack = false;
 
         }
-
-        //if (other.CompareTag("RangeEnemy"))
-        //{
-        //    Enemy enemyTmp = Cache.GetEnemyRange(other).enemy;
-
-        //    player.RemoveCharacterInRangeAction -= enemyTmp.RemoveCharacterInRange;
-        //}
     }
 
 

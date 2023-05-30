@@ -9,9 +9,9 @@ public class GamePlayDialog : Singleton<GamePlayDialog>
 
     public void OnInit()
     {
-        this.SetNumberEnemiesText(PlatformManager.Ins.numberOfEnemies);
+        this.SetNumberCharactersText(PlatformManager.Ins.numberOfCharacter);
     }
-    public void SetNumberEnemiesText(int numberEnemies)
+    public void SetNumberCharactersText(int numberEnemies)
     {
         numberEnemiesText.text = "Alive: " + numberEnemies;
     }

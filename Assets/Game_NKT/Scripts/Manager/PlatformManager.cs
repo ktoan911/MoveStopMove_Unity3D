@@ -9,7 +9,7 @@ public class PlatformManager : Singleton<PlatformManager>
 
     public int numberEnemiesDead;
 
-    public int numberOfEnemies;
+    public int numberOfCharacter;
 
     public List<Enemy> enemyList = new List<Enemy>();
 
@@ -33,7 +33,7 @@ public class PlatformManager : Singleton<PlatformManager>
     {
         EnemySpawner.Instance.SpawnEnemiesInitial(this.listNameEnemy);
 
-        numberOfEnemies = 100;
+        numberOfCharacter = 100;
 
     }
     private void Update()
@@ -45,7 +45,7 @@ public class PlatformManager : Singleton<PlatformManager>
 
     private void ReSpawnEnemies()
     {
-        if (this.numberOfEnemies <= EnemySpawner.Instance.spawnPos.Count) return;
+        if (this.numberOfCharacter - 1 <= EnemySpawner.Instance.spawnPos.Count) return;
 
         if (numberEnemiesDead >= 7 && GameManager.Ins.IsPlayGame)
         {
@@ -68,31 +68,33 @@ public class PlatformManager : Singleton<PlatformManager>
 
     public void OnUpdateNumberEnemies()
     {
-        --numberOfEnemies;
+        --numberOfCharacter;
 
         numberEnemiesDead++;
 
-        GamePlayDialog.Ins.SetNumberEnemiesText(numberOfEnemies);
+        GamePlayDialog.Ins.SetNumberCharactersText(numberOfCharacter);
     }
 
     private void CheckGameWin()
     {
-        if(this.numberOfEnemies == EnemySpawner.Instance.spawnPos.Count && isLastSpawn)
+        if(this.numberOfCharacter - 1 <= EnemySpawner.Instance.spawnPos.Count && isLastSpawn)
         {
-            EnemySpawner.Instance.LastSpawn(EnemySpawner.Instance.spawnPos.Count - this.enemyList.Count - 1, listNameEnemy);
+            int numberLastSpawn = EnemySpawner.Instance.spawnPos.Count - this.enemyList.Count;
+
+            Debug.Log(numberLastSpawn);
+
+            EnemySpawner.Instance.LastSpawn(numberLastSpawn, listNameEnemy);
+
+            this.numberOfCharacter = this.enemyList.Count + 1;
 
             isLastSpawn = false;
         }
 
-        if (this.numberOfEnemies <= 0)
+        if (this.numberOfCharacter <= 1) //Player Only
         {
-            this.numberOfEnemies = 0;
+            this.numberOfCharacter = 1;
 
-            GamePlayDialog.Ins.SetNumberEnemiesText(this.numberOfEnemies);
-
-            GameManager.Ins.IsPlayGame = false;
-
-            GameManager.Ins.Player.currentState.ChangeState(new WinState());
+            GameManager.Ins.IsWinGame = true;
         }
     }
 }

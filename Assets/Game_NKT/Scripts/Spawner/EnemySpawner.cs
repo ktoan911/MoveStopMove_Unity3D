@@ -77,6 +77,7 @@ public class EnemySpawner : MonoBehaviour
             Enemy enemyPool = SimplePool.Spawn<Enemy>(enemyPrfab, GetClosestPointOnNavmesh(ReSpawnPos().position), ReSpawnPos().rotation);
 
             PlatformManager.Ins.ResetListEnemy(enemyPool, true);
+
             enemyPool.RandomName(listName);
 
             enemyPool.OnInit();

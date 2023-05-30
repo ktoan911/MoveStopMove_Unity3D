@@ -770,7 +770,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_UseGeometry: 0
+  m_UseGeometry: 1
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
   m_IgnoreNavMeshObstacle: 1
@@ -779,7 +779,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: aa4e47ef71d73ec48bfaf9116607f34e, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 37bf2c1a8c277f642bb91f813979bdd5, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &295785417
 GameObject:
@@ -2672,7 +2672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberEnemiesDead: 0
-  numberOfEnemies: 0
+  numberOfCharacter: 0
   enemyList: []
   listNameEnemy: []
 --- !u!1 &1549929052

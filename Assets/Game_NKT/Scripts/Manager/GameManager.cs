@@ -9,12 +9,15 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private Player player;
 
     [SerializeField] private Enemy enemy;
-    public Enemy Enemy { get => enemy; }
 
     private bool isPlayGame = false;
 
+    private bool isWinGame;
     public bool IsPlayGame { get => isPlayGame; set => isPlayGame = value; }
     public Player Player { get => player; }
+
+    public Enemy Enemy { get => enemy; }
+    public bool IsWinGame { get => isWinGame; set => isWinGame = value; }
 
     protected void Awake()
     {
@@ -33,11 +36,32 @@ public class GameManager : Singleton<GameManager>
         this.SetCoinPlayer();
 
         MenuDialog.Ins.SetCoinText(player.Coins);
+
+        this.isWinGame = false;
+    }
+
+    private void Update()
+    {
+        if(isWinGame)
+        {
+            WinGame();
+        }
     }
 
     public void SetCoinPlayer()
     {
         player.Coins = Pref.Coins;
+    }
+
+    public void WinGame()
+    {
+        GamePlayDialog.Ins.SetNumberCharactersText(PlatformManager.Ins.numberOfCharacter);
+
+        MainCamera.Ins.MainMenuCamera();
+
+        this.IsPlayGame = false;
+
+        this.Player.currentState.ChangeState(new WinState());
     }
 
 

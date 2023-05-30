@@ -13,7 +13,7 @@ public class LoseScreenDialog : Singleton<LoseScreenDialog>
 
         whoKill.color = character.materialCharacter.material.color;
 
-        rankText.text = PlatformManager.Ins.numberOfEnemies.ToString();
+        rankText.text = PlatformManager.Ins.numberOfCharacter.ToString();
 
 
     }

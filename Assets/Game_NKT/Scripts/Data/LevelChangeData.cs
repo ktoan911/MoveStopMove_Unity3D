@@ -17,14 +17,17 @@ public class LevelChangeData : ScriptableObject
 {
     [SerializeField] public List<InfoLevel> levels = new List<InfoLevel>();
 
-    public void AddData(InfoLevel newData)
+    public float GetScale(int level, float pastScale)
     {
-        levels.Add(newData);
-    }
+        for (int i = 0; i < levels.Count; i++)
+        {
+            if(level == levels[i].level)
+            {
+                return levels[i].scale;
+            }
+        }
 
-    public void RemoveData(InfoLevel dataToRemove)
-    {
-        levels.Remove(dataToRemove);
+        return pastScale;
     }
 }
 

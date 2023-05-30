@@ -15,11 +15,13 @@ public class Characters : GameUnit
 
     private string currentAnim;
 
-    private float scaleChangePercent;
+    private float currentScale;
 
     [SerializeField] private GameObject CharacterBody;
 
     [SerializeField] protected WayPoint wayPointPrefab;
+
+    [SerializeField] private LevelChangeData levelChangeData;
 
     protected float rotationSpeed;
 
@@ -41,7 +43,7 @@ public class Characters : GameUnit
 
     public List<GameObject> characterInRange = new List<GameObject>();
 
-    public UnityAction<GameObject> RemoveCharacterInRangeAction;
+    //public UnityAction<GameObject> RemoveCharacterInRangeAction;
 
     public Collider colliderCharacter;
 
@@ -91,6 +93,8 @@ public class Characters : GameUnit
         this.attackRange = 5f;
 
         this.level = 1;
+
+        this.currentScale = 1f;
     }
 
     public void ChangeAnim(string animName)
@@ -115,9 +119,9 @@ public class Characters : GameUnit
         if (isUp) this.level++;
         else this.level--;
 
-        scaleChangePercent = level * 0.05f;
+        currentScale = levelChangeData.GetScale(level, currentScale);
 
-        CharacterBody.transform.localScale += new Vector3(1f, 1f, 1f) * scaleChangePercent;
+        CharacterBody.transform.localScale = new Vector3(1f, 1f, 1f) * currentScale;
     }
 
     public void RemoveCharacterInRange(GameObject character)

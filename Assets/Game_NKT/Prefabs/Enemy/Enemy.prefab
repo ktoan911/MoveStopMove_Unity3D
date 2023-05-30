@@ -234,6 +234,7 @@ MonoBehaviour:
   poolType: 0
   CharacterBody: {fileID: 2808882091407472602}
   wayPointPrefab: {fileID: 8008757578437198612, guid: 8e82fd994d48dad4a89fbd2cc6e2e108, type: 3}
+  levelChangeData: {fileID: 11400000, guid: ca316ebb06c63b447ad5470130ce4e6b, type: 2}
   anim: {fileID: 9091216752348375219}
   throwPoint: {fileID: 2641595078544035786}
   characterName: 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class PlatformManager : Singleton<PlatformManager>
 {
@@ -14,7 +15,6 @@ public class PlatformManager : Singleton<PlatformManager>
     public List<Enemy> enemyList = new List<Enemy>();
 
     public List<string> listNameEnemy = new List<string>();
-
 
     private void Awake()
     {
@@ -36,12 +36,6 @@ public class PlatformManager : Singleton<PlatformManager>
         numberOfCharacter = 100;
 
     }
-    private void Update()
-    {
-        this.ReSpawnEnemies();
-
-        this.CheckGameWin();
-    }
 
     private void ReSpawnEnemies()
     {
@@ -56,6 +50,7 @@ public class PlatformManager : Singleton<PlatformManager>
 
     public void ResetListEnemy(Enemy enemy, bool isUp)
     {
+        //TODO: nen tach ra lam 2 ham
         if(isUp)
         {
             this.enemyList.Add(enemy);
@@ -65,7 +60,6 @@ public class PlatformManager : Singleton<PlatformManager>
             this.enemyList.Remove(enemy);
         }
     }
-
     public void OnUpdateNumberEnemies()
     {
         --numberOfCharacter;
@@ -81,8 +75,6 @@ public class PlatformManager : Singleton<PlatformManager>
         {
             int numberLastSpawn = EnemySpawner.Instance.spawnPos.Count - this.enemyList.Count;
 
-            Debug.Log(numberLastSpawn);
-
             EnemySpawner.Instance.LastSpawn(numberLastSpawn, listNameEnemy);
 
             this.numberOfCharacter = this.enemyList.Count + 1;
@@ -96,5 +88,12 @@ public class PlatformManager : Singleton<PlatformManager>
 
             GameManager.Ins.IsWinGame = true;
         }
+    }
+
+    public void PlatformCheckWhenCharacterDead()
+    {
+        this.ReSpawnEnemies();
+
+        this.CheckGameWin();
     }
 }

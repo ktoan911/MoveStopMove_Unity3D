@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DeadState : IState<Player>
 {
-    private float timeDelayDead = 1f;
+    private float timeDelayDead = 0.3f;
 
     public void OnEnter(Player t)
     {
@@ -13,6 +13,8 @@ public class DeadState : IState<Player>
         t.SpawnVFX();
 
         t.ChangeAnim("Dead");
+
+        PlatformManager.Ins.PlatformCheckWhenCharacterDead();
     }
 
     public void OnExecute(Player t)
@@ -21,7 +23,7 @@ public class DeadState : IState<Player>
         if (timeDelayDead > 0) return;
 
         t.DeadUI(t.characterKill);
-        t.OnDespawn();
+        t.gameObject.SetActive(false);
 
     }
 

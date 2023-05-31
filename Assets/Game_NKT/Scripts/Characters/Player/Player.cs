@@ -21,8 +21,6 @@ public class Player : Characters
 
     [SerializeField] private CharacterController characterController;
 
-    public PlayerRange playerAttackRange;
-
     public CircleAroundPlayer circleRange;
 
     public UnityAction<Characters> DeadUI;
@@ -175,7 +173,9 @@ public class Player : Characters
     {
         base.OnDespawn();
 
-        this.gameObject.SetActive(false);
+        Debug.Log(2);
+
+        this.currentState.ChangeState(new DeadState());
     }
 
 }

@@ -10,21 +10,21 @@ public class EAttackState : IState<Enemy>
     {
         t.IsMoving = false;
 
-        timeAttack = 1f;
+        timeAttack = 0.5f;
 
         t.ChangeAnim("Attack");
-
-        if (t.characterInRange.Count > 0)
-        {
-            WeaponSpawner.Instance.SpawnEnemyWeapon(t);
-        }
-       
+   
     }
 
     public void OnExecute(Enemy t)
     {
         timeAttack -= Time.deltaTime;
         if (timeAttack > 0) return;
+
+        if (t.characterInRange.Count > 0)
+        {
+            WeaponSpawner.Instance.SpawnEnemyWeapon(t);
+        }
 
         t.IsAttack = false;
         t.currentState.ChangeState(new EIdleState());

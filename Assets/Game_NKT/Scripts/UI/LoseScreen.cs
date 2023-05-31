@@ -7,6 +7,8 @@ public class LoseScreen : UICanvas
 {
     public void BackToHomeButton()
     {
+        GameManager.Ins.IsPlayGame= false;
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

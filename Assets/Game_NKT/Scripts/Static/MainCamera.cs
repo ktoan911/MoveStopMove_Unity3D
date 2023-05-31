@@ -14,6 +14,8 @@ public class MainCamera : Singleton<MainCamera>
 
     [SerializeField] private Transform mainMenuCameraPosition;
 
+    [SerializeField] private Player player;
+
     private void Start()
     {
         distance = this.playCameraPosition.position - playerPosition.position;
@@ -21,7 +23,7 @@ public class MainCamera : Singleton<MainCamera>
 
     private void LateUpdate()
     {
-        if (GameManager.Ins.IsPlayGame)
+        if (GameManager.Ins.IsPlayGame && player.gameObject.activeSelf)
         {
             this.transform.position = playerPosition.position + distance;
         }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EDeadState : IState<Enemy>
 {
-    private float timeDelayDead = 0.7f;
+    private float timeDelayDead = 0.3f;
 
     public void OnEnter(Enemy t)
     {
@@ -13,20 +13,20 @@ public class EDeadState : IState<Enemy>
 
         t.SpawnVFX();
 
-        //t.RemoveCharacterInRangeAction(t.colliderCharacter.gameObject);
-
         PlatformManager.Ins.OnUpdateNumberEnemies();
 
         PlatformManager.Ins.ResetListEnemy(t, false);
 
         PlatformManager.Ins.listNameEnemy.Add(t.characterName);
+
+        PlatformManager.Ins.PlatformCheckWhenCharacterDead();
     }
 
     public void OnExecute(Enemy t)
     {
         timeDelayDead -= Time.deltaTime;
         if (timeDelayDead > 0) return;
-        t.OnDespawn();
+        SimplePool.Despawn(t);
         t.waypointClone.OnDespawn();
     }
 

@@ -12,14 +12,11 @@ public class AttackState : IState<Player>
         t.IsAttack = true;
         t.IsMoving = false;
 
-        attackDelayTime = 1f;
+        attackDelayTime = 0.5f;
 
         t.ChangeAnim("Attack");
 
-        if (t.characterInRange.Count > 0)
-        { 
-            WeaponSpawner.Instance.SpawnPlayerWeapon(t);
-        }
+       
 
     }
 
@@ -37,8 +34,14 @@ public class AttackState : IState<Player>
             attackDelayTime -= Time.deltaTime;
             if (attackDelayTime > 0f) return;
 
+            if (t.characterInRange.Count > 0)
+            {
+                WeaponSpawner.Instance.SpawnPlayerWeapon(t);
+            }
             t.IsAttack = false;
+
             t.currentState.ChangeState(new IdleState());
+
 
             return;
         }

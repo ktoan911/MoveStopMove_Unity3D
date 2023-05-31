@@ -8,16 +8,12 @@ public class ChangepropertiesCharacter : Singleton<ChangepropertiesCharacter>
     {
         player.attackRange = player.attackRange * (1 + percentChange / 100);
 
-        player.playerAttackRange.ChangeAttackRange(player.attackRange);
-
         player.circleRange.ChangeAttackRangeCircle(player.attackRange);
     }
 
     public void ChangeEnemyAttackRange(float percentChange, Enemy enemy)
     {
-        enemy.attackRange = enemy.attackRange * (1 + percentChange / 100);
-        enemy.enemyAttackRange.ChangeAttackRange(enemy.attackRange);
-       
+        enemy.attackRange = enemy.attackRange * (1 + percentChange / 100);     
     }
 
     public void ChangeSpeed(float percentChange, Characters character)

@@ -15,7 +15,7 @@ public class Enemy : Characters
 
     public Vector3 finalPosition;
 
-    public EnemyRange enemyAttackRange;
+    //public EnemyRange enemyAttackRange;
 
     public int enemyIDWeapon;
 
@@ -132,8 +132,8 @@ public class Enemy : Characters
     public override void OnDespawn()
     {
         base.OnDespawn();
-    
-        SimplePool.Despawn(this);
+
+        this.currentState.ChangeState(new EDeadState());
     }
 
     private int RandomWeapon()
@@ -170,5 +170,18 @@ public class Enemy : Characters
         base.UpdateLevel(isUp);
 
         ChangepropertiesCharacter.Ins.ChangeEnemyAttackRange(10, this);
+    }
+
+    Vector3 destionation;
+
+    public bool IsDestionation => Vector3.Distance(destionation, TF.position) < 0.1f;
+    public void SetDestionation(Vector3 point)
+    {
+        destionation = point;
+        agent.SetDestination(destionation);
+    }
+    public void MoveStop()
+    {
+
     }
 }

@@ -14,6 +14,12 @@ public class ERunState : IState<Enemy>
 
     public void OnExecute(Enemy t)
     {
+        if (t.CheckAllIsAround())
+        {
+            t.IsAttack = true;
+        }
+        else t.IsAttack = false;
+
         if (t.IsGotoTarget() || t.IsAttack)
         {
             t.currentState.ChangeState(new EIdleState());

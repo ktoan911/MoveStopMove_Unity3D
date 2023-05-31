@@ -49,6 +49,8 @@ public class WayPoint : GameUnit
 
         float minY = imgPoint.GetPixelAdjustedRect().height / 2;
         float maxY = Screen.height - minY;
+
+        if (!character.gameObject.activeSelf) return;
         Vector3 pos = Camera.main.WorldToScreenPoint(character.transform.position + offset);
 
         if (pos.z < 0)

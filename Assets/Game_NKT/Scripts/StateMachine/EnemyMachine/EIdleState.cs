@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class EIdleState : IState<Enemy>
 {
+    private float timeDelayAttack;
+
     public void OnEnter(Enemy t)
     {
         t.IsMoving = false;
+
+        timeDelayAttack = 0.35f;
 
         t.StopMove();
 
@@ -15,8 +19,17 @@ public class EIdleState : IState<Enemy>
 
     public void OnExecute(Enemy t)
     {
+        if (t.CheckAllIsAround())
+        {
+            t.IsAttack = true;
+        }
+        else t.IsAttack = false;
+
         if (t.IsAttack)
         {
+            timeDelayAttack -= Time.deltaTime;
+            if (timeDelayAttack > 0f) return;
+
             t.ChangeRotation();
 
             t.currentState.ChangeState(new EAttackState());

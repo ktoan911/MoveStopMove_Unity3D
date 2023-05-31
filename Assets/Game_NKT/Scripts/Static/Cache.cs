@@ -33,4 +33,16 @@ public class Cache
 
         return player[collider];
     }
+
+    private static Dictionary<Collider, EnemyCollider> enemy = new Dictionary<Collider, EnemyCollider>();
+
+    public static EnemyCollider GetEnemyBody(Collider collider)
+    {
+        if (!enemy.ContainsKey(collider))
+        {
+            enemy.Add(collider, collider.GetComponent<EnemyCollider>());
+        }
+
+        return enemy[collider];
+    }
 }

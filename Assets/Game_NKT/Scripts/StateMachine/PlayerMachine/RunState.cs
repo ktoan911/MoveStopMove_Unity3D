@@ -12,6 +12,12 @@ public class RunState : IState<Player>
 
     public void OnExecute(Player t)
     {
+        //if (t.CheckAllIsAround())
+        //{
+        //    t.IsAttack = true;
+        //}
+        //else t.IsAttack = false;
+
         t.Moving();
 
         if (!t.IsMove())

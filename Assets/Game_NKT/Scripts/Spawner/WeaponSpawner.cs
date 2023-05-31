@@ -31,6 +31,12 @@ public class WeaponSpawner : Spawner
         weaponPool.OnInit();
         weaponPool.SetTimeDestroy(player.attackRange);
         weaponPool.SetDataWeapon(player.TargetDirection(), player);
+
+        if (player.IsUpScaleWeapon)
+        {
+            weaponPool.UpScaleWeapon();
+            player.IsUpScaleWeapon = false;
+        }
     }
 
     public void SpawnEnemyWeapon(Enemy enemy)
@@ -41,6 +47,12 @@ public class WeaponSpawner : Spawner
         weaponPool.OnInit();
         weaponPool.SetTimeDestroy(enemy.attackRange);
         weaponPool.SetDataWeapon(enemy.TargetDirection(),enemy);
+
+        if (enemy.IsUpScaleWeapon)
+        {
+            weaponPool.UpScaleWeapon();
+            enemy.IsUpScaleWeapon = false;
+        }
     }
 
 

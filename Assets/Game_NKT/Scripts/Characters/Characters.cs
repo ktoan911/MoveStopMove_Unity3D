@@ -17,6 +17,8 @@ public class Characters : GameUnit
 
     private float currentScale;
 
+    private bool isUpScaleWeapon;
+
     [SerializeField] private GameObject CharacterBody;
 
     [SerializeField] protected WayPoint wayPointPrefab;
@@ -41,20 +43,19 @@ public class Characters : GameUnit
 
     public Characters characterKill;
 
-    public List<GameObject> characterInRange = new List<GameObject>();
+    public List<Transform> characterInRange = new List<Transform>();
 
     public Collider colliderCharacter;
 
     public HitVFX hitVFX;
 
-
+    public UnityAction<GameObject> RemoveCharacterAction;
 
 
     public float Speed { get => speed; set => speed = value; }
     public bool IsMoving { get => isMoving; set => isMoving = value; }
     public bool IsAttack { get => isAttack; set => isAttack = value; }
-
-
+    public bool IsUpScaleWeapon { get => isUpScaleWeapon; set => isUpScaleWeapon = value; }
 
     private void Update()
     {
@@ -69,8 +70,8 @@ public class Characters : GameUnit
     public Vector3 TargetDirection()
     {
         if(characterInRange.Count <= 0) return Vector3.zero;
-
-        Vector3 direction = this.characterInRange[0].transform.position - this.transform.position;
+        //TODO: cache transform
+        Vector3 direction = this.characterInRange[0].position - this.transform.position;
         direction.y = 0f;
         return direction.normalized;
     }
@@ -93,6 +94,8 @@ public class Characters : GameUnit
         this.level = 1;
 
         this.currentScale = 1f;
+
+        this.IsUpScaleWeapon = false;
     }
 
     public void ChangeAnim(string animName)
@@ -119,25 +122,7 @@ public class Characters : GameUnit
 
         currentScale = levelChangeData.GetScale(level, currentScale);
 
-        CharacterBody.transform.localScale = new Vector3(1f, 1f, 1f) * currentScale;
-    }
-
-    public void RemoveCharacterInRange(GameObject character)
-    {
-        if (character == null) return;
-
-        characterInRange.Remove(character);
-    }
-
-    public void ResetCharInRange()
-    {
-        for(int i = 0; i < characterInRange.Count; i++)
-        {
-            if (!CheckIsAround(characterInRange[i]))
-            {
-                RemoveCharacterInRange(characterInRange[i]);
-            }
-        }
+        CharacterBody.transform.localScale = Vector3.one * currentScale;
     }
 
     public void SpawnVFX()
@@ -146,14 +131,23 @@ public class Characters : GameUnit
         hit.OnInit(materialCharacter.material.color);
     }
 
-    public bool CheckIsAround(GameObject charInList)
+    public bool CheckAllIsAround()
     {
+        this.characterInRange.Clear();
+
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange);
         for (int i = 0; i < hitColliders.Length; i++)
         {
-            if (hitColliders[i].CompareTag("Player") || hitColliders[i].CompareTag("Enemy"))
+
+            //TODO: cache string
+            if ((hitColliders[i].CompareTag("Player") || hitColliders[i].CompareTag("Enemy")) && hitColliders[i] != this.colliderCharacter)
             {
-                if (charInList == hitColliders[i].gameObject) return true;
+                if (!this.characterInRange.Contains(hitColliders[i].transform))
+                {
+                    this.characterInRange.Add(hitColliders[i].transform);
+                }
+
+                return true;
             }
         }
         return false;
@@ -161,11 +155,18 @@ public class Characters : GameUnit
     }
     public override void OnDespawn()
     {
-        
+
     }
 
     public override void OnInit(Characters t, int percentUp)
     {
         throw new NotImplementedException();
+    }
+
+    public void OnHit(Characters character)
+    {
+        this.characterKill= character;
+
+        this.OnDespawn();
     }
 }

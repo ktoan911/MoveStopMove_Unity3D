@@ -21,6 +21,8 @@ public class Weapon : GameUnit
         SelfDestroy();
 
         MoveToTargetStraight();
+
+        RotateWeapon();
     }
 
     public void SetDataWeapon(Vector3 dir, Characters character) 
@@ -63,21 +65,34 @@ public class Weapon : GameUnit
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy") || other.CompareTag("Player"))
+        if (other.CompareTag("Enemy"))
         {
-           if (other.CompareTag("Player"))
-            {
-                Player character = Cache.GetPlayerBody(other).player;
+            Enemy e = Cache.GetEnemyBody(other).enemy;
 
-                character.characterKill = this.characterAttack;
+            if (e != null && e != this.characterAttack) 
+            {
+                this.characterAttack.UpdateLevel(true);
+
+                e.OnHit(this.characterAttack);
+                
             }
 
+            this.OnDespawn();
+        }
+
+        if (other.CompareTag("Player"))
+        {
+            Player p = Cache.GetPlayerBody(other).player;
+
+            if (p != null && p != this.characterAttack)
+            {
+                this.characterAttack.UpdateLevel(true);
+
+                p.OnHit(this.characterAttack);
+
+            }
 
             this.OnDespawn();
-
-            
-
-            UpdateLevelCharacter(characterAttack);
         }
     }
 
@@ -89,9 +104,14 @@ public class Weapon : GameUnit
         this.OnDespawn();
     }
 
-    private void UpdateLevelCharacter(Characters character)
+    public void UpScaleWeapon()
     {
-        character.UpdateLevel(true);
+        this.transform.localScale *= 5;
+    }
+
+    private void RotateWeapon()
+    {
+        transform.Rotate(0, 400 * Time.deltaTime, 0);
     }
 
     public override void OnInit(Characters t, int percentUp)

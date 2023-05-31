@@ -53,7 +53,7 @@ public class Weapon : GameUnit
 
     public void SetTimeDestroy(float attackRange)
     {
-        this.timeSelfDestroy = attackRange / moveSpeed;
+        this.timeSelfDestroy = attackRange  / moveSpeed;
     }
 
     public override void OnInit()
@@ -73,6 +73,8 @@ public class Weapon : GameUnit
             {
                 this.characterAttack.UpdateLevel(true);
 
+                this.characterAttack.UpCoin(e);
+
                 e.OnHit(this.characterAttack);
                 
             }
@@ -87,6 +89,8 @@ public class Weapon : GameUnit
             if (p != null && p != this.characterAttack)
             {
                 this.characterAttack.UpdateLevel(true);
+
+                this.characterAttack.UpCoin(p);
 
                 p.OnHit(this.characterAttack);
 
@@ -106,7 +110,7 @@ public class Weapon : GameUnit
 
     public void UpScaleWeapon()
     {
-        this.transform.localScale *= 5;
+        this.transform.localScale *= 8;
     }
 
     private void RotateWeapon()

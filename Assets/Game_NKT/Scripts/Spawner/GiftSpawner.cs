@@ -47,7 +47,7 @@ public class GiftSpawner : MonoBehaviour
             giftPosTmp = giftPosList[random];
 
             this.giftPosList.Remove(giftPosList[random]);
-        } while (giftPosTmp != null);
+        } while (giftPosTmp == null);
 
         return giftPosTmp;
     }

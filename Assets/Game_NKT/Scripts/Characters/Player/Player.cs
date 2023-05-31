@@ -9,6 +9,8 @@ public class Player : Characters
 
     private int skinPantID;
 
+    private int coins;
+
     [SerializeField] private Transform rightHand;
 
     [SerializeField] private SkinnedMeshRenderer pants;
@@ -31,7 +33,7 @@ public class Player : Characters
 
     public int weaponID;
 
-    private int coins;
+    public int coinUp;
     public int Coins { get => coins; set => coins = value; }
 
     private float horizontal;
@@ -52,6 +54,8 @@ public class Player : Characters
     public override void OnInit()
     {
         base.OnInit();
+
+        this.coinUp = 0;
 
         this.ChangeNamePlayer(Pref.NamePlayer);
     }
@@ -167,6 +171,15 @@ public class Player : Characters
     public void ChangeNamePlayer(string name)
     {
         this.characterName = name;
+    }
+
+    public override void UpCoin(Characters character)
+    {
+        base.UpCoin(character);
+
+        if (character == null) return;
+
+        this.coinUp += character.level;
     }
 
     public override void OnDespawn()

@@ -23,7 +23,12 @@ public class DeadState : IState<Player>
         if (timeDelayDead > 0) return;
 
         t.DeadUI(t.characterKill);
+
         t.gameObject.SetActive(false);
+
+        GameManager.Ins.IsPlayGame = false;
+
+        t.UpdateCoin(t.coinUp, true);
 
     }
 

@@ -163,10 +163,15 @@ public class Characters : GameUnit
         throw new NotImplementedException();
     }
 
-    public void OnHit(Characters character)
+    public virtual void OnHit(Characters character)
     {
         this.characterKill= character;
 
         this.OnDespawn();
+    }
+
+    public virtual void UpCoin(Characters character)
+    {
+        if (character == null) return;
     }
 }

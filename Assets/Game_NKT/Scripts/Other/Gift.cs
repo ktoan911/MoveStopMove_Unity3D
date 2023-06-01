@@ -12,6 +12,11 @@ public class Gift : GameUnit
 
     [SerializeField] private Rigidbody rb;
 
+    private void Update()
+    {
+        transform.Rotate(0, 80 * Time.deltaTime, 0);
+    }
+
     public override void OnDespawn()
     {
         SimplePool.Despawn(this);
@@ -33,7 +38,11 @@ public class Gift : GameUnit
     {
         if (other.CompareTag("Ground"))
         {
+            Vector3 giftPos = this.transform.position;
+
             rb.isKinematic= true;
+
+            this.transform.position= giftPos;
         }
 
         if (other.CompareTag("Player"))

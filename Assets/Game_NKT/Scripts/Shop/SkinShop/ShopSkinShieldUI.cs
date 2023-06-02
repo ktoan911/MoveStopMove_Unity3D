@@ -48,6 +48,27 @@ public class ShopSkinShieldUI : ShopSkinUI<SkinShieldSO>
 
         skinSO = SOManager.Ins.skinShieldS0[currentIndex];
 
+        this.CheckOwnItem();
+
+    }
+
+    public override void CheckOwnItem()
+    {
+        base.CheckOwnItem();
+
+        shopItemID = skinSO.ID;
+
+        bool isUnlocked = Pref.GetBool(PrefConst.CUR_SKINSHIELD_ID + shopItemID);
+
+        if (isUnlocked)
+        {
+            iconBlock.SetActive(false);
+        }
+        else
+        {
+            iconBlock.SetActive(true);
+        }
+
     }
 
 

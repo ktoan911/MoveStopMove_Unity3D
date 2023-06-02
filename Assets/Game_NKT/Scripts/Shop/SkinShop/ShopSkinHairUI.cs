@@ -48,6 +48,27 @@ public class ShopSkinHairUI : ShopSkinUI<SkinHatSO>
 
         skinSO = SOManager.Ins.skinHairS0[currentIndex];
 
+        this.CheckOwnItem();
+
+    }
+
+    public override void CheckOwnItem()
+    {
+        base.CheckOwnItem();
+
+        shopItemID = skinSO.ID;
+
+        bool isUnlocked = Pref.GetBool(PrefConst.SKINHAIR_PEFIX + shopItemID);
+
+        if(isUnlocked)
+        {
+            iconBlock.SetActive(false);
+        }
+        else
+        {
+            iconBlock.SetActive(true);
+        }
+
     }
 
 

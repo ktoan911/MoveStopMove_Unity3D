@@ -78,7 +78,8 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
 
                 if (item.ID == prefCurTypeSkin)
                 {
-                    curTextEquipMent = itemUIClone.EquipText;
+                    this.pastTextEquipMent = itemUIClone.EquipText;
+                    this.curTextEquipMent = itemUIClone.EquipText;
 
                     curTextEquipMent.SetActive(true);
                 }
@@ -131,7 +132,9 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
     {
         this.priceText.text = priceText;
 
-        if(pastTextEquipMent) pastTextEquipMent.SetActive(false);
+        //item.iconBlock.SetActive(false);
+
+        pastTextEquipMent.SetActive(false);
 
         if(curTextEquipMent != null) curTextEquipMent.SetActive(true);
 

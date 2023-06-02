@@ -50,7 +50,27 @@ public class ShopSkinPantUI : ShopSkinUI<SkinPantsSO>
         hud.sprite = SOManager.Ins.skinPantsS0[currentIndex].hud;
 
         skinSO = SOManager.Ins.skinPantsS0[currentIndex];
+
+        this.CheckOwnItem();
     }
 
+    public override void CheckOwnItem()
+    {
+        base.CheckOwnItem();
+
+        shopItemID = skinSO.ID;
+
+        bool isUnlocked = Pref.GetBool(PrefConst.SKINPANT_PEFIX + shopItemID);
+
+        if (isUnlocked)
+        {
+            iconBlock.SetActive(false);
+        }
+        else
+        {
+            iconBlock.SetActive(true);
+        }
+
+    }
 
 }

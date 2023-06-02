@@ -14,9 +14,9 @@ public class WeaponModel : GameUnit
         throw new System.NotImplementedException();
     }
 
-    public override void OnInit(Characters t, int percentUp)
+    public override void OnInit(Characters t, float curScale)
     {
-        ChangepropertiesCharacter.Ins.ChangePlayerAttackRange(percentUp, (Player)t);
+        ChangepropertiesCharacter.Ins.ChangePlayerAttackRange(curScale, (Player)t);
     }
 
 }

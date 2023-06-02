@@ -18,4 +18,4 @@ MonoBehaviour:
   weaponPrefab: {fileID: 3819801102518065347, guid: 5aff4272bdd97404d9d4e80367732091, type: 3}
   weaponModel: {fileID: -3747673833073816896, guid: 6a79dcc7499434d4484b2c7dcb9d5cbd, type: 3}
   weaponName: Harmer
-  percentUpRange: 15
+  percentUpRange: 0.15

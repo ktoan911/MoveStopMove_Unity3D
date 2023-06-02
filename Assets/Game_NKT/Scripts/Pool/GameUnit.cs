@@ -20,6 +20,6 @@ public abstract class GameUnit : MonoBehaviour
     public abstract void OnInit();
     public abstract void OnDespawn();
 
-    public abstract void OnInit(Characters t, int percentUp);
+    public abstract void OnInit(Characters t, float curScale);
 
 }

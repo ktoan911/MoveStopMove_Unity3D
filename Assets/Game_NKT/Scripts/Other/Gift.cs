@@ -29,7 +29,7 @@ public class Gift : GameUnit
         typeBuffGift = (TypeBuffGift)randomNum;
     }
 
-    public override void OnInit(Characters t, int percentUp)
+    public override void OnInit(Characters t, float curScale)
     {
         throw new System.NotImplementedException();
     }
@@ -69,7 +69,7 @@ public class Gift : GameUnit
         switch (typeBuffGift)
         {
             case TypeBuffGift.UpRange:
-                ChangepropertiesCharacter.Ins.ChangePlayerAttackRange(Random.Range(1, 15),player);
+                ChangepropertiesCharacter.Ins.ChangePlayerAttackRange(Random.Range(1, 2),player);
                 break;
             case TypeBuffGift.UpScaleWeapon:
                 player.IsUpScaleWeapon= true;
@@ -83,7 +83,7 @@ public class Gift : GameUnit
         switch (typeBuffGift)
         {
             case TypeBuffGift.UpRange:
-                ChangepropertiesCharacter.Ins.ChangeEnemyAttackRange(Random.Range(1, 15), enemy);
+                ChangepropertiesCharacter.Ins.ChangeEnemyAttackRange(Random.Range(1, 2), enemy);
                 break;
             case TypeBuffGift.UpScaleWeapon:
                 enemy.IsUpScaleWeapon = true;

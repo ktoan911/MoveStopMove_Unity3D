@@ -169,7 +169,7 @@ public class Enemy : Characters
     {
         base.UpdateLevel(isUp);
 
-        ChangepropertiesCharacter.Ins.ChangeEnemyAttackRange(10, this);
+        ChangepropertiesCharacter.Ins.ChangeEnemyAttackRange(this.currentScale, this);
     }
 
     Vector3 destionation;

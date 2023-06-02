@@ -18,4 +18,4 @@ MonoBehaviour:
   weaponPrefab: {fileID: 1914284165031448918, guid: ebf0d47c20ef4e3478a291dfa9f7790f, type: 3}
   weaponModel: {fileID: -2547635755922507572, guid: 090d80a7c3efeb140b6072d1765280e5, type: 3}
   weaponName: Arrow
-  percentUpRange: 5
+  percentUpRange: 0.05

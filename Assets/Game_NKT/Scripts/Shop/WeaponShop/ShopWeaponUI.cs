@@ -75,7 +75,7 @@ public class ShopWeaponUI : Singleton<ShopWeaponUI>
 
             nameEquipment.text = SOManager.Ins.weaponS0[currentIndex].weaponName;
 
-            description.text = "+ " + SOManager.Ins.weaponS0[currentIndex].percentUpRange + "% Attack Range";
+            description.text = "+ " + SOManager.Ins.weaponS0[currentIndex].percentUpRange * 100f + "% Attack Range";
 
             bool isUnlocked = Pref.GetBool(PrefConst.WEAPON_PEFIX + shopItemID);
 

@@ -18,4 +18,4 @@ MonoBehaviour:
   weaponPrefab: {fileID: 6405871409292522840, guid: ae8c6dbcc0997ca489e2ef86f2cfcc41, type: 3}
   weaponModel: {fileID: 8214802490269490426, guid: 6894d191d315e304081d7601e6b34ee0, type: 3}
   weaponName: Uzi
-  percentUpRange: 15
+  percentUpRange: 0.15

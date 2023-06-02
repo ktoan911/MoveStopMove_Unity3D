@@ -11,6 +11,6 @@ public class WeaponSO : ParentSO
 
     public string weaponName;
 
-    public int percentUpRange;
+    public float percentUpRange;
 }
 

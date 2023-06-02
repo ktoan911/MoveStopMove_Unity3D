@@ -38,7 +38,7 @@ public class HitVFX : GameUnit
     }
 
 
-    public override void OnInit(Characters t, int percentUp)
+    public override void OnInit(Characters t, float curScale)
     {
         throw new System.NotImplementedException();
     }

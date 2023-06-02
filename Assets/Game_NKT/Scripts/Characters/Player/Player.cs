@@ -129,7 +129,7 @@ public class Player : Characters
     {
         base.UpdateLevel(isUp);
 
-        ChangepropertiesCharacter.Ins.ChangePlayerAttackRange(10, this);
+        ChangepropertiesCharacter.Ins.ChangePlayerAttackRange(this.currentScale, this);
     }
 
     public void UpdateCoin(int coinChange, bool isUp)

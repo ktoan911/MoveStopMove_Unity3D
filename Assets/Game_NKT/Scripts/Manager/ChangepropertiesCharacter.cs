@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class ChangepropertiesCharacter : Singleton<ChangepropertiesCharacter>
 {
-    public void ChangePlayerAttackRange(float percentChange, Player player)
+    public void ChangePlayerAttackRange(float rateChange, Player player)
     {
-        player.attackRange = player.attackRange * (1 + percentChange / 100);
+        player.attackRange = 5 * rateChange;
 
         player.circleRange.ChangeAttackRangeCircle(player.attackRange);
     }
 
-    public void ChangeEnemyAttackRange(float percentChange, Enemy enemy)
+    public void ChangeEnemyAttackRange(float rateChange, Enemy enemy)
     {
-        enemy.attackRange = enemy.attackRange * (1 + percentChange / 100);     
+        enemy.attackRange = 5 * rateChange;     
     }
 
     public void ChangeSpeed(float percentChange, Characters character)

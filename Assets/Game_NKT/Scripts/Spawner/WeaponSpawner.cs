@@ -67,7 +67,7 @@ public class WeaponSpawner : Spawner
 
         WeaponModel weaponModelPool = SimplePool.Spawn<WeaponModel>(weaponSO.weaponModel, Vector3.zero, Quaternion.identity);
 
-        if(id != 0) weaponModelPool.OnInit(player, weaponSO.percentUpRange);
+        if(id != 0) weaponModelPool.OnInit(player, 1f + weaponSO.percentUpRange);
 
         weaponModelPool.gameObject.transform.SetParent(parentSpawn);
 

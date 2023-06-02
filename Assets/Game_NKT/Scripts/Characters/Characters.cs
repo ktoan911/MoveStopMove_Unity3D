@@ -15,8 +15,6 @@ public class Characters : GameUnit
 
     private string currentAnim;
 
-    private float currentScale;
-
     private bool isUpScaleWeapon;
 
     [SerializeField] private GameObject CharacterBody;
@@ -34,6 +32,8 @@ public class Characters : GameUnit
     public string characterName;
 
     public WayPoint waypointClone;
+
+    public float currentScale;
 
     public int level;
 
@@ -158,7 +158,7 @@ public class Characters : GameUnit
 
     }
 
-    public override void OnInit(Characters t, int percentUp)
+    public override void OnInit(Characters t, float curScale)
     {
         throw new NotImplementedException();
     }

@@ -26,8 +26,13 @@ public class Skin : GameUnit
         throw new System.NotImplementedException();
     }
 
-    public override void OnInit(Characters t, int percentUp)
+    public void OnInit(Characters t, int percentUp)
     {
         ChangepropertiesCharacter.Ins.ChangeSpeed(percentUp, t);
+    }
+
+    public override void OnInit(Characters t, float curScale)
+    {
+        throw new System.NotImplementedException();
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.TextCore.Text;
+using UnityEngine.UIElements;
 
 public class Characters : GameUnit
 {
@@ -122,7 +123,12 @@ public class Characters : GameUnit
 
         currentScale = levelChangeData.GetScale(level, currentScale);
 
-        CharacterBody.transform.localScale = Vector3.one * currentScale;
+        UpScaleCharacter(currentScale);
+    }
+
+    public void UpScaleCharacter(float scale)
+    {
+        CharacterBody.transform.localScale = Vector3.one * scale;
     }
 
     public void SpawnVFX()

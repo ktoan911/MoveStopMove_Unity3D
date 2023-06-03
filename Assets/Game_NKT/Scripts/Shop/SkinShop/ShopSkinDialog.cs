@@ -132,11 +132,11 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
     {
         this.priceText.text = priceText;
 
-        //item.iconBlock.SetActive(false);
+        if (pastTextEquipMent != null) pastTextEquipMent.SetActive(false);
 
-        pastTextEquipMent.SetActive(false);
+        this.pastTextEquipMent = curTextEquipMent;
 
-        if(curTextEquipMent != null) curTextEquipMent.SetActive(true);
+        if (curTextEquipMent != null) curTextEquipMent.SetActive(true);
 
 
     }
@@ -152,8 +152,6 @@ public class ShopSkinDialog : Singleton<ShopSkinDialog>
 
         buyButton.image.sprite = buttonImage;
         this.curFrame = currrentFrame;
-
-        this.pastTextEquipMent = curTextEquipMent;
 
         this.curTextEquipMent= EquipText;
 

@@ -38,7 +38,7 @@ public class BuySkinButton : Singleton<BuySkinButton>
             bool isUnlocked = Pref.GetBool(PrefConst.SKINPANT_PEFIX + skinPantsSO.ID);
             if(isUnlocked)
             {
-                this.ShopSkinItemBuyAction("UnEqip");
+                this.ShopSkinItemBuyAction("UnEquip");
 
                 btnBuy.image.sprite = ShopManager.Ins.imageButtonUnEquip;
 
@@ -58,7 +58,7 @@ public class BuySkinButton : Singleton<BuySkinButton>
 
                 ShopSkinDialog.Ins.SetCoinText(player.Coins);
 
-                this.ShopSkinItemBuyAction("UnEqip");
+                this.ShopSkinItemBuyAction("UnEquip");
 
                 btnBuy.image.sprite = ShopManager.Ins.imageButtonUnEquip;
             }
@@ -69,7 +69,7 @@ public class BuySkinButton : Singleton<BuySkinButton>
             bool isUnlocked = Pref.GetBool(PrefConst.SKINHAIR_PEFIX + skinHairSO.ID);
             if (isUnlocked)
             {
-                this.ShopSkinItemBuyAction("UnEqip");
+                this.ShopSkinItemBuyAction("UnEquip");
 
                 btnBuy.image.sprite = ShopManager.Ins.imageButtonUnEquip;
 
@@ -89,7 +89,7 @@ public class BuySkinButton : Singleton<BuySkinButton>
 
                 ShopSkinDialog.Ins.SetCoinText(player.Coins);
 
-                this.ShopSkinItemBuyAction("UnEqip");
+                this.ShopSkinItemBuyAction("UnEquip");
 
                 btnBuy.image.sprite = ShopManager.Ins.imageButtonUnEquip;
             }
@@ -100,7 +100,7 @@ public class BuySkinButton : Singleton<BuySkinButton>
             bool isUnlocked = Pref.GetBool(PrefConst.SKINSHIELD_PEFIX + skinShieldSO.ID);
             if (isUnlocked)
             {
-                this.ShopSkinItemBuyAction("UnEqip");
+                this.ShopSkinItemBuyAction("UnEquip");
 
                 btnBuy.image.sprite = ShopManager.Ins.imageButtonUnEquip;
 
@@ -120,7 +120,7 @@ public class BuySkinButton : Singleton<BuySkinButton>
 
                 ShopSkinDialog.Ins.SetCoinText(player.Coins);
 
-                this.ShopSkinItemBuyAction("UnEqip");
+                this.ShopSkinItemBuyAction("UnEquip");
 
                 btnBuy.image.sprite = ShopManager.Ins.imageButtonUnEquip;
             }

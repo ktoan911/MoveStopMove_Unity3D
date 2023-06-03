@@ -15,8 +15,6 @@ public class Enemy : Characters
 
     public Vector3 finalPosition;
 
-    //public EnemyRange enemyAttackRange;
-
     public int enemyIDWeapon;
 
     public bool isIntialActive = false;
@@ -62,39 +60,6 @@ public class Enemy : Characters
 
     public void SeekForTarget() 
     {
-
-        #region seek enemy
-        //Vector3 scaleBox = new Vector3(100, 5, 100);
-        //hitColliders = Physics.OverlapBox(this.transform.position, scaleBox / 2, Quaternion.identity, layerCharacter);
-
-        //if(hitColliders.Length <2)
-        //{
-        //    finalPosition = player.position; // ko the keo tha transform player ???
-
-        //    return;
-        //}
-
-        //float minDistance = float.MaxValue;
-        //Vector3 minPos = Vector3.zero;
-
-        //for (int i = 0; i < hitColliders.Length; i++)
-        //{
-        //    if (hitColliders[i] == this.enemyCollider)
-        //    {
-        //        continue;
-        //    }
-
-        //    float distanceTmp = Vector3.Distance(hitColliders[i].transform.position, this.transform.position);
-
-        //    if (distanceTmp < minDistance)
-        //    {
-        //        minDistance = distanceTmp;
-        //        minPos = hitColliders[i].transform.position;
-        //    }
-        //}
-
-        #endregion
-
         finalPosition = GetRandomPoint(new Vector3(0, 0, 0), 50f) ;
 
         IsFoundCharacter = true;
@@ -105,11 +70,6 @@ public class Enemy : Characters
     public void GotoTarget()
     {
         agent.SetDestination(finalPosition);
-    }
-
-    public void GotoPoint(Vector3 pos)
-    {
-        agent.SetDestination(pos);
     }
 
     public void StopMove()
@@ -172,16 +132,4 @@ public class Enemy : Characters
         ChangepropertiesCharacter.Ins.ChangeEnemyAttackRange(this.currentScale, this);
     }
 
-    Vector3 destionation;
-
-    public bool IsDestionation => Vector3.Distance(destionation, TF.position) < 0.1f;
-    public void SetDestionation(Vector3 point)
-    {
-        destionation = point;
-        agent.SetDestination(destionation);
-    }
-    public void MoveStop()
-    {
-
-    }
 }

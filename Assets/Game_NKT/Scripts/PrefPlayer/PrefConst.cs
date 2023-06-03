@@ -19,5 +19,14 @@ public class PrefConst
     public const string NAME_PLAYER = "namePlayer";
 
 
+    public const string PLAYER = "Player";
+
+    public const string ENEMY = "Enemy";
+
+    public const string GROUND = "Ground";
+
+    public const string OBSTACLE = "Obstacle";
+
+
 
 }

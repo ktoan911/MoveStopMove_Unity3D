@@ -27,7 +27,7 @@ public class ShopSkinHairUI : ShopSkinUI<SkinHatSO>
         {
             if (shopItemID == Pref.CurHairId)
             {
-                this.ShopSkinItemAction("UnEqqip", frame, ShopManager.Ins.imageButtonUnEquip, EquipText);
+                this.ShopSkinItemAction("UnEquip", frame, ShopManager.Ins.imageButtonUnEquip, EquipText);
 
             }
             else

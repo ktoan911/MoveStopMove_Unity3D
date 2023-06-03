@@ -12,7 +12,7 @@ public class AttackState : IState<Player>
         t.IsAttack = true;
         t.IsMoving = false;
 
-        attackDelayTime = 0.45f;
+        attackDelayTime = 0.35f;
 
         t.ChangeAnim("Attack");
 

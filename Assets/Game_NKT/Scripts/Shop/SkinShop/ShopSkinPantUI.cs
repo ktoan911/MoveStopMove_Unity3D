@@ -29,7 +29,7 @@ public class ShopSkinPantUI : ShopSkinUI<SkinPantsSO>
         {
             if (shopItemID == Pref.CurPantId)
             {
-                this.ShopSkinItemAction("UnEqqip", frame, ShopManager.Ins.imageButtonUnEquip, EquipText);
+                this.ShopSkinItemAction("UnEquip", frame, ShopManager.Ins.imageButtonUnEquip, EquipText);
 
             }
             else

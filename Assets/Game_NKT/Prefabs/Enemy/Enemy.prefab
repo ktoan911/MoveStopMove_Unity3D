@@ -238,6 +238,7 @@ MonoBehaviour:
   throwPoint: {fileID: 2641595078544035786}
   characterName: 
   waypointClone: {fileID: 0}
+  currentScale: 0
   level: 0
   attackRange: 0
   materialCharacter: {fileID: 5952681503501924409}

@@ -19,7 +19,7 @@ public class GiftSpawner : MonoBehaviour
     {
         instance = this;
 
-        timeSpawn = Random.Range(12, 20);
+        timeSpawn = Random.Range(10, 20);
     }
 
     private void Update()
@@ -58,6 +58,6 @@ public class GiftSpawner : MonoBehaviour
 
         giftPool.OnInit();
 
-        timeSpawn = Random.Range(12, 20);
+        timeSpawn = Random.Range(10, 20);
     }
 }

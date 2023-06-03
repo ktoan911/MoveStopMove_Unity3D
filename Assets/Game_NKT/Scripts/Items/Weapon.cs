@@ -11,10 +11,15 @@ public class Weapon : GameUnit
 
     private Characters characterAttack;
 
+    private bool isUpScaleDeltatime;
+
+    private Vector3 lastScale;
+
     [SerializeField] private float moveSpeed;
 
     public Vector3 direction;
     public bool IsFire { get => isFire; set => isFire = value; }
+
 
     private void Update()
     {
@@ -22,7 +27,7 @@ public class Weapon : GameUnit
 
         MoveToTargetStraight();
 
-        RotateWeapon();
+        //RotateWeapon();
     }
 
     public void SetDataWeapon(Vector3 dir, Characters character) 
@@ -39,6 +44,11 @@ public class Weapon : GameUnit
     {
         if (IsFire)
         {
+            if(isUpScaleDeltatime)
+            {
+                this.transform.localScale += Vector3.one * 0.15f;
+            }
+
             transform.Translate(this.direction.normalized * this.moveSpeed * Time.deltaTime, Space.World);
            
         }
@@ -47,6 +57,11 @@ public class Weapon : GameUnit
     public override void OnDespawn()
     {
         this.IsFire = false;
+
+        this.isUpScaleDeltatime = false;
+
+        this.transform.localScale = lastScale;
+
 
         SimplePool.Despawn(this);
     }
@@ -60,12 +75,14 @@ public class Weapon : GameUnit
     {
         this.IsFire = false;
 
-        moveSpeed = 6f;
+        this.lastScale = this.transform.localScale;
+
+        moveSpeed = 10f;
 
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag(PrefConst.ENEMY))
         {
             Enemy e = Cache.GetEnemyBody(other).enemy;
 
@@ -82,7 +99,7 @@ public class Weapon : GameUnit
             this.OnDespawn();
         }
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag(PrefConst.PLAYER))
         {
             Player p = Cache.GetPlayerBody(other).player;
 
@@ -110,7 +127,7 @@ public class Weapon : GameUnit
 
     public void UpScaleWeapon()
     {
-        this.transform.localScale *= 8;
+        this.isUpScaleDeltatime = true;
     }
 
     private void RotateWeapon()

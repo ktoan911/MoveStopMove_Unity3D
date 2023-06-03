@@ -186,8 +186,6 @@ public class Player : Characters
     {
         base.OnDespawn();
 
-        Debug.Log(2);
-
         this.currentState.ChangeState(new DeadState());
     }
 

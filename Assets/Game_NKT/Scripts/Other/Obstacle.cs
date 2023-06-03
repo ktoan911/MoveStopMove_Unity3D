@@ -6,15 +6,18 @@ public class Obstacle : MonoBehaviour
 {
     [SerializeField] private Renderer obstacleRenderer;
 
-    private Material obstacleMaterial;
+    [SerializeField] private Material obstacleMaterialBlur;
 
-    private void Start()
-    {
-        obstacleMaterial = obstacleRenderer.material;
-    }
+    [SerializeField] private Material obstacleMaterialNor;
+
 
     public void BlurObstacle()
     {
-        this.obstacleMaterial.color = new Color(0, 0, 0, 20f / 255);
+        this.obstacleRenderer.material = obstacleMaterialBlur;
+    }
+
+    public void ResetMatObstacle()
+    {
+        this.obstacleRenderer.material = obstacleMaterialNor;
     }
 }

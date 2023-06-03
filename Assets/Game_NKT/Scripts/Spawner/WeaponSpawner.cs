@@ -36,6 +36,8 @@ public class WeaponSpawner : Spawner
         {
             weaponPool.UpScaleWeapon();
             player.IsUpScaleWeapon = false;
+            player.UpScaleCharacter(player.currentScale);
+            ChangepropertiesCharacter.Ins.PlayerResetAfterGift(player);
         }
     }
 
@@ -52,6 +54,8 @@ public class WeaponSpawner : Spawner
         {
             weaponPool.UpScaleWeapon();
             enemy.IsUpScaleWeapon = false;
+            enemy.UpScaleCharacter(enemy.currentScale);
+            ChangepropertiesCharacter.Ins.EnemyResetAfterGift(enemy);
         }
     }
 

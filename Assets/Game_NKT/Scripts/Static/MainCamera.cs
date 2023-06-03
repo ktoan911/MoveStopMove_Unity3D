@@ -26,8 +26,6 @@ public class MainCamera : Singleton<MainCamera>
         if (GameManager.Ins.IsPlayGame && player.gameObject.activeSelf)
         {
             this.transform.position = playerPosition.position + direction;
-
-            //this.CheckObstacleCoverPlayer();
         }
     }
 
@@ -50,19 +48,5 @@ public class MainCamera : Singleton<MainCamera>
         this.transform.position = this.mainMenuCameraPosition.position;
 
         this.transform.rotation = this.mainMenuCameraPosition.rotation;
-    }
-
-    private void CheckObstacleCoverPlayer()
-    {
-        RaycastHit hit;
-
-        if(Physics.Raycast(this.transform.position, direction, out hit))
-        {
-            if (hit.collider.CompareTag("Obstacle"))
-            {
-                Obstacle obstacle = hit.collider.GetComponent<Obstacle>();
-                if (obstacle != null) obstacle.BlurObstacle();
-            }
-        }
     }
 }

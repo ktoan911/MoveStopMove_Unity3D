@@ -1,12 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum TypeBuffGift { UpRange, UpScaleWeapon }
 
 public class Gift : GameUnit
 {
-
-    private TypeBuffGift typeBuffGift;
 
     private int randomNum;
 
@@ -25,8 +22,6 @@ public class Gift : GameUnit
     public override void OnInit()
     {
         randomNum = Random.Range(0, 2);
-
-        typeBuffGift = (TypeBuffGift)randomNum;
     }
 
     public override void OnInit(Characters t, float curScale)
@@ -36,7 +31,7 @@ public class Gift : GameUnit
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Ground"))
+        if (other.CompareTag(PrefConst.GROUND))
         {
             Vector3 giftPos = this.transform.position;
 
@@ -45,7 +40,7 @@ public class Gift : GameUnit
             this.transform.position= giftPos;
         }
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag(PrefConst.PLAYER))
         {
             Player player = Cache.GetPlayerBody(other).player;
 
@@ -54,7 +49,7 @@ public class Gift : GameUnit
             this.OnDespawn();
         }
 
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag(PrefConst.ENEMY))
         {
             Enemy enemy = Cache.GetEnemyBody(other).enemy;
 
@@ -66,29 +61,19 @@ public class Gift : GameUnit
 
     private void BuffPlayer(Player player)
     {
-        switch (typeBuffGift)
-        {
-            case TypeBuffGift.UpRange:
-                ChangepropertiesCharacter.Ins.ChangePlayerAttackRange(Random.Range(1, 2),player);
-                break;
-            case TypeBuffGift.UpScaleWeapon:
-                player.IsUpScaleWeapon= true;
-                break;
+        ChangepropertiesCharacter.Ins.ChangePlayerAttackRangeGift(20, player);
 
-        }
+        player.UpScaleCharacter(2);
+
+        player.IsUpScaleWeapon = true;
     }
 
     private void BuffEnemy(Enemy enemy)
     {
-        switch (typeBuffGift)
-        {
-            case TypeBuffGift.UpRange:
-                ChangepropertiesCharacter.Ins.ChangeEnemyAttackRange(Random.Range(1, 2), enemy);
-                break;
-            case TypeBuffGift.UpScaleWeapon:
-                enemy.IsUpScaleWeapon = true;
-                break;
+        ChangepropertiesCharacter.Ins.ChangeEnemyAttackRangeGift(20, enemy);
 
-        }
+        enemy.UpScaleCharacter(2);
+
+        enemy.IsUpScaleWeapon = true;
     }
 }

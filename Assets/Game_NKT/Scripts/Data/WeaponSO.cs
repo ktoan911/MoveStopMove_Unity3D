@@ -12,5 +12,7 @@ public class WeaponSO : ParentSO
     public string weaponName;
 
     public float percentUpRange;
+
+    public bool isRotate;
 }
 

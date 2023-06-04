@@ -19,3 +19,4 @@ MonoBehaviour:
   weaponModel: {fileID: -8188928166018587354, guid: 580fe84d7ff730b43bcf642049822a9e, type: 3}
   weaponName: Boomerang
   percentUpRange: 0.1
+  isRotate: 1

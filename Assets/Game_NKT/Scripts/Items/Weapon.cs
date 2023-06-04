@@ -15,6 +15,8 @@ public class Weapon : GameUnit
 
     private Vector3 lastScale;
 
+    private bool isRotate;
+
     [SerializeField] private float moveSpeed;
 
     public Vector3 direction;
@@ -49,6 +51,8 @@ public class Weapon : GameUnit
                 this.transform.localScale += Vector3.one * 0.15f;
             }
 
+            if(isRotate) RotateWeapon();
+
             transform.Translate(this.direction.normalized * this.moveSpeed * Time.deltaTime, Space.World);
            
         }
@@ -73,27 +77,58 @@ public class Weapon : GameUnit
 
     public override void OnInit()
     {
+        
+    }
+
+    public void OnInit(bool isRotate)
+    {
         this.IsFire = false;
 
         this.lastScale = this.transform.localScale;
 
-        moveSpeed = 10f;
+        this.isRotate = isRotate;
 
+        moveSpeed = 10f;
     }
+    private void SelfDestroy()
+    {
+        timeSelfDestroy -= Time.deltaTime;
+        if (timeSelfDestroy > 0) return;
+
+        this.OnDespawn();
+    }
+
+    public void UpScaleWeapon()
+    {
+        this.isUpScaleDeltatime = true;
+
+        this.isRotate = false;
+    }
+
+    private void RotateWeapon()
+    {
+        transform.Rotate(0, 400 * Time.deltaTime, 0);
+    }
+
+    public override void OnInit(Characters t, float curScale)
+    {
+        throw new System.NotImplementedException();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(PrefConst.ENEMY))
         {
             Enemy e = Cache.GetEnemyBody(other).enemy;
 
-            if (e != null && e != this.characterAttack) 
+            if (e != null && e != this.characterAttack)
             {
                 this.characterAttack.UpdateLevel(true);
 
                 this.characterAttack.UpCoin(e);
 
                 e.OnHit(this.characterAttack);
-                
+
             }
 
             this.OnDespawn();
@@ -115,28 +150,5 @@ public class Weapon : GameUnit
 
             this.OnDespawn();
         }
-    }
-
-    private void SelfDestroy()
-    {
-        timeSelfDestroy -= Time.deltaTime;
-        if (timeSelfDestroy > 0) return;
-
-        this.OnDespawn();
-    }
-
-    public void UpScaleWeapon()
-    {
-        this.isUpScaleDeltatime = true;
-    }
-
-    private void RotateWeapon()
-    {
-        transform.Rotate(0, 400 * Time.deltaTime, 0);
-    }
-
-    public override void OnInit(Characters t, float curScale)
-    {
-        throw new System.NotImplementedException();
     }
 }

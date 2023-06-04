@@ -19,3 +19,4 @@ MonoBehaviour:
   weaponModel: {fileID: -3747673833073816896, guid: 6a79dcc7499434d4484b2c7dcb9d5cbd, type: 3}
   weaponName: Harmer
   percentUpRange: 0.15
+  isRotate: 1

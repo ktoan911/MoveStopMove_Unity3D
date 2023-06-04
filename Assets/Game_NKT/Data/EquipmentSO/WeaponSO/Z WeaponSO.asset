@@ -19,3 +19,4 @@ MonoBehaviour:
   weaponModel: {fileID: 6394565541840563890, guid: 925ec69c4ccfca5438d677f4791c10b5, type: 3}
   weaponName: Z
   percentUpRange: 0.2
+  isRotate: 1

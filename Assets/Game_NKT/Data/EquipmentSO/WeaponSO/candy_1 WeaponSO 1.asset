@@ -19,3 +19,4 @@ MonoBehaviour:
   weaponModel: {fileID: 550422359851472934, guid: e6b7e49a18ae2f64e874cc47fefb0aca, type: 3}
   weaponName: candy_2
   percentUpRange: 0.1
+  isRotate: 1

@@ -36,10 +36,4 @@ public class HitVFX : GameUnit
 
         mainhitVFX.startColor = new ParticleSystem.MinMaxGradient(color);
     }
-
-
-    public override void OnInit(Characters t, float curScale)
-    {
-        throw new System.NotImplementedException();
-    }
 }

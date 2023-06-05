@@ -24,11 +24,6 @@ public class Gift : GameUnit
         randomNum = Random.Range(0, 2);
     }
 
-    public override void OnInit(Characters t, float curScale)
-    {
-        throw new System.NotImplementedException();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(PrefConst.GROUND))

@@ -3,19 +3,9 @@ using UnityEngine.Events;
 
 public class Player : Characters
 {
-    private int skinHairID;
-
     private int skinShieldID;
 
-    private int skinPantID;
-
     private int coins;
-
-    [SerializeField] private Transform rightHand;
-
-    [SerializeField] private SkinnedMeshRenderer pants;
-
-    [SerializeField] private Transform hair;
 
     [SerializeField] private Transform leftHand;
 
@@ -30,8 +20,6 @@ public class Player : Characters
     public UnityAction WinUI;
 
     public StateMachine<Player> currentState;
-
-    public int weaponID;
 
     public int coinUp;
     public int Coins { get => coins; set => coins = value; }

@@ -26,6 +26,12 @@ public class Characters : GameUnit
 
     protected float rotationSpeed;
 
+    public Transform rightHand;
+
+    public SkinnedMeshRenderer pants;
+
+    public Transform hair;
+
     public Animator anim;
 
     public Transform throwPoint;
@@ -37,6 +43,12 @@ public class Characters : GameUnit
     public float currentScale;
 
     public int level;
+
+    public int weaponID;
+
+    public int skinHairID;
+
+    public int skinPantID;
 
     public float attackRange;
 
@@ -162,11 +174,6 @@ public class Characters : GameUnit
     public override void OnDespawn()
     {
 
-    }
-
-    public override void OnInit(Characters t, float curScale)
-    {
-        throw new NotImplementedException();
     }
 
     public virtual void OnHit(Characters character)

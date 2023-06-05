@@ -114,11 +114,6 @@ public class WayPoint : GameUnit
         
     }
 
-    public override void OnInit(Characters t, float curScale)
-    {
-        throw new System.NotImplementedException();
-    }
-
     public void OnInit(Characters character)
     {
         this.character = character;

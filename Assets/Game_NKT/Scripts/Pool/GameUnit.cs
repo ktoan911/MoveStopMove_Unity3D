@@ -19,7 +19,4 @@ public abstract class GameUnit : MonoBehaviour
 
     public abstract void OnInit();
     public abstract void OnDespawn();
-
-    public abstract void OnInit(Characters t, float curScale);
-
 }

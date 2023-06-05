@@ -110,11 +110,6 @@ public class Weapon : GameUnit
         transform.Rotate(0, 400 * Time.deltaTime, 0);
     }
 
-    public override void OnInit(Characters t, float curScale)
-    {
-        throw new System.NotImplementedException();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(PrefConst.ENEMY))

@@ -45,7 +45,7 @@ public class WeaponSpawner : Spawner
 
     public void SpawnEnemyWeapon(Enemy enemy)
     {
-        WeaponSO weaponSO = GetWeaponSOByID(enemy.enemyIDWeapon);
+        WeaponSO weaponSO = GetWeaponSOByID(enemy.weaponID);
 
         Weapon weaponPool = SimplePool.Spawn<Weapon>(weaponSO.weaponPrefab, enemy.throwPoint.position, Quaternion.identity);
         weaponPool.transform.rotation = Quaternion.LookRotation(enemy.TargetDirection());
@@ -75,6 +75,26 @@ public class WeaponSpawner : Spawner
         WeaponModel weaponModelPool = SimplePool.Spawn<WeaponModel>(weaponSO.weaponModel, Vector3.zero, Quaternion.identity);
 
         if(id != 0) weaponModelPool.OnInit(player, 1f + weaponSO.percentUpRange);
+
+        weaponModelPool.gameObject.transform.SetParent(parentSpawn);
+
+        weaponModelPool.gameObject.transform.localPosition = localPosition;
+
+        weaponModelPool.gameObject.transform.localRotation = localRot;
+    }
+
+    public void ChangeModelWeaponEnemy(Enemy enemy, Transform parentSpawn, int id)
+    {
+        ClearPastWeapon(parentSpawn);
+
+        WeaponSO weaponSO = this.GetWeaponSOByID(id);
+
+        Vector3 localPosition = weaponSO.weaponModel.transform.localPosition;
+        Quaternion localRot = weaponSO.weaponModel.transform.localRotation;
+
+        WeaponModel weaponModelPool = SimplePool.Spawn<WeaponModel>(weaponSO.weaponModel, Vector3.zero, Quaternion.identity);
+
+        if (id != 0) weaponModelPool.OnInit(enemy, 1f + weaponSO.percentUpRange);
 
         weaponModelPool.gameObject.transform.SetParent(parentSpawn);
 

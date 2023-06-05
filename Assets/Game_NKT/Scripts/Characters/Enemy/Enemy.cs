@@ -9,13 +9,9 @@ public class Enemy : Characters
 
     [SerializeField] public NavMeshAgent agent;
 
-    [SerializeField] private Transform player;
-
     public StateMachine<Enemy> currentState;
 
     public Vector3 finalPosition;
-
-    public int enemyIDWeapon;
 
     public bool isIntialActive = false;
 
@@ -33,9 +29,7 @@ public class Enemy : Characters
         IsAttack = false;
         currentState.ChangeState(new ESleepState());
 
-        this.enemyIDWeapon = RandomWeapon();
-
-        this.RandomMaterial();
+        this.SetIntialEquip();
     }
 
     protected override void CharactersUpdate()
@@ -43,6 +37,23 @@ public class Enemy : Characters
         currentState.UpdateState(this);
 
         base.CharactersUpdate();
+    }
+
+    private void SetIntialEquip()
+    {
+        this.weaponID = RandomWeapon();
+
+        this.skinPantID = RandomPant();
+
+        this.skinHairID = RandomHair();
+
+        ChangeSkin.Ins.ChangeModelHair(this.hair, this.skinHairID);
+
+        ChangeSkin.Ins.ChangePant(this, this.pants, this.skinHairID);
+
+        WeaponSpawner.Instance.ChangeModelWeaponEnemy(this, this.rightHand, this.weaponID);
+
+        this.RandomMaterial();
     }
 
     public static Vector3 GetRandomPoint(Vector3 center, float maxDistance)
@@ -98,7 +109,7 @@ public class Enemy : Characters
 
     private int RandomWeapon()
     {
-        int TmpRandom = Random.Range(1, SOManager.Ins.weaponS0.Count + 1);
+        int TmpRandom = Random.Range(0, SOManager.Ins.weaponS0.Count);
 
         for (int i = 0; i < SOManager.Ins.weaponS0.Count; i++)
         {
@@ -106,6 +117,28 @@ public class Enemy : Characters
         }
         return SOManager.Ins.weaponS0[0].ID;
 
+    }
+
+    private int RandomHair()
+    {
+        int TmpRandom = Random.Range(0, SOManager.Ins.skinHairS0.Count);
+
+        for (int i = 0; i < SOManager.Ins.skinHairS0.Count; i++)
+        {
+            if (SOManager.Ins.skinHairS0[i].ID == TmpRandom) return SOManager.Ins.skinHairS0[i].ID;
+        }
+        return SOManager.Ins.skinHairS0[0].ID;
+    }
+
+    private int RandomPant()
+    {
+        int TmpRandom = Random.Range(0, SOManager.Ins.skinPantsS0.Count);
+
+        for (int i = 0; i < SOManager.Ins.skinPantsS0.Count; i++)
+        {
+            if (SOManager.Ins.skinPantsS0[i].ID == TmpRandom) return SOManager.Ins.skinPantsS0[i].ID;
+        }
+        return SOManager.Ins.skinPantsS0[0].ID;
     }
 
     private void RandomMaterial()

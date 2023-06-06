@@ -22,7 +22,7 @@ public class ShopSkinShieldUI : ShopSkinUI<SkinShieldSO>
 
         shopItemID = skinSO.ID;
 
-        bool isUnlocked = Pref.GetBool(PrefConst.CUR_SKINSHIELD_ID + shopItemID);
+        bool isUnlocked = Pref.GetBool(PrefConst.SKINSHIELD_PEFIX + shopItemID);
 
         if (isUnlocked)
         {

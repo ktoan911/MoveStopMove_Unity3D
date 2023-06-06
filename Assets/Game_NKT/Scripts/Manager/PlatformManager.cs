@@ -39,7 +39,7 @@ public class PlatformManager : Singleton<PlatformManager>
 
     private void ReSpawnEnemies()
     {
-        if (this.numberOfCharacter - 1 <= EnemySpawner.Instance.spawnPos.Count) return;
+        if (!isLastSpawn) return;
 
         if (numberEnemiesDead >= 7 && GameManager.Ins.IsPlayGame)
         {
@@ -50,7 +50,6 @@ public class PlatformManager : Singleton<PlatformManager>
 
     public void ResetListEnemy(Enemy enemy, bool isUp)
     {
-        //TODO: nen tach ra lam 2 ham
         if(isUp)
         {
             this.enemyList.Add(enemy);
@@ -73,13 +72,13 @@ public class PlatformManager : Singleton<PlatformManager>
     {
         if(this.numberOfCharacter - 1 <= EnemySpawner.Instance.spawnPos.Count && isLastSpawn)
         {
+            isLastSpawn = false;
+
             int numberLastSpawn = EnemySpawner.Instance.spawnPos.Count - this.enemyList.Count;
 
             EnemySpawner.Instance.LastSpawn(numberLastSpawn, listNameEnemy);
 
-            this.numberOfCharacter = this.enemyList.Count + 1;
-
-            isLastSpawn = false;
+            this.numberOfCharacter = EnemySpawner.Instance.spawnPos.Count + 1;
         }
 
         if (this.numberOfCharacter <= 1) //Player Only

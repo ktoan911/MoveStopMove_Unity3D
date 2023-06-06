@@ -1932,7 +1932,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2091,7 +2091,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8bf4c2a8795deb845a4b676ccf6846e9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3361,6 +3361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b97a9c33285714bbf36c1cce135d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLastSpawn: 0
   numberEnemiesDead: 0
   numberOfCharacter: 0
   enemyList: []

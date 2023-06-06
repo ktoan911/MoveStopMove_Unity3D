@@ -114,6 +114,8 @@ public class Weapon : GameUnit
     {
         if (other.CompareTag(PrefConst.ENEMY))
         {
+            SoundManager.Ins.effectAudioSource.Stop();
+
             SoundManager.Ins.TriggerWeaponMusic();
 
             Enemy e = Cache.GetEnemyBody(other).enemy;

@@ -6,7 +6,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class PlatformManager : Singleton<PlatformManager>
 {
-    private bool isLastSpawn;
+    public bool isLastSpawn;
 
     public int numberEnemiesDead;
 
@@ -77,8 +77,6 @@ public class PlatformManager : Singleton<PlatformManager>
             int numberLastSpawn = EnemySpawner.Instance.spawnPos.Count - this.enemyList.Count;
 
             EnemySpawner.Instance.LastSpawn(numberLastSpawn, listNameEnemy);
-
-            this.numberOfCharacter = EnemySpawner.Instance.spawnPos.Count + 1;
         }
 
         if (this.numberOfCharacter <= 1) //Player Only

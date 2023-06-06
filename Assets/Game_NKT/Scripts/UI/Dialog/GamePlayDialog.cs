@@ -13,6 +13,8 @@ public class GamePlayDialog : Singleton<GamePlayDialog>
     }
     public void SetNumberCharactersText(int numberEnemies)
     {
+        if (!PlatformManager.Ins.isLastSpawn) PlatformManager.Ins.numberOfCharacter = PlatformManager.Ins.enemyList.Count;
+
         numberEnemiesText.text = "Alive: " + numberEnemies;
     }
 }

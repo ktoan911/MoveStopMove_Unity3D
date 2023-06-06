@@ -32,13 +32,20 @@ public class GameManager : Singleton<GameManager>
         {
             Screen.SetResolution(Mathf.RoundToInt(ratio * (float)maxScreenHeight), maxScreenHeight, true);
         }
-        UIManager.Ins.OpenUI<MainMenu>();
+
+        SoundManager.Ins.IsMute = Pref.GetBool(PrefConst.MUTE);
+
+        SoundManager.Ins.MuteMusic(SoundManager.Ins.IsMute);
+
+        UIManager.Ins.OpenUI<MainMenu>().CheckMute();
 
         this.SetCoinPlayer();
 
         MenuDialog.Ins.SetCoinText(player.Coins);
 
         this.isWinGame = false;
+
+      
     }
 
     private void Update()

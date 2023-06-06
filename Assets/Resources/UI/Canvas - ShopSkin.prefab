@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 5268929474605290356}
   - component: {fileID: 4482209109929532506}
   - component: {fileID: 6283281988365569244}
+  - component: {fileID: 3914151886771287245}
   m_Layer: 5
   m_Name: Hair
   m_TagString: Untagged
@@ -283,6 +284,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 4482209109929532506}
+--- !u!114 &3914151886771287245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2474541390389340327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33a7ed2b40dd104980558214286add8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btn: {fileID: 4482209109929532506}
 --- !u!1 &2527599279322035912
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,6 +600,7 @@ GameObject:
   - component: {fileID: 7830997455153898722}
   - component: {fileID: 5283340868392279450}
   - component: {fileID: 5448853555230769064}
+  - component: {fileID: 8311611949173874177}
   m_Layer: 5
   m_Name: Pants
   m_TagString: Untagged
@@ -721,6 +736,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 5283340868392279450}
+--- !u!114 &8311611949173874177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4986982821311818391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33a7ed2b40dd104980558214286add8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btn: {fileID: 5283340868392279450}
 --- !u!1 &5731084170842552841
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,6 +972,7 @@ GameObject:
   - component: {fileID: 7223135362741428521}
   - component: {fileID: 5392295724302877783}
   - component: {fileID: 6295769718601732618}
+  - component: {fileID: 6372995261669606195}
   m_Layer: 5
   m_Name: ButtonBackMenu
   m_TagString: Untagged
@@ -1066,6 +1095,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6372995261669606195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6021254453187281441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33a7ed2b40dd104980558214286add8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btn: {fileID: 6295769718601732618}
 --- !u!1 &6021850208035600987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1079,6 +1121,7 @@ GameObject:
   - component: {fileID: 2146725743524836958}
   - component: {fileID: 2221351447205855431}
   - component: {fileID: 3693508923184987343}
+  - component: {fileID: 5365540707694073525}
   m_Layer: 5
   m_Name: Shields
   m_TagString: Untagged
@@ -1214,6 +1257,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 2221351447205855431}
+--- !u!114 &5365540707694073525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6021850208035600987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33a7ed2b40dd104980558214286add8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btn: {fileID: 2221351447205855431}
 --- !u!1 &6059760958105641704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,6 +1283,7 @@ GameObject:
   - component: {fileID: 1574251972490748465}
   - component: {fileID: 6375677454054806749}
   - component: {fileID: 577045796247513667}
+  - component: {fileID: 3156315579901744064}
   m_Layer: 5
   m_Name: ButtonBuy
   m_TagString: Untagged
@@ -1352,6 +1409,19 @@ MonoBehaviour:
   btnBuy: {fileID: 6375677454054806749}
   skinID: 0
   shopSkinTag: 3
+--- !u!114 &3156315579901744064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6059760958105641704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33a7ed2b40dd104980558214286add8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btn: {fileID: 6375677454054806749}
 --- !u!1 &7144424246049257879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1885,7 +1955,7 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

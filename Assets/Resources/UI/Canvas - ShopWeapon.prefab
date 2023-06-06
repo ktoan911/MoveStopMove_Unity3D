@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 4180596613225243727}
   - component: {fileID: 4180596613225243724}
   - component: {fileID: 4180596613225243725}
+  - component: {fileID: 7927202276406541610}
   m_Layer: 5
   m_Name: ButtonNext
   m_TagString: Untagged
@@ -346,6 +347,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7927202276406541610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4180596613225243715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33a7ed2b40dd104980558214286add8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btn: {fileID: 4180596613225243725}
 --- !u!1 &4180596613535099945
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,15 +821,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0031db22206d349a5a351ddaa29814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priceText: {fileID: 4153840633626035101}
-  coinText: {fileID: 4598588878997471241}
-  nameEquipment: {fileID: 4180596613535099947}
-  hud: {fileID: 3856761839857218252}
   description: {fileID: 2600114596830269342}
   btnBuy: {fileID: 8191303212614506129}
-  imageButtonBuy: {fileID: 21300000, guid: 8f9b053c17903154a8554ef37d6cb4d6, type: 3}
-  imageButtonSelect: {fileID: 21300000, guid: 2545520b7e2e1e44882016922b6dd32f, type: 3}
-  imageButtonUnEquip: {fileID: 21300000, guid: e1732a753a36ceb46b74d69c3fc9f553, type: 3}
+  coinText: {fileID: 4598588878997471241}
+  priceText: {fileID: 4153840633626035101}
+  nameEquipment: {fileID: 4180596613535099947}
+  hud: {fileID: 3856761839857218252}
 --- !u!1 &5477375178227490907
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,6 +839,7 @@ GameObject:
   - component: {fileID: 4422676443615967464}
   - component: {fileID: 8399072506449882464}
   - component: {fileID: 4217445033211453189}
+  - component: {fileID: 2404376281267024105}
   m_Layer: 5
   m_Name: ButtonBack
   m_TagString: Untagged
@@ -949,6 +961,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2404376281267024105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477375178227490907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33a7ed2b40dd104980558214286add8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btn: {fileID: 4217445033211453189}
 --- !u!1 &5528108971515674818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,6 +1335,7 @@ GameObject:
   - component: {fileID: 743805434647114964}
   - component: {fileID: 1860091444537533109}
   - component: {fileID: 8191303212614506129}
+  - component: {fileID: 4439922162558634004}
   m_Layer: 5
   m_Name: ButtonBuy
   m_TagString: Untagged
@@ -1432,6 +1458,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4439922162558634004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6781252688951268300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33a7ed2b40dd104980558214286add8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btn: {fileID: 8191303212614506129}
 --- !u!1 &7051327663717678396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,6 +1483,7 @@ GameObject:
   - component: {fileID: 6226553541405875764}
   - component: {fileID: 8683461556037434186}
   - component: {fileID: 7281057329974062359}
+  - component: {fileID: 5585488390007696698}
   m_Layer: 5
   m_Name: ButtonBackMenu
   m_TagString: Untagged
@@ -1566,6 +1606,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5585488390007696698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7051327663717678396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33a7ed2b40dd104980558214286add8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btn: {fileID: 7281057329974062359}
 --- !u!1 &7379399200155522544
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,8 @@ public class DeadState : IState<Player>
         t.ChangeAnim("Dead");
 
         PlatformManager.Ins.PlatformCheckWhenCharacterDead();
+
+        SoundManager.Ins.LoseSoundPlay();
     }
 
     public void OnExecute(Player t)

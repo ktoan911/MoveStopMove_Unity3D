@@ -8,7 +8,7 @@ public class ShopSkin : UICanvas
     {
         Player player = GameManager.Ins.Player;
 
-        UIManager.Ins.OpenUI<MainMenu>();
+        UIManager.Ins.OpenUI<MainMenu>().CheckMute(); 
 
         MenuDialog.Ins.SetCoinText(player.Coins);
 

@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 3224495666664470027}
   - component: {fileID: 3224495666664470068}
   - component: {fileID: 7842560837685063783}
+  - component: {fileID: 3415280777403811733}
   m_Layer: 5
   m_Name: ShopSkinShieldUI
   m_TagString: Untagged
@@ -220,6 +221,19 @@ MonoBehaviour:
   frame: {fileID: 592963541323330999}
   iconBlock: {fileID: 8670116379584995509}
   EquipText: {fileID: 4346229846271887797}
+  btn: {fileID: 3224495666664470068}
+--- !u!114 &3415280777403811733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3224495666664470070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33a7ed2b40dd104980558214286add8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   btn: {fileID: 3224495666664470068}
 --- !u!1 &3224495667841270417
 GameObject:

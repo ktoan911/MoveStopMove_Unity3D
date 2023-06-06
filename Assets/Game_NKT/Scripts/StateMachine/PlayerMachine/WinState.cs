@@ -9,6 +9,8 @@ public class WinState : IState<Player>
         t.WinUI();
 
         t.ChangeAnim("DanceWin");
+
+        SoundManager.Ins.WinSoundPlay();
     }
 
     public void OnExecute(Player t)

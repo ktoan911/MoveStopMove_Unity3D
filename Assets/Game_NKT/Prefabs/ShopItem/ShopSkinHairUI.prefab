@@ -319,6 +319,7 @@ GameObject:
   - component: {fileID: 3224495666664470027}
   - component: {fileID: 3224495666664470068}
   - component: {fileID: 9126473460001688116}
+  - component: {fileID: 1325803878493725270}
   m_Layer: 5
   m_Name: ShopSkinHairUI
   m_TagString: Untagged
@@ -450,6 +451,19 @@ MonoBehaviour:
   frame: {fileID: 2785088596568169143}
   iconBlock: {fileID: 1085450662001658410}
   EquipText: {fileID: 2363618686446144173}
+  btn: {fileID: 3224495666664470068}
+--- !u!114 &1325803878493725270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3224495666664470070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33a7ed2b40dd104980558214286add8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   btn: {fileID: 3224495666664470068}
 --- !u!1 &3224495667841270417
 GameObject:

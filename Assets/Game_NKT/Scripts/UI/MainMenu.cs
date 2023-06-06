@@ -4,6 +4,26 @@ using UnityEngine;
 
 public class MainMenu : UICanvas
 {
+    [SerializeField] private GameObject OffMusic;
+
+    [SerializeField] private GameObject OnMusic;
+
+    public void CheckMute()
+    {
+        if (SoundManager.Ins.IsMute)
+        {
+            OnMusic.SetActive(false);
+            OffMusic.SetActive(true);
+        }
+        else
+        {
+            OnMusic.SetActive(true);
+            OffMusic.SetActive(false);
+        }
+
+    }
+
+
     public void PlayButton()
     {
         UIManager.Ins.OpenUI<GamePlay>().SetupOnOpen(GameManager.Ins.Player);
@@ -13,6 +33,8 @@ public class MainMenu : UICanvas
         MainCamera.Ins.PlayCamera();
         
         GameManager.Ins.IsPlayGame = true;
+
+        SoundManager.Ins.PlayGameMusic();
 
         Close(0);
     }

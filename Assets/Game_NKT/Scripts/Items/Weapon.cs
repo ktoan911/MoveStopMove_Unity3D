@@ -114,6 +114,8 @@ public class Weapon : GameUnit
     {
         if (other.CompareTag(PrefConst.ENEMY))
         {
+            SoundManager.Ins.TriggerWeaponMusic();
+
             Enemy e = Cache.GetEnemyBody(other).enemy;
 
             if (e != null && e != this.characterAttack)
@@ -131,6 +133,8 @@ public class Weapon : GameUnit
 
         if (other.CompareTag(PrefConst.PLAYER))
         {
+            SoundManager.Ins.TriggerWeaponMusic();
+
             Player p = Cache.GetPlayerBody(other).player;
 
             if (p != null && p != this.characterAttack)

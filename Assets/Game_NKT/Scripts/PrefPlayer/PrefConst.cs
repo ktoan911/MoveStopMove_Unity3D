@@ -18,6 +18,8 @@ public class PrefConst
 
     public const string NAME_PLAYER = "namePlayer";
 
+    public const string MUTE = "mute_";
+
 
     public const string PLAYER = "Player";
 

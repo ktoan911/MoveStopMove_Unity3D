@@ -37,6 +37,7 @@ public class AttackState : IState<Player>
             if (t.characterInRange.Count > 0)
             {
                 WeaponSpawner.Instance.SpawnPlayerWeapon(t);
+                SoundManager.Ins.ThrowWeaponMusic();
             }
             t.IsAttack = false;
 

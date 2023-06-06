@@ -16,13 +16,18 @@ public class GamePlay : UICanvas
 
     public void SettingButton()
     {
-        UIManager.Ins.OpenUI<Setting>();
+        UIManager.Ins.OpenUI<Setting>().CheckMute();
         Close(0);
     }
 
     public void LoseUI(Characters character)
     {
         UIManager.Ins.OpenUI<LoseScreen>();
+
+        if (UIManager.Ins.IsOpened<Setting>())
+        {
+            UIManager.Ins.CloseUI<Setting>();
+        }
 
         LoseScreenDialog.Ins.SetTextLoseScreen(character);
 
@@ -31,6 +36,12 @@ public class GamePlay : UICanvas
 
     public void WinUI()
     {
+
+        if (UIManager.Ins.IsOpened<Setting>())
+        {
+            UIManager.Ins.CloseUI<Setting>();
+        }
+
         UIManager.Ins.OpenUI<WinScreen>();
 
         Close(0);

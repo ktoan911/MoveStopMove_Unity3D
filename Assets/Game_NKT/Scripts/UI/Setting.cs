@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Setting : UICanvas
 {
+    [SerializeField] private GameObject OffMusic;
+
+    [SerializeField] private GameObject OnMusic;
+
     public void ContinueButton()
     {
         UIManager.Ins.OpenUI<GamePlay>().SetupOnOpen(GameManager.Ins.Player);
@@ -19,5 +23,20 @@ public class Setting : UICanvas
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         GameManager.Ins.IsPlayGame = false;
+    }
+
+    public void CheckMute()
+    {
+        if (SoundManager.Ins.IsMute)
+        {
+            OnMusic.SetActive(false);
+            OffMusic.SetActive(true);
+        }
+        else
+        {
+            OnMusic.SetActive(true);
+            OffMusic.SetActive(false);
+        }
+
     }
 }

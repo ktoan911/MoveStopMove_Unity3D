@@ -20,7 +20,7 @@ public class GamePlay : UICanvas
         Close(0);
     }
 
-    public void LoseUI(Characters character)
+    public void LoseUI(Characters character, int coinUp)
     {
         UIManager.Ins.OpenUI<LoseScreen>();
 
@@ -29,12 +29,12 @@ public class GamePlay : UICanvas
             UIManager.Ins.CloseUI<Setting>();
         }
 
-        LoseScreenDialog.Ins.SetTextLoseScreen(character);
+        LoseScreenDialog.Ins.SetTextLoseScreen(character, coinUp);
 
         Close(0);
     }
 
-    public void WinUI()
+    public void WinUI(int coinUp)
     {
 
         if (UIManager.Ins.IsOpened<Setting>())
@@ -43,6 +43,8 @@ public class GamePlay : UICanvas
         }
 
         UIManager.Ins.OpenUI<WinScreen>();
+
+        WinScreenDialog.Ins.SetTextWinScreen(coinUp);
 
         Close(0);
     }

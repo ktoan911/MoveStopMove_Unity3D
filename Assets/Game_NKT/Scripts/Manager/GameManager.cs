@@ -53,6 +53,7 @@ public class GameManager : Singleton<GameManager>
         if(isWinGame)
         {
             WinGame();
+            isWinGame = false;
         }
     }
 

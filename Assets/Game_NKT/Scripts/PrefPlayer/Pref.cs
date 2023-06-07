@@ -37,7 +37,7 @@ public class Pref
     {
         set => PlayerPrefs.SetInt(PrefConst.COIN_KEY, value);
 
-        get => PlayerPrefs.GetInt(PrefConst.COIN_KEY, 200);
+        get => PlayerPrefs.GetInt(PrefConst.COIN_KEY, 1000);
     }
 
     public static string NamePlayer

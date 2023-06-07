@@ -3,8 +3,6 @@ using UnityEngine.Events;
 
 public class Player : Characters
 {
-    private int skinShieldID;
-
     private int coins;
 
     [SerializeField] private Transform leftHand;
@@ -13,11 +11,13 @@ public class Player : Characters
 
     [SerializeField] private CharacterController characterController;
 
+    public int skinShieldID;
+
     public CircleAroundPlayer circleRange;
 
-    public UnityAction<Characters> DeadUI;
+    public UnityAction<Characters, int> DeadUI;
 
-    public UnityAction WinUI;
+    public UnityAction<int> WinUI;
 
     public StateMachine<Player> currentState;
 

@@ -16,3 +16,4 @@ MonoBehaviour:
   ID: 0
   price: 200
   skinShieldPrefab: {fileID: -1036806468961879486, guid: 759fb4f7221e69a4a8d6b8995afb21db, type: 3}
+  UpGold: 2

@@ -6,5 +6,7 @@ using UnityEngine;
 public class SkinShieldSO : ParentSO
 {
     public Skin skinShieldPrefab;
+
+    public int UpGold;
 }
 

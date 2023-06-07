@@ -17,6 +17,13 @@ public class DeadState : IState<Player>
         PlatformManager.Ins.PlatformCheckWhenCharacterDead();
 
         SoundManager.Ins.LoseSoundPlay();
+
+        if (t.skinShieldID != -1)
+        {
+            t.coinUp = t.coinUp * ChangeSkin.Ins.GetShieldSOByID(t.skinShieldID).UpGold;
+        }
+
+        t.UpdateCoin(t.coinUp, true);
     }
 
     public void OnExecute(Player t)
@@ -24,13 +31,12 @@ public class DeadState : IState<Player>
         timeDelayDead -= Time.deltaTime;
         if (timeDelayDead > 0) return;
 
-        t.DeadUI(t.characterKill);
+        t.DeadUI(t.characterKill, t.coinUp);
 
         t.gameObject.SetActive(false);
 
         GameManager.Ins.IsPlayGame = false;
 
-        t.UpdateCoin(t.coinUp, true);
 
     }
 

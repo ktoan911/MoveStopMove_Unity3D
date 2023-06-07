@@ -83,7 +83,17 @@ public class PlatformManager : Singleton<PlatformManager>
         {
             this.numberOfCharacter = 1;
 
+            DeleteAllEnemy();
+
             GameManager.Ins.IsWinGame = true;
+        }
+    }
+
+    private void DeleteAllEnemy()
+    {
+        for (int i=0; i < enemyList.Count; i++)
+        {
+            enemyList[i].OnDespawn();
         }
     }
 

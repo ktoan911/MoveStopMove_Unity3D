@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChangeSkin : Singleton<ChangeSkin>
 {
-    private SkinPantsSO GetPantSOByID(int id)
+    public SkinPantsSO GetPantSOByID(int id)
     {
         for(int i = 0;   i  <SOManager.Ins.skinPantsS0.Count; i++)
         {
@@ -14,7 +14,7 @@ public class ChangeSkin : Singleton<ChangeSkin>
         return null;
     }
 
-    private SkinHatSO GetHairSOByID(int id)
+    public SkinHatSO GetHairSOByID(int id)
     {
         for (int i = 0; i < SOManager.Ins.skinHairS0.Count; i++)
         {
@@ -24,7 +24,7 @@ public class ChangeSkin : Singleton<ChangeSkin>
         return null;
     }
 
-    private SkinShieldSO GetShieldSOByID(int id)
+    public SkinShieldSO GetShieldSOByID(int id)
     {
         for (int i = 0; i < SOManager.Ins.skinShieldS0.Count; i++)
         {

@@ -22,14 +22,14 @@ public class DeadState : IState<Player>
         {
             t.coinUp = t.coinUp * ChangeSkin.Ins.GetShieldSOByID(t.skinShieldID).UpGold;
         }
-
-        t.UpdateCoin(t.coinUp, true);
     }
 
     public void OnExecute(Player t)
     {
         timeDelayDead -= Time.deltaTime;
         if (timeDelayDead > 0) return;
+
+        t.UpdateCoin(t.coinUp, true);
 
         t.DeadUI(t.characterKill, t.coinUp);
 

@@ -147,6 +147,8 @@ public class Weapon : GameUnit
 
                 p.OnHit(this.characterAttack);
 
+                Debug.Log(p.coinUp);
+
             }
 
             this.OnDespawn();

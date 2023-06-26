@@ -16,7 +16,6 @@ public class ShopSkinUI<T> : MonoBehaviour where T : ParentSO
 
     public GameObject frame;
 
-    //public GameObject iconBlock;
 
     public GameObject EquipText;
     public virtual void SetInfoItem(int currentIndex)

@@ -146,9 +146,6 @@ public class Weapon : GameUnit
                 this.characterAttack.UpCoin(p);
 
                 p.OnHit(this.characterAttack);
-
-                Debug.Log(p.coinUp);
-
             }
 
             this.OnDespawn();
